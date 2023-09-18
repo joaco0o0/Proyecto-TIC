@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @RestController
-@RequestMapping(path = "/usuarios")
+@RequestMapping(path = "api/v1/usuarios")
 public class UsuarioController {
 
     private final UsuariosService usuariosService;
