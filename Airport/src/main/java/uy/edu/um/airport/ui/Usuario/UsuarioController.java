@@ -1,8 +1,10 @@
-package uy.edu.um.airport.entities.Usuario;
+package uy.edu.um.airport.ui.Usuario;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import uy.edu.um.airport.entities.Usuario.Usuario;
+import uy.edu.um.airport.entities.Usuario.UsuariosService;
 
 import java.time.LocalDate;
 import java.util.List;
