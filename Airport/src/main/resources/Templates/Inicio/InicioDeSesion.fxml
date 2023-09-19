@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="uy.edu.um.airport.ui.Principal">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -30,8 +30,8 @@
             <Text layoutX="246.0" layoutY="185.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
             <Button layoutX="286.0" layoutY="253.0" mnemonicParsing="false" text="Ingresar" />
             <RadioButton layoutX="255.0" layoutY="221.0" mnemonicParsing="false" text="Recordar contraseña" />
-            <Button layoutX="277.0" layoutY="299.0" mnemonicParsing="false" text="Registrarse" />
-            <Button layoutX="9.0" layoutY="10.0" mnemonicParsing="false" text="Ver lista de Vuelos" />
+            <Button layoutX="277.0" layoutY="299.0" mnemonicParsing="false" text="Registrarse" onAction="#openRegistroUsuarios" />
+            <Button layoutX="9.0" layoutY="10.0" mnemonicParsing="false" text="Ver lista de Vuelos" onAction="#openListaVuelos" />
          </children>
     </AnchorPane>
   </children>

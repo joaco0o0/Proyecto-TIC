@@ -1,7 +1,6 @@
 package uy.edu.um.airport.entities.Usuario;
 
 import jakarta.persistence.MappedSuperclass;
-
 import java.time.LocalDate;
 
 @MappedSuperclass
