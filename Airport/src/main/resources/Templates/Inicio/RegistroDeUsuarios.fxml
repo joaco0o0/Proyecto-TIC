@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Text layoutX="265.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de usuarios:" />
+            <AnchorPane layoutX="26.0" layoutY="64.0" prefHeight="294.0" prefWidth="587.0">
+               <children>
+                  <AnchorPane layoutX="6.0" layoutY="7.0" prefHeight="241.0" prefWidth="366.0">
+                     <children>
+                        <Text layoutX="37.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre :" />
+                        <Text layoutX="201.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido:" />
+                        <Text layoutX="37.0" layoutY="92.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail:" />
+                        <Text layoutX="37.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
+                        <Text layoutX="200.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasaporte:" />
+                        <Text layoutX="198.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir contraseña:" />
+                        <RadioButton layoutX="37.0" layoutY="185.0" mnemonicParsing="false" text="*Acepto los Terminos y condiciones*" />
+                        <RadioButton layoutX="37.0" layoutY="209.0" mnemonicParsing="false" text="Quiero recibir informacion de la alicación" />
+                     </children>
+                  </AnchorPane>
+                  <Button layoutX="136.0" layoutY="248.0" mnemonicParsing="false" text="Registrarme" />
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="372.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" />
+               </children>
+            </AnchorPane>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
