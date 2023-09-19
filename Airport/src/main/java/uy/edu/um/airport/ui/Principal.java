@@ -10,20 +10,12 @@ import javafx.stage.Stage;
 import org.springframework.stereotype.Component;
 import uy.edu.um.airport.ui.Usuario.UsuarioController;
 
-import java.awt.*;
-
 @Component
 public class Principal {
 
     private MenuItem mItemAgregarUsuario;
 
-    void agregarClientAction(ActionEvent event) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader();
-        fxmlLoader.setControllerFactory(Main.getContext()::getBean);
-
-        Parent root = fxmlLoader.load(ClientController.class.getResourceAsStream("AddClient.fxml"));
-        Stage stage = new Stage();
-        stage.setScene(new Scene(root));
-        stage.show();
+    void agregarUsuarioAction(ActionEvent event){
+        //aca va el codigo para agregar un usuario, lo relacionado con la interfaz grafica
     }
 }
