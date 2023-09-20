@@ -5,9 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.springframework.web.bind.annotation.RequestMapping;
 import uy.edu.um.airport.AirportApplication;
 
 public class JavaFXApplication extends Application {
+    //@RequestMapping(path = "api/v1/usuarios")
     private Parent root;
 
     @Override
