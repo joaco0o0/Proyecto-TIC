@@ -20,28 +20,32 @@
                     <children>
                         <AnchorPane layoutX="17.0" layoutY="27.0" prefHeight="241.0" prefWidth="555.0">
                             <children>
-                                <Text layoutX="38.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre :" />
-                                <Text layoutX="39.0" layoutY="103.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellido:" />
-                                <Text layoutX="316.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mail:" />
-                                <Text layoutX="298.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña:" />
-                                <Text layoutX="34.0" layoutY="156.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasaporte:" />
-                                <Text layoutX="265.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repetir contraseña:" />
-                                <RadioButton layoutX="62.0" layoutY="179.0" mnemonicParsing="false" text="*Acepto los Terminos y condiciones*" />
-                                <RadioButton layoutX="62.0" layoutY="203.0" mnemonicParsing="false" text="Quiero recibir informacion de la alicación" />
-                                <Text layoutX="14.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Nacimiento:" />
-                                <Text layoutX="294.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeter Mail:" />
-                                <Text layoutX="206.0" layoutY="19.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de usuarios:" />
-                                <TextField fx:id="txtNombre" layoutX="95.0" layoutY="57.0" />
-                                <TextField fx:id="txtApellido" layoutX="89.0" layoutY="86.0" />
-                                <TextField fx:id="txtEmail" layoutX="348.0" layoutY="54.0" />
-                                <TextField fx:id="txtFechaNacimiento" layoutX="116.0" layoutY="113.0" />
-                                <TextField fx:id="txtPasaporte" layoutX="95.0" layoutY="139.0" />
-                                <TextField fx:id="txtPassword" layoutX="370.0" layoutY="113.0" />
-                                <TextField fx:id="txtPasaporte1" layoutX="370.0" layoutY="147.0" />
-                                <TextField fx:id="txtPasaporte2" layoutX="370.0" layoutY="83.0" />
+                                <Text layoutX="35.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nombre" />
+                                <Text layoutX="34.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email" />
+                                <Text layoutX="34.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Contraseña" />
+                                <Text layoutX="309.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pasaporte" />
+                                <Text layoutX="309.0" layoutY="174.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmar Contraseña" />
+                                <Text layoutX="34.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Fecha Nacimiento" />
+                                <Text layoutX="309.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Confirmar Email" />
+                                <TextField fx:id="txtNombre" layoutX="84.0" layoutY="24.0" prefHeight="25.0" prefWidth="153.0" promptText="Nombre" />
+                                <TextField fx:id="txtEmail" layoutX="66.0" layoutY="112.0" prefHeight="25.0" prefWidth="169.0" promptText="Email" />
+                                <TextField fx:id="txtPasaporte" layoutX="365.0" layoutY="69.0" prefHeight="25.0" prefWidth="169.0" promptText="Pasaporte" />
+                                <TextField fx:id="txtContraseña" layoutX="96.0" layoutY="157.0" prefHeight="25.0" prefWidth="141.0" promptText="Contraseña" />
+                                <TextField fx:id="txtConfirmarContraseña" layoutX="429.0" layoutY="157.0" prefHeight="25.0" prefWidth="105.0" promptText="Confirmar contraseña" />
+                                <TextField fx:id="txtConfirmarEmail" layoutX="395.0" layoutY="113.0" prefHeight="25.0" prefWidth="139.0" promptText="Confirmar Email" />
+                                <TextField fx:id="txtApellidos" layoutX="364.0" layoutY="25.0" prefHeight="25.0" prefWidth="169.0" promptText="Apellidos" />
+                                <Text layoutX="309.0" layoutY="40.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Apellidos" />
+                                <RadioButton fx:id="radioButtonTerminos" layoutX="35.0" layoutY="200.0" mnemonicParsing="false" text="*Acepto los Términos y condiciones*" />
+                                <RadioButton fx:id="radioButtonPromociones" layoutX="35.0" layoutY="224.0" mnemonicParsing="false" text="Deseo recibir información adicional y promociones " />
+                                <DatePicker fx:id="datePicker" layoutX="132.0" layoutY="69.0" prefHeight="25.0" prefWidth="105.0" />
                             </children>
                         </AnchorPane>
-                        <Button fx:id="btnRegister" layoutX="254.0" layoutY="255.0" mnemonicParsing="false" onAction="#handleRegister" text="Registrarme" />
+                        <Button fx:id="btnRegister" contentDisplay="TOP" layoutX="254.0" layoutY="282.0" mnemonicParsing="false" onAction="#handleRegister" text="Registrarme" />
+                        <Text layoutX="50.0" layoutY="15.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registro de usuario" textAlignment="JUSTIFY">
+                            <font>
+                                <Font name="Bookman Old Style" size="24.0" />
+                            </font>
+                        </Text>
                     </children>
                 </AnchorPane>
             </children>
