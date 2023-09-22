@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:controller="uy.edu.um.airport.ui.Principal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-image: url('file:/C:/Users/lucas/OneDrive/Escritorio/UM/PROG.%20II/Practico%205.5/Proyecto-TIC/Airport/src/main/resources/InicioSesion.jpg'); -fx-background-image: -fx-background-size: contain;-fx-background-repeat: no-repeat;-fx-background-position: center;;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:controller="uy.edu.um.airport.ui.Principal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-image: url('/photos/InicioSesion.jpg'); -fx-background-image: -fx-background-size: contain;-fx-background-repeat: no-repeat;-fx-background-position: center;;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <AnchorPane layoutX="453.0" layoutY="30.0" prefHeight="440.0" prefWidth="410.0" style="-fx-background-color: #1A5276;">
             <children>
