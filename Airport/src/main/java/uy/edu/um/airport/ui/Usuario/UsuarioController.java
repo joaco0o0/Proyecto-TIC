@@ -37,8 +37,7 @@ public class UsuarioController {
     private DatePicker datePicker;
     @FXML
     private RadioButton radioButtonTerminos;
-    @FXML
-    private RadioButton radioButtonPromociones;
+
 
     public void handleRegister(javafx.event.ActionEvent actionEvent) {
         String nombre = txtNombre.getText();
@@ -50,7 +49,7 @@ public class UsuarioController {
         String pasaporte = txtPasaporte.getText();
         LocalDate fechaNacimiento = datePicker.getValue();
         boolean aceptaTerminos = radioButtonTerminos.isSelected();
-        boolean recibePromociones = radioButtonPromociones.isSelected();
+
 
         if (nombre.isEmpty() || apellidos.isEmpty() || email.isEmpty() || confirmarEmail.isEmpty() || contraseña.isEmpty() || confirmarContraseña.isEmpty() || pasaporte.isEmpty() || fechaNacimiento == null) {
             System.err.println("Todos los campos son obligatorios excepto el de promociones.");
