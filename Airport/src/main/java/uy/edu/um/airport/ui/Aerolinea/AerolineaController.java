@@ -1,6 +1,8 @@
-package uy.edu.um.airport.entities.Aerolinea;
+package uy.edu.um.airport.ui.Aerolinea;
 
 import org.springframework.web.bind.annotation.RequestMapping;
+import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
+import uy.edu.um.airport.entities.Aerolinea.AerolineaService;
 
 import java.util.List;
 
