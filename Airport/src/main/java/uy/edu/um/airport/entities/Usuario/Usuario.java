@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import jakarta.persistence.MappedSuperclass;
 import java.time.LocalDate;
 
-@Entity  // Indica que esta clase es una entidad JPA
+@Entity  // Indico que esta clase es una entidad JPA
 @Table(name = "usuarios", uniqueConstraints = {
         @UniqueConstraint(columnNames = "email"),
         @UniqueConstraint(columnNames = "pasaporte")

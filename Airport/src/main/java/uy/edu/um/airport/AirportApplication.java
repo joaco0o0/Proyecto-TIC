@@ -12,7 +12,6 @@ public class AirportApplication {
 
     public static void main(String[] args) {
         AirportApplication.context = SpringApplication.run(AirportApplication.class);
-
         Application.launch(JavaFXApplication.class, args);
     }
 
