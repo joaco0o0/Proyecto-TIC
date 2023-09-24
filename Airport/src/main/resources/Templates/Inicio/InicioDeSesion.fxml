@@ -61,7 +61,7 @@
                 <Font name="Mudir MT" size="48.0" />
             </font>
         </Label>
-        <Button alignment="TOP_LEFT" layoutX="176.0" layoutY="340.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Lista de vuelos" textFill="WHITE">
+        <Button alignment="TOP_LEFT" layoutX="176.0" layoutY="340.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Lista de vuelos" textFill="WHITE" onAction="#openListaVuelos">
             <effect>
                 <Blend />
             </effect>
