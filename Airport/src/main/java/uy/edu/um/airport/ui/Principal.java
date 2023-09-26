@@ -19,6 +19,8 @@ public class Principal {
     @Autowired
     private ApplicationContext applicationContext;
 
+
+    //InicioDeSesion.fxml
     @FXML
     private Button btnRegistrarse;
 
@@ -54,6 +56,12 @@ public class Principal {
     public void openListaVuelos(ActionEvent event) {
         loadWindow("/templates/inicio/TablaVuelosLista.fxml");
     }
+
+    //Siguiente fxml
+
+
+
+
 
     private void loadWindow(String fxmlPath) {
         try {
