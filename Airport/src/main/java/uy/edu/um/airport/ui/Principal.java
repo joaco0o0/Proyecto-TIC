@@ -31,6 +31,26 @@ public class Principal {
     }
 
     @FXML
+    public void openInterfazUsuarioFinal(ActionEvent event) {
+        loadWindow("/templates/inicio/InerfazUsuarioFinal.fxml");
+    }
+
+    @FXML
+    public void openInterfazStaffAeropuerto(ActionEvent event) {
+        loadWindow("/templates/inicio/InterfazStaffAeropuerto.fxml");
+    }
+
+    @FXML
+    public void openInterfazStaffAerolinea(ActionEvent event) {
+        loadWindow("/templates/inicio/InterfazStaffAerolinea.fxml");
+    }
+
+    @FXML
+    public void openInterfazSuperUsuario(ActionEvent event) {
+        loadWindow("/templates/inicio/InterfazSuperUsuario.fxml");
+    }
+
+    @FXML
     public void openListaVuelos(ActionEvent event) {
         loadWindow("/templates/inicio/TablaVuelosLista.fxml");
     }
