@@ -2,6 +2,8 @@ package uy.edu.um.airport.entities.Usuario;
 
 import jakarta.persistence.*;
 import jakarta.persistence.MappedSuperclass;
+import uy.edu.um.airport.entities.Role.Rol;
+
 import java.time.LocalDate;
 
 @Entity  // Indico que esta clase es una entidad JPA
@@ -34,14 +36,17 @@ public class Usuario {
     @Column(nullable = false)
     private String password;
 
-    public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password) {
+    @Column(nullable = false)
+    private Rol rol;
+
+    public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password, Rol rol) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
         this.pasaporte = pasaporte;
         this.email = email;
         this.password = password;
-
+        this.rol = rol;
     }
 
     public Usuario() {
@@ -103,5 +108,9 @@ public class Usuario {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public Rol getRol() {
+        return rol;
     }
 }

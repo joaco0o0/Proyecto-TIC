@@ -6,6 +6,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import uy.edu.um.airport.entities.Role.Rol;
 import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.entities.Usuario.UsuarioMgr;
 
@@ -45,6 +46,7 @@ public class UsuarioController {
         String confirmarContraseña = txtConfirmarContraseña.getText();
         String pasaporte = txtPasaporte.getText();
         LocalDate fechaNacimiento = datePicker.getValue();
+        Rol rol = Rol.USUARIO_FINAL;
         boolean aceptaTerminos = radioButtonTerminos.isSelected();
 
         if (nombre.isEmpty() || apellidos.isEmpty() || email.isEmpty() || confirmarEmail.isEmpty() || contraseña.isEmpty() || confirmarContraseña.isEmpty() || pasaporte.isEmpty() || fechaNacimiento == null) {
@@ -67,7 +69,7 @@ public class UsuarioController {
             return;
         }
 
-        Usuario newUser = new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña);
+        Usuario newUser = new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol);
         usuarioMgr.addUsuario(newUser);
         // Aquí puedes agregar más lógica para procesar los datos del formulario
         System.out.println("Usuario registrado con éxito: " + nombre + " " + apellidos);

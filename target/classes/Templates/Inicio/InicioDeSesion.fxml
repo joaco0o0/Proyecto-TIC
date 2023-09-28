@@ -12,7 +12,7 @@
     <children>
         <AnchorPane layoutX="453.0" layoutY="30.0" prefHeight="440.0" prefWidth="410.0" style="-fx-background-color: #1A5276;">
             <children>
-                <Button alignment="TOP_LEFT" layoutX="163.0" layoutY="302.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Acceder" textFill="WHITE">
+                <Button onAction="#handleLogin" alignment="TOP_LEFT" layoutX="163.0" layoutY="302.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Acceder" textFill="WHITE">
                     <effect>
                         <Blend />
                     </effect>
@@ -35,8 +35,8 @@
                         <Font name="Mudir MT" size="18.0" />
                     </font>
                 </Label>
-                <TextField layoutX="43.0" layoutY="141.0" prefHeight="32.0" prefWidth="334.0" />
-                <PasswordField layoutX="43.0" layoutY="231.0" prefHeight="32.0" prefWidth="334.0" />
+                <TextField fx:id="txtEmail" layoutX="43.0" layoutY="141.0" prefHeight="32.0" prefWidth="334.0" />
+                <PasswordField fx:id="txtContraseña" layoutX="43.0" layoutY="231.0" prefHeight="32.0" prefWidth="334.0" />
                 <Button alignment="TOP_LEFT" layoutX="279.0" layoutY="363.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Regístrate" textFill="WHITE" onAction="#openRegistroUsuarios">
                     <effect>
                         <Blend />
