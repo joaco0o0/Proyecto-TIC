@@ -18,5 +18,8 @@ public class UsuarioMgr {
         usuarioRepository.save(usuario);
     }
 
+    public void deleteUsuario(Usuario usuario) {
+        usuarioRepository.delete(usuario);
+    }
 
 }
