@@ -8,11 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.entities.Usuario.UsuarioMgr;
-import uy.edu.um.airport.persistence.UsuarioRepository;
 
-import java.awt.event.ActionEvent;
 import java.time.LocalDate;
-import java.time.format.DateTimeParseException;
 
 @Component
 public class UsuarioController {
@@ -38,8 +35,8 @@ public class UsuarioController {
     @FXML
     private RadioButton radioButtonTerminos;
 
-
-    public void handleRegister(javafx.event.ActionEvent actionEvent) {
+    @FXML
+    public void handleRegister() {
         String nombre = txtNombre.getText();
         String apellidos = txtApellidos.getText();
         String email = txtEmail.getText();
@@ -49,7 +46,6 @@ public class UsuarioController {
         String pasaporte = txtPasaporte.getText();
         LocalDate fechaNacimiento = datePicker.getValue();
         boolean aceptaTerminos = radioButtonTerminos.isSelected();
-
 
         if (nombre.isEmpty() || apellidos.isEmpty() || email.isEmpty() || confirmarEmail.isEmpty() || contraseña.isEmpty() || confirmarContraseña.isEmpty() || pasaporte.isEmpty() || fechaNacimiento == null) {
             System.err.println("Todos los campos son obligatorios excepto el de promociones.");
@@ -71,12 +67,9 @@ public class UsuarioController {
             return;
         }
 
-        Usuario newUser = new Usuario(nombre,apellidos,fechaNacimiento,pasaporte,email,contraseña);
+        Usuario newUser = new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña);
         usuarioMgr.addUsuario(newUser);
-        // Aquí debes incluir el código que procesará los datos del formulario
+        // Aquí puedes agregar más lógica para procesar los datos del formulario
         System.out.println("Usuario registrado con éxito: " + nombre + " " + apellidos);
     }
-
-
 }
-
