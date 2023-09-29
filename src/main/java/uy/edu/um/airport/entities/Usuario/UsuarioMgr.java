@@ -22,4 +22,12 @@ public class UsuarioMgr {
         usuarioRepository.delete(usuario);
     }
 
+    public Usuario findUsuarioByEmail(String email) {
+        Usuario usuario = usuarioRepository.findByEmail(email);
+        return usuario;
+    }
+
+    public int getCantidadDeUsuarios() {
+        return (int) usuarioRepository.count();
+    }
 }
