@@ -39,32 +39,32 @@ public class Principal {
 
     @FXML
     public void openRegistroUsuarios() {
-        loadWindow("/templates/inicio/RegistroDeUsuarios.fxml");
+        loadWindow("/Templates/Inicio/RegistroDeUsuarios.fxml");
     }
 
     @FXML
     public void openInterfazUsuarioFinal() {
-        loadWindow("/templates/inicio/InerfazUsuarioFinal.fxml");
+        loadWindow("/Templates/Inicio/InterfazUsuarioFinal.fxml");
     }
 
     @FXML
     public void openInterfazStaffAeropuerto() {
-        loadWindow("/templates/inicio/InterfazStaffAeropuerto.fxml");
+        loadWindow("/Templates/Inicio/InterfazStaffAeropuerto.fxml");
     }
 
     @FXML
     public void openInterfazStaffAerolinea() {
-        loadWindow("/templates/inicio/InterfazStaffAerolinea.fxml");
+        loadWindow("/Templates/Inicio/InterfazStaffAerolinea.fxml");
     }
 
     @FXML
     public void openInterfazSuperUsuario() {
-        loadWindow("/templates/inicio/InterfazSuperUsuario.fxml");
+        loadWindow("/Templates/Inicio/InterfazSuperUsuario.fxml");
     }
 
     @FXML
     public void openListaVuelos() {
-        loadWindow("/templates/inicio/TablaVuelosLista.fxml");
+        loadWindow("/Templates/Inicio/TablaVuelosLista.fxml");
     }
 
     //Siguiente fxml

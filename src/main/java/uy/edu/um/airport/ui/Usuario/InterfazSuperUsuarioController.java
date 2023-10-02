@@ -9,8 +9,9 @@ import org.springframework.stereotype.Component;
 import uy.edu.um.airport.entities.Role.Rol;
 import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.entities.Usuario.UsuarioMgr;
-
 import java.time.LocalDate;
+
+@Component
 public class InterfazSuperUsuarioController {
 
 }
