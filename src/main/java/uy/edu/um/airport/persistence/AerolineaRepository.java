@@ -1,4 +1,9 @@
 package uy.edu.um.airport.persistence;
 
-public interface AerolineaRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
+
+public interface AerolineaRepository extends JpaRepository<Aerolinea, String> {
+
+    Aerolinea findByIata(String nombre);
 }
