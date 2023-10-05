@@ -16,6 +16,7 @@ public class Terminal {
 
     @Getter
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private String codigo;
 
     @Getter

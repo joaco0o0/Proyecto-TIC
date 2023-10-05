@@ -3,6 +3,7 @@ package uy.edu.um.airport.entities.Aeropuerto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import uy.edu.um.airport.entities.Pista.Pista;
 import uy.edu.um.airport.entities.Terminal.Terminal;
 
 import java.util.List;
@@ -32,6 +33,12 @@ public class Aeropuerto {
     @Setter
     @OneToMany(mappedBy = "aeropuerto", cascade = CascadeType.ALL)
     private List<Terminal> terminales;
+
+    @Getter
+    @Setter
+    @OneToMany(mappedBy = "aeropuerto", cascade = CascadeType.ALL)
+    private List<Pista> pistas;
+
 
     public Aeropuerto() {
     }
