@@ -3,61 +3,74 @@ package uy.edu.um.airport.entities.Vuelo;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import uy.edu.um.airport.entities.Puerta.Puerta;
+import uy.edu.um.airport.entities.Usuario.Usuario;
 
+import java.util.List;
+
+@Getter
 @Entity
 @Table(name = "vuelo", uniqueConstraints = {
         @UniqueConstraint(columnNames = "codigo")
 })
 public class Vuelo {
 
-    @Getter
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private String codigo;
 
-    @Getter
     @Column(nullable = false)
     private String aerolinea;
 
-    @Getter
     @Column(nullable = false)
     private String origen;
 
-    @Getter
     @Column(nullable = false)
     private String destino;
 
-    @Getter
     @Column(nullable = false)
     private String fecha;
 
-    @Getter
     @Setter
     @Column(nullable = false)
     private String hora;
 
-    @Getter
     @Setter
     @Column(nullable = false)
     private String estado;
 
-    @Getter
     @Setter
-    @Column(nullable = true)
-    private String puerta;
+    @ManyToOne
+    @JoinColumn(name = "puerta_id", nullable = true)
+    private Puerta puerta;
 
-    @Getter
     @Setter
     @Column(nullable = true)
     private String terminal;
 
-    @Getter
     @Setter
     @Column(nullable = false)
     private String avion;
 
-    public Vuelo(String codigo, String aerolinea, String origen, String destino, String fecha, String hora, String estado, String puerta, String terminal, String avion) {
-        this.codigo = codigo;
+    @Setter
+    @ManyToMany
+    @JoinTable(
+            name = "vuelo_pasajero",
+            joinColumns = @JoinColumn(name = "vuelo_id"),
+            inverseJoinColumns = @JoinColumn(name = "usuario_id")
+    )
+    private List<Usuario> pasajeros;
+
+    @Setter
+    @Column(nullable = false)
+    private boolean habilitacionDestino;
+
+    @Setter
+    @Column(nullable = false)
+    private boolean habilitacionOrigen;
+
+
+    public Vuelo( String aerolinea, String origen, String destino, String fecha, String hora, String estado, Puerta puerta, String terminal, String avion) {
         this.aerolinea = aerolinea;
         this.origen = origen;
         this.destino = destino;
@@ -67,14 +80,12 @@ public class Vuelo {
         this.puerta = puerta;
         this.terminal = terminal;
         this.avion = avion;
+        this.habilitacionDestino = false;
+        this.habilitacionOrigen = false;
     }
+
 
     public Vuelo() {
 
     }
-
-
-
-
-
 }

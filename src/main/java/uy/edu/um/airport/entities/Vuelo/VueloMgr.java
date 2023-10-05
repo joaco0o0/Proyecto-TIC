@@ -10,7 +10,9 @@ public class VueloMgr {
     @Autowired
     private VueloRepository vueloRepository;
 
-    public void addVuelo(Vuelo vuelo) {
+    public void registrarVuelo(Vuelo vuelo) {
         vueloRepository.save(vuelo);
     }
+
+
 }

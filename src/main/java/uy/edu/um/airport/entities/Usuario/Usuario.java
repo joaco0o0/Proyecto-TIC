@@ -2,9 +2,13 @@ package uy.edu.um.airport.entities.Usuario;
 
 import jakarta.persistence.*;
 import jakarta.persistence.MappedSuperclass;
+import lombok.Getter;
+import lombok.Setter;
 import uy.edu.um.airport.entities.Role.Rol;
+import uy.edu.um.airport.entities.Vuelo.Vuelo;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity  // Indico que esta clase es una entidad JPA
 @Table(name = "usuarios", uniqueConstraints = {
@@ -39,6 +43,7 @@ public class Usuario {
     @Column(nullable = false)
     private Rol rol;
 
+
     public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password, Rol rol) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -47,6 +52,7 @@ public class Usuario {
         this.email = email;
         this.password = password;
         this.rol = rol;
+
     }
 
     public Usuario() {

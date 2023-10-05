@@ -1,6 +1,8 @@
 package uy.edu.um.airport.entities.Aeropuerto;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import uy.edu.um.airport.entities.Terminal.Terminal;
 
 import java.util.List;
@@ -8,18 +10,26 @@ import java.util.List;
 @Entity
 @Table(name = "aeropuertos")
 public class Aeropuerto {
+    @Getter
     @Id
     private String codigo;
 
+    @Getter
+    @Setter
     @Column(nullable = false)
     private String nombre;
 
+    @Getter
     @Column(nullable = false)
     private String pais;
 
+    @Getter
+    @Setter
     @Column(nullable = false)
     private boolean aceptaVuelosInternacionales;
 
+    @Getter
+    @Setter
     @OneToMany(mappedBy = "aeropuerto", cascade = CascadeType.ALL)
     private List<Terminal> terminales;
 
@@ -31,48 +41,6 @@ public class Aeropuerto {
         this.nombre = nombre;
         this.pais = pais;
         this.aceptaVuelosInternacionales = aceptaVuelosInternacionales;
-    }
-
-    // Getters y Setters
-
-    public String getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(String codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getPais() {
-        return pais;
-    }
-
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public boolean isAceptaVuelosInternacionales() {
-        return aceptaVuelosInternacionales;
-    }
-
-    public void setAceptaVuelosInternacionales(boolean aceptaVuelosInternacionales) {
-        this.aceptaVuelosInternacionales = aceptaVuelosInternacionales;
-    }
-
-    public List<Terminal> getTerminales() {
-        return terminales;
-    }
-
-    public void setTerminales(List<Terminal> terminales) {
-        this.terminales = terminales;
     }
 }
 
