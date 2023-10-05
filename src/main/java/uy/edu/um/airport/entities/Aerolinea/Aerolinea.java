@@ -2,25 +2,36 @@ package uy.edu.um.airport.entities.Aerolinea;
 
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Entity  // Indico que esta clase es una entidad JPA
+@Entity
 @Table(name = "aerolinea", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "codigoICAO")})
-
+        @UniqueConstraint(columnNames = "codigoICAO")
+})
+@Data
 public class Aerolinea {
 
+    @Getter
+    @Setter
     @Id
     private String codigoIATA;
 
+    @Getter
+    @Setter
     @Column(nullable = false)
     private String codigoICAO;
 
+    @Getter
+    @Setter
     @Column(nullable = false)
     private String nombre;
 
+    @Getter
+    @Setter
     @Column(nullable = false)
     private String paisDeOrigen;
-
 
     public Aerolinea(String codigoIATA, String codigoICAO, String nombre, String paisDeOrigen) {
         this.codigoIATA = codigoIATA;
@@ -30,36 +41,4 @@ public class Aerolinea {
     }
 
     public Aerolinea(){}
-
-    public String getCodigoIATA() {
-        return codigoIATA;
-    }
-
-    public void setCodigoIATA(String codigoIATA) {
-        this.codigoIATA = codigoIATA;
-    }
-
-    public String getCodigoICAO() {
-        return codigoICAO;
-    }
-
-    public void setCodigoICAO(String codigoICAO) {
-        this.codigoICAO = codigoICAO;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getPaisDeOrigen() {
-        return paisDeOrigen;
-    }
-
-    public void setPaisDeOrigen(String paisDeOrigen) {
-        this.paisDeOrigen = paisDeOrigen;
-    }
 }

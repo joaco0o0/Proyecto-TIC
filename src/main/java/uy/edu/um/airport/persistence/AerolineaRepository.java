@@ -5,5 +5,5 @@ import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
 
 public interface AerolineaRepository extends JpaRepository<Aerolinea, String> {
 
-    Aerolinea findByIata(String nombre);
+    Aerolinea findByCodigoIATA(String nombre);
 }
