@@ -1,91 +1,41 @@
 package uy.edu.um.airport.entities.Vuelo;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import uy.edu.um.airport.entities.Puerta.Puerta;
-import uy.edu.um.airport.entities.Usuario.Usuario;
 
-import java.util.List;
+import java.time.LocalDate;
 
-@Getter
 @Entity
 @Table(name = "vuelo", uniqueConstraints = {
-        @UniqueConstraint(columnNames = "codigo")
+        @UniqueConstraint(columnNames = "email"),
+        @UniqueConstraint(columnNames = "pasaporte")
 })
 public class Vuelo {
 
+    //Datos basicos de un vuelo
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private String codigo;
-
+    private Long numeroVuelo;
     @Column(nullable = false)
-    private String aerolinea;
-
+    private String codigoIATA;
     @Column(nullable = false)
-    private String origen;
+    private String codigoICAO;
 
+
+    //Detalles de la Ruta (por ahora vuelos de un solo tramo)
     @Column(nullable = false)
-    private String destino;
-
+    private String aeropuertoOrigen;
     @Column(nullable = false)
-    private String fecha;
-
-    @Setter
-    @Column(nullable = false)
-    private String hora;
-
-    @Setter
-    @Column(nullable = false)
-    private String estado;
-
-    @Setter
-    @ManyToOne
-    @JoinColumn(name = "puerta_id", nullable = true)
-    private Puerta puerta;
-
-    @Setter
-    @Column(nullable = true)
-    private String terminal;
-
-    @Setter
-    @Column(nullable = false)
-    private String avion;
-
-    @Setter
-    @ManyToMany
-    @JoinTable(
-            name = "vuelo_pasajero",
-            joinColumns = @JoinColumn(name = "vuelo_id"),
-            inverseJoinColumns = @JoinColumn(name = "usuario_id")
-    )
-    private List<Usuario> pasajeros;
-
-    @Setter
-    @Column(nullable = false)
-    private boolean habilitacionDestino;
-
-    @Setter
-    @Column(nullable = false)
-    private boolean habilitacionOrigen;
+    private String aeropuertoDestino;
 
 
-    public Vuelo( String aerolinea, String origen, String destino, String fecha, String hora, String estado, Puerta puerta, String terminal, String avion) {
-        this.aerolinea = aerolinea;
-        this.origen = origen;
-        this.destino = destino;
-        this.fecha = fecha;
-        this.hora = hora;
-        this.estado = estado;
-        this.puerta = puerta;
-        this.terminal = terminal;
-        this.avion = avion;
-        this.habilitacionDestino = false;
-        this.habilitacionOrigen = false;
-    }
+    //Horarios de vuelo
+    //@Column(nullable = false)
+    //private LocalDate ;
 
 
-    public Vuelo() {
+    //Configuracion de la Aeronave
 
-    }
+
+
+
+
 }

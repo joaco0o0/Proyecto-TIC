@@ -57,6 +57,15 @@ public class InterfazSuperUsuarioController {
 
 
 
+
+    //Metodos en la interfaz Super Usuario / Admin
+
+    public void crearAerolinea
+
+
+
+
+
     private void loadWindow(String fxmlPath) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
