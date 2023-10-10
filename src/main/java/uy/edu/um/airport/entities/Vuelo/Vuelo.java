@@ -28,11 +28,25 @@ public class Vuelo {
 
 
     //Horarios de vuelo
-    //@Column(nullable = false)
-    //private LocalDate ;
-
-
+    @Column(nullable = false)
+    private LocalDate ETD;
+    @Column(nullable = false)
+    private LocalDate ETA;
+    @Column(nullable = false)
+    private LocalDate ATD;
+    @Column(nullable = false)
+    private LocalDate ATA;
+    
+    
     //Configuracion de la Aeronave
+    @Column(nullable = false)
+    private String matriculaAvion;
+    @Column(nullable = false)
+    private String configuracion;
+    @Column(nullable = false)
+    private int capacidadAsientos;
+    @Column(nullable = false)
+    private int capacidadBultos;
 
 
 
