@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.effect.Blend?>
+<Pane fx:controller="uy.edu.um.airport.ui.Aerolinea.AerolineaController"
+      maxHeight="-Infinity" maxWidth="-Infinity"
+      minHeight="-Infinity" minWidth="-Infinity"
+      prefHeight="500.0" prefWidth="900.0"
+      style="-fx-background-color: #1A5276;"
+      xmlns="http://javafx.com/javafx/20.0.1"
+      xmlns:fx="http://javafx.com/fxml/1">
+
+    <children>
+        <Label ellipsisString="" layoutX="73.0" layoutY="7.0"
+               prefHeight="66.0" prefWidth="243.0"
+               text="Registro de Aerolínea"
+               textFill="WHITE"
+               underline="true">
+            <font>
+                <Font name="Mudir MT" size="28.0" />
+            </font>
+        </Label>
+
+        <Label layoutX="125.0" layoutY="73.0" prefHeight="43.0" prefWidth="69.0"
+               text="IATA" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtIATA" layoutX="124.0" layoutY="116.0"
+                   prefHeight="25.0" prefWidth="235.0" />
+
+        <Label layoutX="541.0" layoutY="73.0" text="ICAO" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtICAO" layoutX="541.0" layoutY="116.0"
+                   prefHeight="25.0" prefWidth="235.0" />
+
+        <Label layoutX="125.0" layoutY="155.0" text="Nombre" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtNombreAerolinea" layoutX="124.0" layoutY="198.0"
+                   prefHeight="25.0" prefWidth="235.0" />
+
+        <Label layoutX="541.0" layoutY="155.0" text="País" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtPais" layoutX="541.0" layoutY="198.0"
+                   prefHeight="25.0" prefWidth="235.0" />
+
+        <Label layoutX="125.0" layoutY="239.0" prefHeight="43.0" prefWidth="69.0"
+               text="Email" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtEmail" layoutX="124.0" layoutY="282.0"
+                   prefHeight="25.0" prefWidth="235.0" />
+
+        <Label layoutX="541.0" layoutY="239.0" text="Confirmar Email" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtConfirmarEmail" layoutX="541.0" layoutY="282.0"
+                   prefHeight="25.0" prefWidth="235.0" />
+
+        <Label layoutX="125.0" layoutY="321.0" text="Contraseña" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <PasswordField fx:id="txtContraseña" layoutX="125.0" layoutY="364.0"
+                       prefHeight="25.0" prefWidth="235.0" />
+
+        <Label layoutX="541.0" layoutY="321.0" text="Confirmar Contraseña" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <PasswordField fx:id="txtConfirmar  Contraseña" layoutX="542.0" layoutY="364.0"
+                       prefHeight="25.0" prefWidth="235.0" />
+
+        <RadioButton fx:id="radioButtonTerminos" layoutX="125.0" layoutY="422.0"
+                     mnemonicParsing="false"
+                     text="*Acepto los Términos y Condiciones *"
+                     textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="14.0" />
+            </font>
+        </RadioButton>
+
+        <Button onAction="#handleAerolinearegisteryAdmin" alignment="TOP_LEFT" layoutX="603.0" layoutY="424.0"
+                mnemonicParsing="false" prefHeight="32.0" prefWidth="114.0"
+                style="-fx-background-color: transparent; -fx-border-color: #ffffff;"
+                text="Registrar Aerolínea" textFill="WHITE">
+            <effect>
+                <Blend />
+            </effect>
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Button>
+    </children>
+</Pane>
+
+
+

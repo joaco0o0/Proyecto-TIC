@@ -13,6 +13,4 @@ public class VueloMgr {
     public void registrarVuelo(Vuelo vuelo) {
         vueloRepository.save(vuelo);
     }
-
-
 }

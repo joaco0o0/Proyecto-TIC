@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
+import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
 import uy.edu.um.airport.entities.Role.Rol;
 import uy.edu.um.airport.entities.Vuelo.Vuelo;
 
@@ -43,8 +44,11 @@ public class Usuario {
     @Column(nullable = false)
     private Rol rol;
 
+    @Column
+    private String aerolinea;
 
-    public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password, Rol rol) {
+
+    public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password, Rol rol, String aerolinea) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNacimiento = fechaNacimiento;
@@ -52,7 +56,7 @@ public class Usuario {
         this.email = email;
         this.password = password;
         this.rol = rol;
-
+        this.aerolinea = aerolinea;
     }
 
     public Usuario() {

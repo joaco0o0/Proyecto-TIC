@@ -6,6 +6,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import uy.edu.um.airport.entities.Aerolinea.AerolineaMgr;
 import uy.edu.um.airport.entities.Role.Rol;
 import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.entities.Usuario.UsuarioMgr;
@@ -17,6 +18,7 @@ public class UsuarioController {
 
     @Autowired
     private UsuarioMgr usuarioMgr;
+
     @FXML
     private TextField txtNombre;
     @FXML
@@ -69,9 +71,7 @@ public class UsuarioController {
             return;
         }
 
-        Usuario newUser = new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol);
-        usuarioMgr.addUsuario(newUser);
-        // Aquí puedes agregar más lógica para procesar los datos del formulario
+        usuarioMgr.addUsuario(new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol, null));
         System.out.println("Usuario registrado con éxito: " + nombre + " " + apellidos);
     }
 }
