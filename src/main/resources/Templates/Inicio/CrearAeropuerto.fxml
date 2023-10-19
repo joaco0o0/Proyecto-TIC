@@ -8,7 +8,16 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane   fx:controller="uy.edu.um.airport.ui.Aeropuerto.AeropuertoController"
+        maxHeight="-Infinity"
+        maxWidth="-Infinity"
+        minHeight="-Infinity"
+        minWidth="-Infinity"
+        prefHeight="500.0"
+        prefWidth="900.0"
+        style="-fx-background-color: #1A5276;"
+        xmlns="http://javafx.com/javafx/20.0.1"
+        xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label ellipsisString="" layoutX="84.0" layoutY="45.0" prefHeight="66.0" prefWidth="290.0" text="Registro de Aeropuerto" textFill="WHITE" underline="true">
             <font>
@@ -20,25 +29,25 @@
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField layoutX="124.0" layoutY="179.0" prefHeight="25.0" prefWidth="235.0" />
+        <TextField fx:id="txtNombre" layoutX="124.0" layoutY="179.0" prefHeight="25.0" prefWidth="235.0" />
         <Label layoutX="541.0" layoutY="136.0" text="Código IATA" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField layoutX="541.0" layoutY="179.0" prefHeight="25.0" prefWidth="235.0" />
+        <TextField fx:id="txtIATA" layoutX="541.0" layoutY="179.0" prefHeight="25.0" prefWidth="235.0" />
         <Label layoutX="124.0" layoutY="252.0" prefHeight="43.0" prefWidth="84.0" text="Ciudad" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField layoutX="124.0" layoutY="295.0" prefHeight="25.0" prefWidth="235.0" />
+        <TextField fx:id="txtCiudad" layoutX="124.0" layoutY="295.0" prefHeight="25.0" prefWidth="235.0" />
         <Label layoutX="541.0" layoutY="252.0" prefHeight="43.0" prefWidth="84.0" text="País" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField layoutX="541.0" layoutY="295.0" prefHeight="25.0" prefWidth="235.0" />
+        <TextField fx:id="txtPais" layoutX="541.0" layoutY="295.0" prefHeight="25.0" prefWidth="235.0" />
         <Button alignment="TOP_LEFT" layoutX="404.0" layoutY="391.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
             <effect>
                 <Blend />
@@ -48,4 +57,4 @@
             </font>
         </Button>
     </children>
-</Pane>
+</>
