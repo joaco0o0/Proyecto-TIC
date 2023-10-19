@@ -3,6 +3,7 @@ package uy.edu.um.airport.ui.Aerolinea;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +24,6 @@ public class AerolineaController {
     @Autowired
     private AerolineaMgr aerolineaMgr;
 
-    @Autowired
-    private UsuarioMgr usuarioMgr;
-
-
     @FXML
     private TextField txtIATA;
     @FXML
@@ -37,7 +34,7 @@ public class AerolineaController {
     private TextField txtPais;
 
     @FXML
-    private void handleAerolinearegister(ActionEvent actionEvent){
+    private void handleAerolinearegister(){
         String iata = txtIATA.getText();
         String icao = txtICAO.getText();
         String nombreAerolinea = txtNombreAerolinea.getText();

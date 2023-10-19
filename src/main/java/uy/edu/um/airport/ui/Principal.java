@@ -59,7 +59,7 @@ public class Principal {
 
     @FXML
     public void openInterfazSuperUsuario() {
-        loadWindow("/Templates/Inicio/InterfazSu44444111111111111111111111111111444444444444444444444444111perUsuario.fxml");
+        loadWindow("/Templates/Inicio/InterfazSuperUsuario.fxml");
     }
 
     @FXML
