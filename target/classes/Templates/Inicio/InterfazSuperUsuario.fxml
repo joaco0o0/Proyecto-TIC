@@ -13,7 +13,7 @@
                 <Font name="Mudir MT" size="24.0" />
             </font>
         </Label>
-        <Button alignment="TOP_LEFT" layoutX="88.0" layoutY="166.0" mnemonicParsing="false" onAction="#openRegistroAerolinea" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Crear Aerolínea" textFill="WHITE">
+        <Button onAction="#openRegistroAerolinea" alignment="TOP_LEFT" layoutX="88.0" layoutY="166.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Crear Aerolínea" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>

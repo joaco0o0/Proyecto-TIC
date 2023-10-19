@@ -32,7 +32,7 @@ public class InterfazSuperUsuarioController {
 
     //Servicios Aerolinea
     @FXML
-    public void openRegistroAerolinea() {loadWindow("/Templates/Inicio/RegistroAerolinea.fxml");}
+    public void openRegistroAerolinea() {loadWindow("/Templates/Inicio/CrearAerolinea.fxml");}
 
 
     //Servicios Aeropuerto
