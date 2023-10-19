@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label ellipsisString="" layoutX="71.0" prefHeight="56.0" prefWidth="223.0" text="Registro de Vuelo" textFill="WHITE" underline="true">
+            <font>
+                <Font name="Mudir MT" size="28.0" />
+            </font>
+        </Label>
+        <Label layoutX="122.0" layoutY="61.0" prefHeight="43.0" prefWidth="140.0" text="Número de Vuelo" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="121.0" layoutY="104.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="120.0" layoutY="129.0" text="Código IATA de la Aerolínea" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="121.0" layoutY="172.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="539.0" layoutY="129.0" text="Código ICAO de la Aerolínea" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="539.0" layoutY="172.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="121.0" layoutY="206.0" prefHeight="43.0" prefWidth="173.0" text="Aeropuerto de Origen" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="121.0" layoutY="249.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="539.0" layoutY="206.0" text="Aeropuerto de Destino" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="539.0" layoutY="249.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="122.0" layoutY="288.0" prefHeight="43.0" prefWidth="272.0" text="Hora Programada de Salida (ETD)" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="121.0" layoutY="331.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="539.0" layoutY="288.0" text="Hora Programada de Llegada (ETA)" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="541.0" layoutY="331.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="120.0" layoutY="371.0" prefHeight="43.0" prefWidth="272.0" text=" Hora Real de Salida (ATD)" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="121.0" layoutY="414.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="541.0" layoutY="371.0" text="Hora Real de Llegada (ATA)" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <PasswordField layoutX="540.0" layoutY="414.0" prefHeight="25.0" prefWidth="235.0" />
+        <Button alignment="TOP_LEFT" layoutX="405.0" layoutY="447.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
+            <effect>
+                <Blend />
+            </effect>
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Button>
+    </children>
+</Pane>
