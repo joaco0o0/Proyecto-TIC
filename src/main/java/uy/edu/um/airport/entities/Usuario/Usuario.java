@@ -48,6 +48,17 @@ public class Usuario {
     private String aerolinea;
 
 
+
+    public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password, Rol rol) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.fechaNacimiento = fechaNacimiento;
+        this.pasaporte = pasaporte;
+        this.email = email;
+        this.password = password;
+        this.rol = rol;
+    }
+
     public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password, Rol rol, String aerolinea) {
         this.nombre = nombre;
         this.apellido = apellido;
