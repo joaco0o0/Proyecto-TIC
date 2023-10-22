@@ -6,11 +6,11 @@ import uy.edu.um.airport.persistence.VueloRepository;
 
 @Service
 public class VueloMgr {
-
     @Autowired
     private VueloRepository vueloRepository;
 
-    public void registrarVuelo(Vuelo vuelo) {
+    public void addVuelo(Vuelo vuelo) {
         vueloRepository.save(vuelo);
     }
+
 }

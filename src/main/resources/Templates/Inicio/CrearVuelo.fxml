@@ -9,9 +9,17 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <Label ellipsisString="" layoutX="71.0" prefHeight="56.0" prefWidth="223.0" text="Registro de Vuelo" textFill="WHITE" underline="true">
+<Pane fx:controller="uy.edu.um.airport.ui.Vuelo.VueloController"
+      maxHeight="-Infinity"
+      maxWidth="-Infinity"
+      minHeight="-Infinity"
+      minWidth="-Infinity"
+      prefHeight="500.0"
+      prefWidth="900.0"
+      style="-fx-background-color: #1A5276;"
+      xmlns="http://javafx.com/javafx/20.0.1"
+      xmlns:fx="http://javafx.com/fxml/1">
+    <children><Label ellipsisString="" layoutX="71.0" prefHeight="56.0" prefWidth="223.0" text="Registro de Vuelo" textFill="WHITE" underline="true">
             <font>
                 <Font name="Mudir MT" size="28.0" />
             </font>

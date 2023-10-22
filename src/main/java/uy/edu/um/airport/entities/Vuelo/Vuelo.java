@@ -1,7 +1,6 @@
 package uy.edu.um.airport.entities.Vuelo;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
@@ -17,6 +16,8 @@ public class Vuelo {
     private String codigoIATA;
     @Column(nullable = false)
     private String codigoICAO;
+    @Column(nullable = false)
+    private EstadoVuelo estadoVuelo;
 
 
     //Detalles de la Ruta (por ahora vuelos de un solo tramo)
@@ -48,9 +49,10 @@ public class Vuelo {
     private int capacidadBultos;
 
 
+
     public Vuelo(Long numeroVuelo, String codigoIATA, String codigoICAO, String aeropuertoOrigen, String aeropuertoDestino,
                  LocalDate ETD, LocalDate ETA, LocalDate ATD, LocalDate ATA, String matriculaAvion, String configuracion,
-                 int capacidadAsientos, int capacidadBultos) {
+                 int capacidadAsientos, int capacidadBultos, EstadoVuelo estadoVuelo) {
         this.numeroVuelo = numeroVuelo;
         this.codigoIATA = codigoIATA;
         this.codigoICAO = codigoICAO;
@@ -64,8 +66,12 @@ public class Vuelo {
         this.configuracion = configuracion;
         this.capacidadAsientos = capacidadAsientos;
         this.capacidadBultos = capacidadBultos;
+        this.estadoVuelo = estadoVuelo;
     }
 
+    public enum EstadoVuelo {
+        PENDIENTE_APROBACION, APROBADO, DENEGADO
+    }
     public Vuelo(){}
 
     public Long getNumeroVuelo() {

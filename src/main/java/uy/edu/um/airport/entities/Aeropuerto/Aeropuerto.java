@@ -33,11 +33,6 @@ public class Aeropuerto {
     private boolean aceptaVuelosInternacionales;
 
 
-
-
-    public Aeropuerto() {
-    }
-
     public Aeropuerto(String codigo, String nombre, String pais, String ciudad, boolean aceptaVuelosInternacionales) {
         this.codigo = codigo;
         this.nombre = nombre;
