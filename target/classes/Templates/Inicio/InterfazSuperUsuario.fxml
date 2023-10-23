@@ -52,7 +52,7 @@
                 <Font name="Mudir MT" size="36.0" />
             </font>
         </Label>
-        <Button alignment="TOP_LEFT" layoutX="650.0" layoutY="234.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="205.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Crear Personal Aerolínea" textFill="WHITE">
+        <Button alignment="TOP_LEFT" layoutX="650.0" layoutY="234.0" mnemonicParsing="false" onAction="#openRegistroPersonalAerolinea" prefHeight="32.0" prefWidth="205.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Crear Personal Aerolínea" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>

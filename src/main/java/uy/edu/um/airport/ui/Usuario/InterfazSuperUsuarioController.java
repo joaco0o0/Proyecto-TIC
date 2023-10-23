@@ -47,6 +47,11 @@ public class InterfazSuperUsuarioController {
     }
 
     @FXML
+    public void openRegistroPersonalAerolinea() {
+        loadWindow("/Templates/Inicio/RegistroPersonalAerolinea.fxml");
+    }
+
+    @FXML
     public void openRegistroPersonalAeropuerto() {
         loadWindow("/Templates/Inicio/RegistroPersonalAeropuerto.fxml");
     }
