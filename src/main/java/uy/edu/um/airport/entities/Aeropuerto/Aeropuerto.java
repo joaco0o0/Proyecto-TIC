@@ -32,6 +32,8 @@ public class Aeropuerto {
     @Column(nullable = false)
     private boolean aceptaVuelosInternacionales;
 
+    public Aeropuerto() {
+    }
 
     public Aeropuerto(String codigo, String nombre, String pais, String ciudad, boolean aceptaVuelosInternacionales) {
         this.codigo = codigo;

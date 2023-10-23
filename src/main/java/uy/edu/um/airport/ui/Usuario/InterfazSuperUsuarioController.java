@@ -35,12 +35,10 @@ public class InterfazSuperUsuarioController {
     public void openRegistroAerolinea() {loadWindow("/Templates/Inicio/CrearAerolinea.fxml");}
 
 
-    //Servicios Aeropuerto
     @FXML
     public void openCrearAeropuerto() {loadWindow("/Templates/Inicio/CrearAeropuerto.fxml");}
 
 
-    //Servicios Usuarios
     @FXML
     public void openRegistroUsuarios() {
         loadWindow("/Templates/Inicio/RegistroDeUsuarios.fxml");

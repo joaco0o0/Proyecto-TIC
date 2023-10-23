@@ -48,7 +48,7 @@
             </font>
         </Label>
         <TextField fx:id="txtPais" layoutX="541.0" layoutY="295.0" prefHeight="25.0" prefWidth="235.0" />
-        <Button alignment="TOP_LEFT" layoutX="404.0" layoutY="391.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
+        <Button onAction="#handleAeropuertoRegister" alignment="TOP_LEFT" layoutX="404.0" layoutY="391.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>
@@ -57,4 +57,4 @@
             </font>
         </Button>
     </children>
-</>
+</Pane>

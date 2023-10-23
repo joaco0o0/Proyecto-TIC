@@ -37,7 +37,11 @@ public class AeropuertoController {
     @FXML
     private TextField txtEmail;
     @FXML
+    private TextField txtConfirmarEmail;
+    @FXML
     private TextField txtContraseña;
+    @FXML
+    private TextField txtConfirmarContraseña;
     @FXML
     private TextField txtPasaporte;
     @FXML
@@ -59,11 +63,23 @@ public class AeropuertoController {
         String nombre = txtNombreUser.getText();
         String apellidos = txtApellidos.getText();
         String email = txtEmail.getText();
+        String confirmarEmail = txtConfirmarEmail.getText();
         String contraseña = txtContraseña.getText();
+        String confirmarContraseña = txtConfirmarContraseña.getText();
         LocalDate fechaNacimiento = datePicker.getValue();
         String nombreAeropuerto = txtNombre.getText();
         String pasaporte = txtPasaporte.getText();
         Rol rol = Rol.STAFF_AEROPUERTO;
+
+        if (!email.equals(confirmarEmail)) {
+            System.err.println("Los emails no coinciden.");
+            return;
+        }
+
+        if (!contraseña.equals(confirmarContraseña)) {
+            System.err.println("Las contraseñas no coinciden.");
+            return;
+        }
 
         usuarioMgr.addUsuario(new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol, nombreAeropuerto));
     }
