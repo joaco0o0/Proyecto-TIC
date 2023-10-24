@@ -71,7 +71,7 @@ public class UsuarioController {
             return;
         }
 
-        usuarioMgr.addUsuario(new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol, null));
+        usuarioMgr.addUsuario(new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol, null, null ));
         System.out.println("Usuario registrado con éxito: " + nombre + " " + apellidos);
     }
 }

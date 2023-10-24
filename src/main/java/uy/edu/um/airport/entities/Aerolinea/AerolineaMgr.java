@@ -14,12 +14,13 @@ public class AerolineaMgr {
         aerolineaRepository.save(aerolinea);
     }
 
-    public void deleteAerolinea(Aerolinea aerolinea) {
-        aerolineaRepository.delete(aerolinea);
+    public Aerolinea findAerolineaByCodigoIATA(String codigoIATA) {
+        return aerolineaRepository.findByCodigoIATA(codigoIATA);
     }
 
     public Aerolinea findAerolineaByNombre(String nombre) {
-        Aerolinea aerolinea = aerolineaRepository.findByCodigoIATA(nombre);
-        return aerolinea;
+        return aerolineaRepository.findByNombre(nombre);
     }
+
+
 }

@@ -5,6 +5,8 @@ import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
 import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
+import uy.edu.um.airport.entities.Aerolinea.AerolineaMgr;
+import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 import uy.edu.um.airport.entities.Role.Rol;
 import uy.edu.um.airport.entities.Vuelo.Vuelo;
 
@@ -44,9 +46,18 @@ public class Usuario {
     @Column(nullable = false)
     private Rol rol;
 
-    @Column
-    private String aerolinea;
+    @ManyToOne
+    @JoinColumn(name = "codigoIATA_aerolinea", referencedColumnName = "codigoIATA")
+    private Aerolinea aerolinea;
 
+    @ManyToOne
+    @JoinColumn(name = "codigoIATA_aeropuerto", referencedColumnName = "codigoIATA")
+    private Aeropuerto aeropuerto;
+
+
+
+    public Usuario() {
+    }
 
 
     public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password, Rol rol) {
@@ -59,19 +70,10 @@ public class Usuario {
         this.rol = rol;
     }
 
-    public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password, Rol rol, String aerolinea) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.fechaNacimiento = fechaNacimiento;
-        this.pasaporte = pasaporte;
-        this.email = email;
-        this.password = password;
-        this.rol = rol;
+    public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password, Rol rol, Aerolinea aerolinea, Aeropuerto aeropuerto) {
+        this(nombre, apellido, fechaNacimiento, pasaporte, email, password, rol);
         this.aerolinea = aerolinea;
-    }
-
-    public Usuario() {
-
+        this.aeropuerto = aeropuerto;
     }
 
 
@@ -133,5 +135,25 @@ public class Usuario {
 
     public Rol getRol() {
         return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+
+    public Aerolinea getAerolinea() {
+        return aerolinea;
+    }
+
+    public void setAerolinea(Aerolinea aerolinea) {
+        this.aerolinea = aerolinea;
+    }
+
+    public Aeropuerto getAeropuerto() {
+        return aeropuerto;
+    }
+
+    public void setAeropuerto(Aeropuerto aeropuerto) {
+        this.aeropuerto = aeropuerto;
     }
 }

@@ -3,7 +3,7 @@ package uy.edu.um.airport.entities.Aeropuerto;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
+import uy.edu.um.airport.entities.Usuario.Usuario;
 
 import java.util.List;
 
@@ -11,8 +11,9 @@ import java.util.List;
 @Table(name = "aeropuertos")
 public class Aeropuerto {
     @Getter
+    @Setter
     @Id
-    private String codigo;
+    private String codigoIATA;
 
     @Getter
     @Setter
@@ -27,20 +28,18 @@ public class Aeropuerto {
     @Column(nullable = false)
     private String ciudad;
 
-    @Getter
-    @Setter
-    @Column(nullable = false)
-    private boolean aceptaVuelosInternacionales;
+
+    // Añadido para relación
+    @OneToMany(mappedBy = "aeropuerto")
+    private List<Usuario> usuarios;
 
     public Aeropuerto() {
     }
 
-    public Aeropuerto(String codigo, String nombre, String pais, String ciudad, boolean aceptaVuelosInternacionales) {
-        this.codigo = codigo;
+    public Aeropuerto(String codigoIATA, String nombre,String ciudad, String pais) {
+        this.codigoIATA = codigoIATA;
         this.nombre = nombre;
         this.pais = pais;
         this.ciudad = ciudad;
-        this.aceptaVuelosInternacionales = aceptaVuelosInternacionales;
     }
 }
-

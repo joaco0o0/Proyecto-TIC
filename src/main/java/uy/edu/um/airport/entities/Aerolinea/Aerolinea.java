@@ -1,10 +1,12 @@
 package uy.edu.um.airport.entities.Aerolinea;
 
-
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import uy.edu.um.airport.entities.Usuario.Usuario;
+
+import java.util.List;
 
 @Entity
 @Table(name = "aerolinea", uniqueConstraints = {
@@ -33,6 +35,10 @@ public class Aerolinea {
     @Column(nullable = false)
     private String paisDeOrigen;
 
+    // Añadido para relación
+    @OneToMany(mappedBy = "aerolinea")
+    private List<Usuario> usuarios;
+
     public Aerolinea(String codigoIATA, String codigoICAO, String nombre, String paisDeOrigen) {
         this.codigoIATA = codigoIATA;
         this.codigoICAO = codigoICAO;
@@ -42,3 +48,4 @@ public class Aerolinea {
 
     public Aerolinea(){}
 }
+

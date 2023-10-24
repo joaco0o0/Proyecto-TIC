@@ -50,11 +50,11 @@ public class AeropuertoController {
     @FXML
     private void handleAeropuertoRegister(){
         String nombre = txtNombre.getText();
-        String iata = txtIATA.getText();
+        String codigoIATA = txtIATA.getText();
         String ciudad = txtCiudad.getText();
         String pais = txtPais.getText();
 
-        Aeropuerto aeropuerto = new Aeropuerto(nombre, iata, ciudad, pais, true);
+        Aeropuerto aeropuerto = new Aeropuerto(codigoIATA, nombre, ciudad, pais);
         aeropuertoMgr.addAeropuerto(aeropuerto);
     }
 
@@ -67,7 +67,8 @@ public class AeropuertoController {
         String contraseña = txtContraseña.getText();
         String confirmarContraseña = txtConfirmarContraseña.getText();
         LocalDate fechaNacimiento = datePicker.getValue();
-        String nombreAeropuerto = txtNombre.getText();
+        String codigoIATAAeropuerto = txtNombre.getText();
+        Aeropuerto aeropuerto = aeropuertoMgr.findAeropuertoByCodigoIATA(codigoIATAAeropuerto);
         String pasaporte = txtPasaporte.getText();
         Rol rol = Rol.STAFF_AEROPUERTO;
 
@@ -81,6 +82,13 @@ public class AeropuertoController {
             return;
         }
 
-        usuarioMgr.addUsuario(new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol, nombreAeropuerto));
+        // Verificando si el aeropuerto existe
+        if (aeropuerto == null) {
+            System.err.println("El aeropuerto con el código IATA proporcionado no existe.");
+            return;
+        }
+
+        usuarioMgr.addUsuario(new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol, null, aeropuerto));
     }
+
 }

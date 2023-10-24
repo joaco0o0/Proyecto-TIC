@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="uy.edu.um.airport.ui.Usuario.InterfazUsuarioAeropuertoController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.airport.ui.Usuario.InterfazUsuarioAeropuertoController">
+    <children>
+        <Label layoutX="43.0" layoutY="104.0" prefHeight="66.0" prefWidth="100.0" text="Servicios" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="24.0" />
+            </font>
+        </Label>
+        <Label layoutX="54.0" layoutY="20.0" prefHeight="83.0" prefWidth="513.0" text="Interfaz Personal de Aeropuerto" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="36.0" />
+            </font>
+        </Label>
+        <Button alignment="TOP_LEFT" layoutX="686.0" layoutY="53.0" mnemonicParsing="false" onAction="#openListaVuelos" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Lista de vuelos" textFill="WHITE">
+            <effect>
+                <Blend />
+            </effect>
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Button>
+        <Pane layoutX="1.0" layoutY="96.0" prefHeight="8.0" prefWidth="900.0" style="-fx-background-color: #FDFEFE;" />
+        <Pane layoutX="190.0" layoutY="96.0" prefHeight="397.0" prefWidth="8.0" style="-fx-background-color: #FDFEFE;" />
+        <Label layoutX="468.0" layoutY="104.0" prefHeight="66.0" prefWidth="199.0" text="Vuelos pendientes" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="24.0" />
+            </font>
+        </Label>
+        <TableView layoutX="212.0" layoutY="170.0" prefHeight="304.0" prefWidth="674.0">
+            <columns>
+                <TableColumn prefWidth="83.0" text="Nro de Vuelo" />
+                <TableColumn prefWidth="67.0" text="Cod. IATA" />
+                <TableColumn prefWidth="67.0" text="Origen" />
+                <TableColumn prefWidth="67.0" text="Destino" />
+                <TableColumn prefWidth="67.0" text="ETD" />
+                <TableColumn prefWidth="67.0" text="ETA" />
+                <TableColumn prefWidth="79.0" text="Asig. Puerta" />
+                <TableColumn prefWidth="73.0" text="Estado" />
+                <TableColumn prefWidth="103.0" text="Acción" />
+            </columns>
+        </TableView>
+    </children>
+</Pane>

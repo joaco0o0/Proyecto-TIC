@@ -74,18 +74,27 @@ public class AerolineaController {
         String confirmarEmail = txtConfirmarEmail.getText();
         LocalDate fechaNacimiento = datePicker.getValue();
         String nombreAerolinea = txtNombreAerolinea.getText();
+        Aerolinea aerolineaEncontrada = aerolineaMgr.findAerolineaByNombre(nombreAerolinea);
         String pasaporte = txtpasaporte.getText();
         Rol rol = Rol.STAFF_AEROLINEA;
 
+        if (aerolineaEncontrada == null) {
+            System.err.println("La aerolínea especificada no existe.");
+            return;
+        }
+
         if (!email.equals(confirmarEmail)) {
-            System.err.println("Los emails no coinciden.");
+            System.err.println("Los emails especificados no coinciden.");
             return;
         }
 
         if (!contraseña.equals(confirmarContraseña)) {
-            System.err.println("Las contraseñas no coinciden.");
+            System.err.println("Las contraseñas especificadas no coinciden.");
             return;
         }
-        usuarioMgr.addUsuario(new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol, nombreAerolinea));
+
+        // Crear el nuevo usuario con la aerolínea encontrada
+        usuarioMgr.addUsuario(new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol, aerolineaEncontrada, null));
+
     }
 }
