@@ -15,7 +15,6 @@ import uy.edu.um.airport.entities.Usuario.UsuarioMgr;
 import java.time.LocalDate;
 
 public class JavaFXApplication extends Application {
-    //@RequestMapping(path = "api/v1/usuarios")
     private Parent root;
 
     @Autowired
