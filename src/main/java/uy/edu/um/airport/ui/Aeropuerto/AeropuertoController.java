@@ -48,15 +48,36 @@ public class AeropuertoController {
     private DatePicker datePicker;
 
     @FXML
-    private void handleAeropuertoRegister(){
+    private void handleAeropuertoRegister() {
         String nombre = txtNombre.getText();
         String codigoIATA = txtIATA.getText();
         String ciudad = txtCiudad.getText();
         String pais = txtPais.getText();
 
-        Aeropuerto aeropuerto = new Aeropuerto(codigoIATA, nombre, ciudad, pais);
-        aeropuertoMgr.addAeropuerto(aeropuerto);
+        try {
+            // Verificar si el aeropuerto ya existe por nombre y/o código IATA
+            if (aeropuertoMgr.existsByNombre(nombre)) {
+                // Mostrar mensaje de error o lanzar excepción
+                System.out.println("Ya existe un aeropuerto con ese nombre.");
+                return;
+            }
+
+            if (aeropuertoMgr.existsByCodigoIATA(codigoIATA)) {
+                // Mostrar mensaje de error o lanzar excepción
+                System.out.println("Ya existe un aeropuerto con ese código IATA.");
+                return;
+            }
+
+            // Si no hay conflictos, crear el nuevo aeropuerto
+            Aeropuerto aeropuerto = new Aeropuerto(codigoIATA, nombre, ciudad, pais);
+            aeropuertoMgr.addAeropuerto(aeropuerto);
+
+        } catch (Exception e) {
+            // Manejar otras excepciones aquí
+            e.printStackTrace();
+        }
     }
+
 
     @FXML
     private void handleUsuarioAeropuertoRegister(){

@@ -17,4 +17,12 @@ public class AeropuertoMgr {
     public Aeropuerto findAeropuertoByCodigoIATA(String codigoIATA) {
         return aeropuertoRepository.findByCodigoIATA(codigoIATA);
     }
+
+    public boolean existsByNombre(String nombre) {
+        return aeropuertoRepository.existsByNombre(nombre);
+    }
+
+    public boolean existsByCodigoIATA(String codigoIATA) {
+        return aeropuertoRepository.existsByCodigoIATA(codigoIATA);
+    }
 }
