@@ -73,8 +73,8 @@ public class AerolineaController {
         String contraseña = txtContraseña.getText();
         String confirmarEmail = txtConfirmarEmail.getText();
         LocalDate fechaNacimiento = datePicker.getValue();
-        String nombreAerolinea = txtNombreAerolinea.getText();
-        Aerolinea aerolineaEncontrada = aerolineaMgr.findAerolineaByNombre(nombreAerolinea);
+        String codigoIATA = txtIATA.getText();
+        Aerolinea aerolineaEncontrada = aerolineaMgr.findAerolineaByCodigoIATA(codigoIATA);
         String pasaporte = txtpasaporte.getText();
         Rol rol = Rol.STAFF_AEROLINEA;
 

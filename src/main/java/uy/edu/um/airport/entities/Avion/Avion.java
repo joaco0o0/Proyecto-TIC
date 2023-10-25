@@ -24,6 +24,7 @@ public class Avion {
     @Column(nullable = false)
     private int bulto;
 
+
     @ManyToOne
     @JoinColumn(name = "codigoIATA_aerolinea", referencedColumnName = "codigoIATA")
     private Aerolinea aerolinea;
@@ -31,8 +32,8 @@ public class Avion {
     public Avion() {
     }
 
-    public Avion(String modelo, int capacidad, int bulto, Aerolinea aerolinea) {
-        this.matricula = modelo;
+    public Avion(String matricula, int capacidad, int bulto, Aerolinea aerolinea) {
+        this.matricula = matricula;
         this.capacidad = capacidad;
         this.bulto = bulto;
         this.aerolinea = aerolinea;

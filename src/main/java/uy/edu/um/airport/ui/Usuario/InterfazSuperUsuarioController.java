@@ -30,7 +30,24 @@ public class InterfazSuperUsuarioController {
     }
 
 
-    //Servicios Aerolinea
+    @FXML
+    public void openCrearVuelo() {
+        loadWindow("/Templates/Inicio/CrearVuelo.fxml");
+    }
+
+
+    @FXML
+    public void openCrearAvion() {
+        loadWindow("/Templates/Inicio/CrearAvion.fxml");
+    }
+
+
+    @FXML
+    public void openAsociarAerolineaAAeropuerto() {
+        loadWindow("/Templates/Inicio/AsociarAerolineaAAeropuerto.fxml");
+    }
+
+
     @FXML
     public void openRegistroAerolinea() {loadWindow("/Templates/Inicio/CrearAerolinea.fxml");}
 

@@ -36,6 +36,11 @@ public class InterfazUsuarioAeropuertoController {
     }
 
     @FXML
+    public void openAsociarAerolineaAAeropuerto() {
+        loadWindow("/Templates/Inicio/AsociarAerolineaAAeropuerto.fxml");
+    }
+
+    @FXML
     public void openRegistroPersonalAeropuerto() {
         loadWindow("/Templates/Inicio/RegistroPersonalAeropuerto.fxml");
     }

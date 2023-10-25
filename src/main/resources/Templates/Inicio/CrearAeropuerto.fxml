@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane   fx:controller="uy.edu.um.airport.ui.Aeropuerto.AeropuertoController"
         maxHeight="-Infinity"
         maxWidth="-Infinity"
@@ -56,5 +55,11 @@
                 <Font name="Arial" size="16.0" />
             </font>
         </Button>
+        <Label layoutX="124.0" layoutY="362.0" prefHeight="43.0" prefWidth="164.0" text="Cantidad de puertas" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="124.0" layoutY="405.0" prefHeight="25.0" prefWidth="235.0" />
     </children>
 </Pane>

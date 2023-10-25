@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.effect.Blend?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.airport.ui.Usuario.InterfazUsuarioAeropuertoController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.airport.ui.Usuario.InterfazUsuarioAeropuertoController">
     <children>
         <Label layoutX="43.0" layoutY="104.0" prefHeight="66.0" prefWidth="100.0" text="Servicios" textFill="WHITE">
             <font>
@@ -28,6 +25,14 @@
                 <Font name="Arial" size="16.0" />
             </font>
         </Button>
+        <Button alignment="TOP_LEFT" layoutX="16.0" layoutY="170.0" mnemonicParsing="false" onAction="#openAsociarAerolineaAAeropuerto" prefHeight="32.0" prefWidth="155.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Asociar Aerolínea" textFill="WHITE">
+            <effect>
+                <Blend />
+            </effect>
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Button>
         <Pane layoutX="1.0" layoutY="96.0" prefHeight="8.0" prefWidth="900.0" style="-fx-background-color: #FDFEFE;" />
         <Pane layoutX="190.0" layoutY="96.0" prefHeight="397.0" prefWidth="8.0" style="-fx-background-color: #FDFEFE;" />
         <Label layoutX="468.0" layoutY="104.0" prefHeight="66.0" prefWidth="199.0" text="Vuelos pendientes" textFill="WHITE">
@@ -37,15 +42,19 @@
         </Label>
         <TableView layoutX="212.0" layoutY="170.0" prefHeight="304.0" prefWidth="674.0">
             <columns>
-                <TableColumn prefWidth="83.0" text="Nro de Vuelo" />
-                <TableColumn prefWidth="67.0" text="Cod. IATA" />
-                <TableColumn prefWidth="67.0" text="Origen" />
-                <TableColumn prefWidth="67.0" text="Destino" />
-                <TableColumn prefWidth="67.0" text="ETD" />
-                <TableColumn prefWidth="67.0" text="ETA" />
-                <TableColumn prefWidth="79.0" text="Asig. Puerta" />
-                <TableColumn prefWidth="73.0" text="Estado" />
-                <TableColumn prefWidth="103.0" text="Acción" />
+                <TableColumn prefWidth="82.0" text="Nro de Vuelo" />
+                <TableColumn prefWidth="68.0" text="Cod. IATA" />
+                <TableColumn prefWidth="64.0" text="Origen" />
+                <TableColumn prefWidth="70.0" text="Destino" />
+                <TableColumn prefWidth="54.0" text="ETD" />
+                <TableColumn prefWidth="50.0" text="ETA" />
+                <TableColumn prefWidth="77.0" text="Asig. Puerta" />
+                <TableColumn minWidth="3.0" prefWidth="60.0" text="Estado" />
+                <TableColumn prefWidth="184.0" text="Acción">
+               <columns>
+                  <TableColumn prefWidth="75.0" text="Aceptar" />
+                  <TableColumn prefWidth="75.0" text="Rechazar" />
+               </columns></TableColumn>
             </columns>
         </TableView>
     </children>

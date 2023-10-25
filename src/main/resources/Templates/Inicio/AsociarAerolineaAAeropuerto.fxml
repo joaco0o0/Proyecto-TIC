@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label ellipsisString="" layoutX="75.0" layoutY="36.0" prefHeight="66.0" prefWidth="272.0" text="Asociar una Aerolínea" textFill="WHITE" underline="true">
+            <font>
+                <Font name="Mudir MT" size="28.0" />
+            </font>
+        </Label>
+        <Label layoutX="124.0" layoutY="149.0" text="Nombre" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="125.0" layoutY="192.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="543.0" layoutY="149.0" text="Código IATA" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="543.0" layoutY="192.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="125.0" layoutY="226.0" prefHeight="43.0" prefWidth="173.0" text="Codigo ICAO" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="125.0" layoutY="269.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="543.0" layoutY="226.0" text="País de Origen" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField layoutX="543.0" layoutY="269.0" prefHeight="25.0" prefWidth="235.0" />
+        <Button alignment="TOP_LEFT" layoutX="411.0" layoutY="370.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="79.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Asociar" textFill="WHITE">
+            <effect>
+                <Blend />
+            </effect>
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Button>
+    </children>
+</Pane>

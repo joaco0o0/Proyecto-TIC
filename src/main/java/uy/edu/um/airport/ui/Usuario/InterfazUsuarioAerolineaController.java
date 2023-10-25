@@ -37,9 +37,11 @@ public class InterfazUsuarioAerolineaController {
 
     @FXML
     public void openCrearVuelo() {
-        loadWindow("/Templates/Inicio/CrearVuelo.fxml");
-    }
+        loadWindow("/Templates/Inicio/CrearVuelo.fxml");}
 
+    @FXML
+    public void openCrearAvion() {
+        loadWindow("/Templates/Inicio/CrearAvion.fxml");}
     @FXML
     public void openRegistroPersonalAerolinea() {
         loadWindow("/Templates/Inicio/RegistroPersonalAerolinea.fxml");
