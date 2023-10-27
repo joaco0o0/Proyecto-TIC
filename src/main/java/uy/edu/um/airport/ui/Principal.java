@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 import uy.edu.um.airport.entities.Role.Rol;
 import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.entities.Usuario.UsuarioMgr;
+import uy.edu.um.airport.session.Session;
 
 import java.io.IOException;
 
@@ -102,6 +103,9 @@ public class Principal {
             return;
         }
 
+        // Establece el usuario en la sesión
+        Session.getInstance().setCurrentUser(user);
+
         System.out.println("Usuario logueado con éxito: " + user.getNombre() + " " + user.getApellido());
         Rol userRole = user.getRol();
         switch (userRole) {
@@ -124,7 +128,7 @@ public class Principal {
             default:
                 System.err.println("Rol de usuario no reconocido.");
                 break;
-
         }
     }
+
 }

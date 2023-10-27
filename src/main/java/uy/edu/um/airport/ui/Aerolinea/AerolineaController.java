@@ -27,7 +27,7 @@ public class AerolineaController {
     private UsuarioMgr usuarioMgr;
 
     @FXML
-    private TextField txtIATA;
+    private TextField txtIATAaerolinea;
     @FXML
     private TextField txtICAO;
     @FXML
@@ -53,9 +53,12 @@ public class AerolineaController {
     private DatePicker datePicker;
 
 
+
+
+
     @FXML
     private void handleAerolinearegister(){
-        String iata = txtIATA.getText();
+        String iata = txtIATAaerolinea.getText();
         String icao = txtICAO.getText();
         String nombreAerolinea = txtNombreAerolinea.getText();
         String pais = txtPais.getText();
@@ -73,7 +76,7 @@ public class AerolineaController {
         String contraseña = txtContraseña.getText();
         String confirmarEmail = txtConfirmarEmail.getText();
         LocalDate fechaNacimiento = datePicker.getValue();
-        String codigoIATA = txtIATA.getText();
+        String codigoIATA = txtIATAaerolinea.getText();
         Aerolinea aerolineaEncontrada = aerolineaMgr.findAerolineaByCodigoIATA(codigoIATA);
         String pasaporte = txtpasaporte.getText();
         Rol rol = Rol.STAFF_AEROLINEA;
@@ -97,4 +100,8 @@ public class AerolineaController {
         usuarioMgr.addUsuario(new Usuario(nombre, apellidos, fechaNacimiento, pasaporte, email, contraseña, rol, aerolineaEncontrada, null));
 
     }
+
+
+
+
 }

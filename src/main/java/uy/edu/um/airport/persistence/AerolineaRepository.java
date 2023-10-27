@@ -7,6 +7,8 @@ public interface AerolineaRepository extends JpaRepository<Aerolinea, String> {
 
     Aerolinea findByCodigoIATA(String nombre);
 
+    Aerolinea findByCodigoICAO(String nombre);
+
     Aerolinea findByNombre(String nombre);
 
 }

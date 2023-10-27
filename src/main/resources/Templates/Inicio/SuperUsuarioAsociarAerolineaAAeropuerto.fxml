@@ -7,7 +7,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.airport.ui.AropuertoYAerolinea.AeropuertoYAerolineaController">
     <children>
         <Label ellipsisString="" layoutX="75.0" layoutY="36.0" prefHeight="66.0" prefWidth="272.0" text="Asociar una Aerolínea" textFill="WHITE" underline="true">
@@ -15,31 +14,31 @@
                 <Font name="Mudir MT" size="28.0" />
             </font>
         </Label>
-        <Label layoutX="124.0" layoutY="149.0" text="Nombre" textFill="WHITE">
+        <Label layoutX="124.0" layoutY="187.0" text="Nombre de la Aerolínea" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="nombreAerolinea" layoutX="125.0" layoutY="192.0" prefHeight="25.0" prefWidth="235.0" />
-        <Label layoutX="543.0" layoutY="149.0" text="Código IATA" textFill="WHITE">
+        <TextField fx:id="nombreAerolinea" layoutX="125.0" layoutY="230.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="543.0" layoutY="187.0" text="Código IATA" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="codigoIATAAerolinea" layoutX="543.0" layoutY="192.0" prefHeight="25.0" prefWidth="235.0" />
-        <Label layoutX="125.0" layoutY="226.0" prefHeight="43.0" prefWidth="173.0" text="Codigo ICAO" textFill="WHITE">
+        <TextField fx:id="codigoIATAAerolinea" layoutX="543.0" layoutY="230.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="125.0" layoutY="264.0" prefHeight="43.0" prefWidth="173.0" text="Codigo ICAO" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="codigoICAOAerolinea" layoutX="125.0" layoutY="269.0" prefHeight="25.0" prefWidth="235.0" />
-        <Label layoutX="543.0" layoutY="226.0" text="País de Origen" textFill="WHITE">
+        <TextField fx:id="codigoICAOAerolinea" layoutX="125.0" layoutY="307.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="543.0" layoutY="264.0" text="País de Origen" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="paisOrigen" layoutX="543.0" layoutY="269.0" prefHeight="25.0" prefWidth="235.0" />
-        <Button alignment="TOP_LEFT" layoutX="411.0" layoutY="370.0" mnemonicParsing="false" onAction="#asociarAerolineaConAeropuertoDeUsuario" prefHeight="32.0" prefWidth="79.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Asociar" textFill="WHITE">
+        <TextField fx:id="paisOrigen" layoutX="543.0" layoutY="307.0" prefHeight="25.0" prefWidth="235.0" />
+        <Button alignment="TOP_LEFT" layoutX="411.0" layoutY="391.0" mnemonicParsing="false" onAction="#asociarAerolineaConAeropuertoDeSuperUsuario" prefHeight="32.0" prefWidth="79.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Asociar" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>
@@ -47,5 +46,11 @@
                 <Font name="Arial" size="16.0" />
             </font>
         </Button>
+        <Label layoutX="125.0" layoutY="110.0" text="Código IATA de Aeropuerto" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="codigoIATAAeropuerto" layoutX="126.0" layoutY="153.0" prefHeight="25.0" prefWidth="235.0" />
     </children>
 </Pane>

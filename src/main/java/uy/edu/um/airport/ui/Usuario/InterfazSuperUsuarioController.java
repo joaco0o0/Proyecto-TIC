@@ -37,14 +37,14 @@ public class InterfazSuperUsuarioController {
 
 
     @FXML
-    public void openCrearAvion() {
-        loadWindow("/Templates/Inicio/CrearAvion.fxml");
+    public void openSuperUsuarioCrearAvion() {
+        loadWindow("/Templates/Inicio/SuperUsuarioCrearAvion.fxml");
     }
 
 
     @FXML
-    public void openAsociarAerolineaAAeropuerto() {
-        loadWindow("/Templates/Inicio/AsociarAerolineaAAeropuerto.fxml");
+    public void openSuperUsaurioAsociarAerolineaAAeropuerto() {
+        loadWindow("/Templates/Inicio/SuperUsuarioAsociarAerolineaAAeropuerto.fxml");
     }
 
 

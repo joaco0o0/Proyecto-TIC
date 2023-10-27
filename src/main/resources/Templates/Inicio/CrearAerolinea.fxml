@@ -34,7 +34,7 @@
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="txtIATA" layoutX="541.0" layoutY="203.0" prefHeight="25.0" prefWidth="235.0" />
+        <TextField fx:id="txtIATAaerolinea" layoutX="541.0" layoutY="203.0" prefHeight="25.0" prefWidth="235.0" />
         <Label layoutX="124.0" layoutY="273.0" text="Código ICAO" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />

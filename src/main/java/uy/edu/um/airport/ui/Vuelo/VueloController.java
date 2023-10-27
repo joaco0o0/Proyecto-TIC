@@ -1,19 +1,35 @@
 package uy.edu.um.airport.ui.Vuelo;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
+import uy.edu.um.airport.entities.Aerolinea.AerolineaMgr;
+import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
+import uy.edu.um.airport.entities.Aeropuerto.AeropuertoMgr;
+import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.entities.Vuelo.Vuelo;
+import uy.edu.um.airport.entities.Role.Rol;
 import uy.edu.um.airport.entities.Vuelo.VueloMgr;
+import uy.edu.um.airport.session.Session;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 
 @Component
 public class VueloController {
 
     @Autowired
     private VueloMgr vueloMgr;
+
+    @Autowired
+    private AerolineaMgr aerolineaMgr;
+
+    @Autowired
+    private AeropuertoMgr aeropuertoMgr;
 
     @FXML
     private TextField txtNumeroVuelo;
@@ -30,17 +46,63 @@ public class VueloController {
     @FXML
     private TextField ETA;
 
+    private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+
+    /*
     @FXML
     public void handleVueloRegister(){
+        Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
+
+        if (usuarioLogueado == null) {
+            mostrarMensaje("Error", "No hay usuario logueado.");
+            return;
+        }
+
+
         String iata = txtCodigoIATA.getText();
+        Aerolinea aerolineaEncontrada = aerolineaMgr.findAerolineaByCodigoIATA(iata);
+
         String icao = txtCodigoICAO.getText();
+        Aerolinea aerolineaEncontrada1 = aerolineaMgr.findAerolineaByCodigoICAO(icao);
+
+        if (!aerolineaEncontrada.equals(aerolineaEncontrada1) || !usuarioLogueado.getAerolinea().equals(aerolineaEncontrada)) {
+            mostrarMensaje("Error", "Los códigos de aerolínea no coinciden o no es la aerolínea del usuario.");
+            return;
+        }
+
         String aeropuertoOrigen = AeropuertoOrigen.getText();
+        Aeropuerto aeropuertoEncontradoOrigen = aeropuertoMgr.findAeropuertoByCodigoIATA(aeropuertoOrigen);
+
         String aeropuertoDestino = AeropuertoDestino.getText();
-        LocalDate etd = LocalDate.parse(ETD.getText()); // aca vamos a tener problemas pq van a tener q ingresar la hora perfecto
-        LocalDate eta = LocalDate.parse(ETA.getText()); // mejor capaz hacerlos string y listo
+        Aeropuerto aeropuertoEncontradoDestino = aeropuertoMgr.findAeropuertoByCodigoIATA(aeropuertoDestino);
+
+        LocalDateTime etd = parseDateTime(ETD.getText());
+        LocalDateTime eta = parseDateTime(ETA.getText());
+
         Long numeroVuelo = Long.parseLong(txtNumeroVuelo.getText());
 
-        Vuelo vuelo = new Vuelo(numeroVuelo, iata, icao, aeropuertoOrigen, aeropuertoDestino, etd, eta, null, null, null, null, 0, 0, Vuelo.EstadoVuelo.PENDIENTE_APROBACION);
+        Vuelo vuelo = new Vuelo(numeroVuelo, aerolineaEncontrada, aeropuertoEncontradoOrigen, aeropuertoEncontradoDestino, etd, eta);
         vueloMgr.addVuelo(vuelo);
+
+        mostrarMensaje("Éxito", "El vuelo ha sido registrado exitosamente.");
     }
+
+    private void mostrarMensaje(String titulo, String mensaje) {
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle(titulo);
+        alert.setHeaderText(null);
+        alert.setContentText(mensaje);
+        alert.showAndWait();
+    }
+
+    private LocalDateTime parseDateTime(String text) {
+        try {
+            return LocalDateTime.parse(text, formatter);
+        } catch (DateTimeParseException e) {
+            mostrarMensaje("Error", "Formato de fecha y hora incorrecto.");
+            return null;
+        }
+    }
+
+     */
 }

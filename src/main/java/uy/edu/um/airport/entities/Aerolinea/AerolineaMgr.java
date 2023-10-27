@@ -18,6 +18,9 @@ public class AerolineaMgr {
         return aerolineaRepository.findByCodigoIATA(codigoIATA);
     }
 
+    public Aerolinea findAerolineaByCodigoICAO(String codigoICAO) {
+        return aerolineaRepository.findByCodigoICAO(codigoICAO);
+    }
     public Aerolinea findAerolineaByNombre(String nombre) {
         return aerolineaRepository.findByNombre(nombre);
     }

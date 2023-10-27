@@ -1,31 +1,30 @@
 package uy.edu.um.airport.entities.AeropuertoYAerolinea;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
-import jakarta.persistence.UniqueConstraint;
+import jakarta.persistence.*;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
+import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 
 @Entity
-@Table(name = "aeropuertoYAerolinea", uniqueConstraints = {
-})
-@Data
+@Table(name = "aeropuertoYAerolinea")
+@IdClass(AeropuertoYAerolineaId.class)
 public class AeropuertoYAerolinea {
 
-    @Getter
-    @Setter
     @Id
-    private String codigo_IATA_aeropuerto;
+    @ManyToOne
+    @JoinColumn(name = "codigoIATA_aeropuerto", referencedColumnName = "codigoIATA")
+    private Aeropuerto aeropuerto;
 
-    @Getter
-    @Setter
-    private String codigo_IATA_aerolinea;
+    @Id
+    @ManyToOne
+    @JoinColumn(name = "codigoIATA_aerolinea", referencedColumnName = "codigoIATA")
+    private Aerolinea aerolinea;
 
-    public AeropuertoYAerolinea(String codigo_IATA_aeropuerto, String codigo_IATA_aerolinea) {
-        this.codigo_IATA_aeropuerto = codigo_IATA_aeropuerto;
-        this.codigo_IATA_aerolinea = codigo_IATA_aerolinea;
+    public AeropuertoYAerolinea(Aeropuerto aeropuerto, Aerolinea aerolinea) {
+        this.aeropuerto = aeropuerto;
+        this.aerolinea = aerolinea;
     }
 
     public AeropuertoYAerolinea() {

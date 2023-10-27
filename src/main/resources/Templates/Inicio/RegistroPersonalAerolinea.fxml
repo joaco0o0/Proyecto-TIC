@@ -77,6 +77,6 @@
                 <Font name="Arial" size="16.0" />
             </font>
         </Button>
-        <TextField fx:id="txtIATA" layoutX="134.0" layoutY="449.0" prefHeight="25.0" prefWidth="235.0" />
+        <TextField fx:id="txtIATAaerolinea" layoutX="134.0" layoutY="449.0" prefHeight="25.0" prefWidth="235.0" />
     </children>
 </Pane>

@@ -12,5 +12,9 @@ public class AeropuertoYAerolineaMgr {
     @Autowired
     private AeropuertoYAerolineaRepository aeropuertoYAerolineaRepository;
 
+    public void addAsociacion(AeropuertoYAerolinea asociacion) {
+        aeropuertoYAerolineaRepository.save(asociacion);
+    }
+
 
 }
