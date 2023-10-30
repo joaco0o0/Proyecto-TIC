@@ -41,6 +41,16 @@ public class InterfazUsuarioAeropuertoController {
     }
 
     @FXML
+    public void openCrearPuerta(){
+        loadWindow("/Templates/Inicio/CrearPuerta.fxml");
+    }
+
+    @FXML
+    public void openCrearTerminal(){
+        loadWindow("/Templates/Inicio/CrearTerminal.fxml");
+    }
+
+    @FXML
     public void openRegistroPersonalAeropuerto() {
         loadWindow("/Templates/Inicio/RegistroPersonalAeropuerto.fxml");
     }

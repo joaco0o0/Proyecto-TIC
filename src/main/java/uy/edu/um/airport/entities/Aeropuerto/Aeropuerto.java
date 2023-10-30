@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import uy.edu.um.airport.entities.AeropuertoYAerolinea.AeropuertoYAerolinea;
+import uy.edu.um.airport.entities.Terminal.Terminal;
 import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.entities.Vuelo.Vuelo;
 
@@ -44,6 +45,9 @@ public class Aeropuerto {
 
     @OneToMany(mappedBy = "aeropuertoDestino")
     private List<Vuelo> vuelosDeDestino;
+
+    @OneToMany(mappedBy = "aeropuerto")
+    private List<Terminal> terminales;
 
 
 
