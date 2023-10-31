@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "vuelos", uniqueConstraints = {
+@Table(name = "vuelo", uniqueConstraints = {
         @UniqueConstraint(columnNames = "numeroVuelo"),
 })
 public class Vuelo {
@@ -26,17 +26,13 @@ public class Vuelo {
     private Aerolinea aerolineaICAO;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
     private EstadoVuelo estadoAeropuertoOrigen;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
     private EstadoVuelo estadoAeropuertoDestino;
 
     @Column(nullable = false)
-    @Enumerated(EnumType.STRING)
     private EstadoVuelo estadoVuelo;
-
 
     @ManyToOne
     @JoinColumn(name = "codigoIATA_aeropuerto_origen", referencedColumnName = "codigoIATA")
@@ -52,45 +48,26 @@ public class Vuelo {
     @Column(nullable = false)
     private LocalDateTime ETA;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime ATD;
 
-    @Column(nullable = false)
+    @Column
     private LocalDateTime ATA;
 
     @OneToOne
     @JoinColumn(name = "matriculaAvion", referencedColumnName = "matricula")
     private Avion avion;
 
-    @Column(nullable = false)
+    @Column
     private String configuracion;
 
-    @Column(nullable = false)
+    @Column
     private int capacidadAsientos;
 
-    @Column(nullable = false)
+    @Column
     private int capacidadBultos;
 
     public Vuelo() {}
-
-    public Vuelo(Long numeroVuelo, Aerolinea aerolineaIATA, Aerolinea aerolineaICAO, EstadoVuelo estadoVuelo, Aeropuerto aeropuertoOrigen,
-                 Aeropuerto aeropuertoDestino, LocalDateTime ETD, LocalDateTime ETA, LocalDateTime ATD,
-                 LocalDateTime ATA, Avion avion, String configuracion, int capacidadAsientos, int capacidadBultos) {
-        this.numeroVuelo = numeroVuelo;
-        this.aerolineaIATA = aerolineaIATA;
-        this.aerolineaICAO = aerolineaICAO;
-        this.estadoVuelo = estadoVuelo;
-        this.aeropuertoOrigen = aeropuertoOrigen;
-        this.aeropuertoDestino = aeropuertoDestino;
-        this.ETD = ETD;
-        this.ETA = ETA;
-        this.ATD = ATD;
-        this.ATA = ATA;
-        this.avion = avion;
-        this.configuracion = configuracion;
-        this.capacidadAsientos = capacidadAsientos;
-        this.capacidadBultos = capacidadBultos;
-    }
 
     public Vuelo(Long numeroVuelo, Aerolinea aerolineaIATA, Aerolinea aerolineaICAO, EstadoVuelo estadoAeropuertoOrigen, EstadoVuelo estadoAeropuertoDestino,
                  EstadoVuelo estadoVuelo, Aeropuerto aeropuertoOrigen, Aeropuerto aeropuertoDestino, LocalDateTime ETD, LocalDateTime ETA, LocalDateTime ATD,
@@ -112,19 +89,6 @@ public class Vuelo {
         this.capacidadAsientos = capacidadAsientos;
         this.capacidadBultos = capacidadBultos;
     }
-
-    public Vuelo(Long numeroVuelo, Aerolinea aerolinea, Aeropuerto aeropuertoOrigen, Aeropuerto aeropuertoDestino, LocalDateTime etd, LocalDateTime eta, EstadoVuelo estadoAeropuertoOrigen, EstadoVuelo estadoAeropuertoDestino, EstadoVuelo estadoVuelo) {
-        this.numeroVuelo = numeroVuelo;
-        this.aerolineaIATA = aerolinea;
-        this.aeropuertoOrigen = aeropuertoOrigen;
-        this.aeropuertoDestino = aeropuertoDestino;
-        this.ETD = etd;
-        this.ETA = eta;
-        this.estadoAeropuertoOrigen = estadoAeropuertoOrigen;
-        this.estadoAeropuertoDestino = estadoAeropuertoDestino;
-        this.estadoVuelo = estadoVuelo;
-    }
-
 
     public enum EstadoVuelo {
         PENDIENTE, ACEPTADO, RECHAZADO

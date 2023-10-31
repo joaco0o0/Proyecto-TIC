@@ -2,6 +2,9 @@ package uy.edu.um.airport.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
+import uy.edu.um.airport.entities.Vuelo.Vuelo;
+
+import java.util.List;
 
 public interface AeropuertoRepository extends JpaRepository<Aeropuerto, String> {
     Aeropuerto findByCodigoIATA(String codigoIATA);
@@ -9,4 +12,6 @@ public interface AeropuertoRepository extends JpaRepository<Aeropuerto, String> 
     boolean existsByNombre(String nombre);
 
     boolean existsByCodigoIATA(String codigoIATA);
+
+    List<Vuelo> findAllVuelos();
 }

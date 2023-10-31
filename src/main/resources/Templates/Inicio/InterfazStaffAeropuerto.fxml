@@ -8,7 +8,16 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="492.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.airport.ui.Usuario.InterfazUsuarioAeropuertoController">
+<Pane maxHeight="-Infinity"
+      maxWidth="-Infinity"
+      minHeight="-Infinity"
+      minWidth="-Infinity"
+      prefHeight="492.0"
+      prefWidth="900.0"
+      style="-fx-background-color: #1A5276;"
+      xmlns="http://javafx.com/javafx/20.0.1"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="uy.edu.um.airport.ui.Usuario.InterfazUsuarioAeropuertoController">
     <children>
         <Label layoutX="43.0" layoutY="104.0" prefHeight="66.0" prefWidth="100.0" text="Servicios" textFill="WHITE">
             <font>
@@ -35,16 +44,16 @@
                 <Font name="Mudir MT" size="24.0" />
             </font>
         </Label>
-        <TableView layoutX="212.0" layoutY="170.0" prefHeight="304.0" prefWidth="674.0">
+        <TableView fx:id="tablaVuelos" layoutX="212.0" layoutY="170.0" prefHeight="304.0" prefWidth="674.0">
             <columns>
-                <TableColumn prefWidth="83.0" text="Nro de Vuelo" />
+                <TableColumn fx:id="numvuelo" prefWidth="83.0" text="Nro de Vuelo" />
                 <TableColumn prefWidth="67.0" text="Cod. IATA" />
-                <TableColumn prefWidth="67.0" text="Origen" />
-                <TableColumn prefWidth="67.0" text="Destino" />
-                <TableColumn prefWidth="67.0" text="ETD" />
-                <TableColumn prefWidth="67.0" text="ETA" />
+                <TableColumn fx:id="Origen" prefWidth="67.0" text="Origen" />
+                <TableColumn fx:id="Destino" prefWidth="67.0" text="Destino" />
+                <TableColumn fx:id="Etd" prefWidth="67.0" text="ETD" />
+                <TableColumn fx:id="Eta" prefWidth="67.0" text="ETA" />
                 <TableColumn prefWidth="79.0" text="Asig. Puerta" />
-                <TableColumn prefWidth="73.0" text="Estado" />
+                <TableColumn fx:id="Estado" prefWidth="73.0" text="Estado" />
                 <TableColumn prefWidth="103.0" text="Acción" />
             </columns>
         </TableView>

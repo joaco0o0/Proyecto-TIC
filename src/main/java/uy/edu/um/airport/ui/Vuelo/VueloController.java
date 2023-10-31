@@ -58,16 +58,10 @@ public class VueloController {
             return;
         }
 
-        String iata = txtCodigoIATA.getText();
+        String iata = usuarioLogueado.getAerolinea().getCodigoIATA();
         Aerolinea aerolineaEncontrada = aerolineaMgr.findAerolineaByCodigoIATA(iata);
 
-        String icao = txtCodigoICAO.getText();
-        Aerolinea aerolineaEncontrada1 = aerolineaMgr.findAerolineaByCodigoICAO(icao);
-
-        if (!aerolineaEncontrada.equals(aerolineaEncontrada1) || !usuarioLogueado.getAerolinea().equals(aerolineaEncontrada)) {
-            mostrarMensaje("Error", "Los códigos de aerolínea no coinciden o no es la aerolínea del usuario.");
-            return;
-        }
+        System.out.println(iata);
 
         String aeropuertoOrigen = AeropuertoOrigen.getText();
         Aeropuerto aeropuertoEncontradoOrigen = aeropuertoMgr.findAeropuertoByCodigoIATA(aeropuertoOrigen);
@@ -90,7 +84,7 @@ public class VueloController {
 
         Long numeroVuelo = Long.parseLong(txtNumeroVuelo.getText());
 
-        Vuelo vuelo = new Vuelo(numeroVuelo, aerolineaEncontrada, aeropuertoEncontradoOrigen, aeropuertoEncontradoDestino, etd, eta, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE);
+        Vuelo vuelo = new Vuelo(numeroVuelo, aerolineaEncontrada, aerolineaEncontrada, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE, aeropuertoEncontradoOrigen, aeropuertoEncontradoDestino, etd, eta, null, null, null, null, 50, 50);
         vueloMgr.addVuelo(vuelo);
 
         mostrarMensaje("Éxito", "El vuelo ha sido registrado exitosamente.");

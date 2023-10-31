@@ -2,7 +2,10 @@ package uy.edu.um.airport.entities.Aeropuerto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import uy.edu.um.airport.entities.Vuelo.Vuelo;
 import uy.edu.um.airport.persistence.AeropuertoRepository;
+
+import java.util.List;
 
 @Service
 public class AeropuertoMgr {
@@ -24,5 +27,9 @@ public class AeropuertoMgr {
 
     public boolean existsByCodigoIATA(String codigoIATA) {
         return aeropuertoRepository.existsByCodigoIATA(codigoIATA);
+    }
+
+    public List<Vuelo> getTodosLosVuelos() {
+        return aeropuertoRepository.findAllVuelos();
     }
 }

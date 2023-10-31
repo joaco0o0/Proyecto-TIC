@@ -50,10 +50,6 @@ public class Aeropuerto {
     private List<Terminal> terminales;
 
 
-
-
-
-
     public Aeropuerto() {
     }
 

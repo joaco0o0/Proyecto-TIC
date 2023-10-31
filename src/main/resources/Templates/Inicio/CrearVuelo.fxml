@@ -44,7 +44,7 @@
             </font>
         </Label>
         <TextField fx:id="ETA" layoutX="540.0" layoutY="315.0" prefHeight="25.0" prefWidth="235.0" />
-        <Button alignment="TOP_LEFT" layoutX="405.0" layoutY="391.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
+        <Button onAction="#handleVueloRegister" alignment="TOP_LEFT" layoutX="405.0" layoutY="391.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>

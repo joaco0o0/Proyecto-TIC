@@ -2,7 +2,10 @@ package uy.edu.um.airport.entities.Aerolinea;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import uy.edu.um.airport.entities.Vuelo.Vuelo;
 import uy.edu.um.airport.persistence.AerolineaRepository;
+
+import java.util.List;
 
 @Service
 public class AerolineaMgr {
@@ -24,6 +27,4 @@ public class AerolineaMgr {
     public Aerolinea findAerolineaByNombre(String nombre) {
         return aerolineaRepository.findByNombre(nombre);
     }
-
-
 }
