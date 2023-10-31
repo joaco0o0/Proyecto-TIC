@@ -48,7 +48,7 @@ public class VueloController {
 
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
-    /*
+
     @FXML
     public void handleVueloRegister(){
         Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
@@ -57,7 +57,6 @@ public class VueloController {
             mostrarMensaje("Error", "No hay usuario logueado.");
             return;
         }
-
 
         String iata = txtCodigoIATA.getText();
         Aerolinea aerolineaEncontrada = aerolineaMgr.findAerolineaByCodigoIATA(iata);
@@ -76,16 +75,27 @@ public class VueloController {
         String aeropuertoDestino = AeropuertoDestino.getText();
         Aeropuerto aeropuertoEncontradoDestino = aeropuertoMgr.findAeropuertoByCodigoIATA(aeropuertoDestino);
 
+        if (aeropuertoEncontradoOrigen == null || aeropuertoEncontradoDestino == null) {
+            mostrarMensaje("Error", "Uno o ambos códigos de aeropuerto son inválidos.");
+            return;
+        }
+
         LocalDateTime etd = parseDateTime(ETD.getText());
         LocalDateTime eta = parseDateTime(ETA.getText());
 
+        if (etd == null || eta == null) {
+            mostrarMensaje("Error", "Formato de fecha y hora incorrecto.");
+            return;
+        }
+
         Long numeroVuelo = Long.parseLong(txtNumeroVuelo.getText());
 
-        Vuelo vuelo = new Vuelo(numeroVuelo, aerolineaEncontrada, aeropuertoEncontradoOrigen, aeropuertoEncontradoDestino, etd, eta);
+        Vuelo vuelo = new Vuelo(numeroVuelo, aerolineaEncontrada, aeropuertoEncontradoOrigen, aeropuertoEncontradoDestino, etd, eta, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE);
         vueloMgr.addVuelo(vuelo);
 
         mostrarMensaje("Éxito", "El vuelo ha sido registrado exitosamente.");
     }
+
 
     private void mostrarMensaje(String titulo, String mensaje) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -104,5 +114,5 @@ public class VueloController {
         }
     }
 
-     */
+
 }
