@@ -16,7 +16,8 @@
         prefHeight="500.0"
         prefWidth="900.0"
         style="-fx-background-color: #1A5276;"
-        xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+        xmlns="http://javafx.com/javafx/20.0.1"
+        xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label ellipsisString="" layoutX="82.0" layoutY="44.0" prefHeight="66.0" prefWidth="265.0" text="Registro de Aerolínea" textFill="WHITE" underline="true">
             <font>

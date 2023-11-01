@@ -106,6 +106,10 @@ public class Vuelo {
         return aerolineaIATA;
     }
 
+    public String getAerolineaIATAString() {
+        return aerolineaIATA.getCodigoIATA();
+    }
+
     public void setAerolineaIATA(Aerolinea aerolineaIATA) {
         this.aerolineaIATA = aerolineaIATA;
     }
@@ -126,8 +130,26 @@ public class Vuelo {
         this.estadoVuelo = estadoVuelo;
     }
 
+    public void setEstadoAeropuertoOrigen(EstadoVuelo estadoAeropuertoOrigen) {
+        this.estadoAeropuertoOrigen = estadoAeropuertoOrigen;
+    }
+    public void setEstadoAeropuertoDestino(EstadoVuelo estadoAeropuertoDestino) {
+        this.estadoAeropuertoDestino = estadoAeropuertoDestino;
+    }
+
+    public EstadoVuelo getEstadoAeropuertoOrigen() {
+        return estadoAeropuertoOrigen;
+    }
+    public EstadoVuelo getEstadoAeropuertoDestino() {
+        return estadoAeropuertoDestino;
+    }
+
     public Aeropuerto getAeropuertoOrigen() {
         return aeropuertoOrigen;
+    }
+
+    public String getNombreAeropuertoOrigen() {
+        return aeropuertoOrigen.getNombre();
     }
 
     public void setAeropuertoOrigen(Aeropuerto aeropuertoOrigen) {
@@ -136,6 +158,10 @@ public class Vuelo {
 
     public Aeropuerto getAeropuertoDestino() {
         return aeropuertoDestino;
+    }
+
+    public String getNombreAeropuertoDestino() {
+        return aeropuertoDestino.getNombre();
     }
 
     public void setAeropuertoDestino(Aeropuerto aeropuertoDestino) {

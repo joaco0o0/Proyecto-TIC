@@ -13,6 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "aeropuertos")
 public class Aeropuerto {
+
     @Getter
     @Setter
     @Id
@@ -58,5 +59,9 @@ public class Aeropuerto {
         this.nombre = nombre;
         this.pais = pais;
         this.ciudad = ciudad;
+    }
+
+    public boolean equals(Aeropuerto aeropuerto) {
+        return this.codigoIATA.equals(aeropuerto.getCodigoIATA());
     }
 }

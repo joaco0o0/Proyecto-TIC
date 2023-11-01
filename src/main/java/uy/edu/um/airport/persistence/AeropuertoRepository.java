@@ -1,6 +1,7 @@
 package uy.edu.um.airport.persistence;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 import uy.edu.um.airport.entities.Vuelo.Vuelo;
 
@@ -13,5 +14,6 @@ public interface AeropuertoRepository extends JpaRepository<Aeropuerto, String> 
 
     boolean existsByCodigoIATA(String codigoIATA);
 
-    List<Vuelo> findAllVuelos();
+    @Query("SELECT v FROM Vuelo v WHERE v.aeropuertoOrigen = :aeropuerto OR v.aeropuertoDestino = :aeropuerto")
+    List<Vuelo> findAllVuelos(Aeropuerto aeropuerto);
 }

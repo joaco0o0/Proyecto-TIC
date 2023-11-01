@@ -6,6 +6,8 @@ import uy.edu.um.airport.entities.Vuelo.Vuelo;
 import uy.edu.um.airport.persistence.AeropuertoRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 @Service
 public class AeropuertoMgr {
@@ -29,7 +31,7 @@ public class AeropuertoMgr {
         return aeropuertoRepository.existsByCodigoIATA(codigoIATA);
     }
 
-    public List<Vuelo> getTodosLosVuelos() {
-        return aeropuertoRepository.findAllVuelos();
+    public List<Vuelo> getTodosLosVuelos(Aeropuerto aeropuerto) {
+        return aeropuertoRepository.findAllVuelos(aeropuerto);
     }
 }

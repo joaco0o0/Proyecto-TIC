@@ -1,6 +1,5 @@
 package uy.edu.um.airport.ui.Usuario;
 
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -9,17 +8,19 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-import uy.edu.um.airport.entities.Aerolinea.AerolineaMgr;
+import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 import uy.edu.um.airport.entities.Aeropuerto.AeropuertoMgr;
-import uy.edu.um.airport.entities.Role.Rol;
 import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.entities.Usuario.UsuarioMgr;
 import uy.edu.um.airport.entities.Vuelo.Vuelo;
+import uy.edu.um.airport.entities.Vuelo.VueloMgr;
+import uy.edu.um.airport.session.Session;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -29,7 +30,8 @@ import java.util.List;
 public class InterfazUsuarioAeropuertoController {
     @Autowired
     private AeropuertoMgr aeropuertoMgr;
-
+    @Autowired
+    private VueloMgr vueloMgr;
     @Autowired
     private UsuarioMgr usuarioMgr;
 
@@ -39,17 +41,21 @@ public class InterfazUsuarioAeropuertoController {
     @FXML
     private TableView<Vuelo> tablaVuelos;
     @FXML
-    private TableColumn<Vuelo, Long> numVuelo;
+    private TableColumn<Vuelo, Long> numeroVuelo;
     @FXML
-    private TableColumn<Vuelo, String> Origen;
+    private TableColumn<Vuelo, String> aerolineaIATA;
     @FXML
-    private TableColumn<Vuelo, String> Destino;
+    private TableColumn<Vuelo, Aeropuerto> aeropuertoOrigen;
     @FXML
-    private TableColumn<Vuelo, LocalDate> Etd;
+    private TableColumn<Vuelo, Aeropuerto> aeropuertoDestino;
     @FXML
-    private TableColumn<Vuelo, LocalDate> Eta;
+    private TableColumn<Vuelo, LocalDate> ETD;
     @FXML
-    private TableColumn<Vuelo, Vuelo.EstadoVuelo> Estado;
+    private TableColumn<Vuelo, LocalDate> ETA;
+    @FXML
+    private TableColumn<Vuelo, Vuelo.EstadoVuelo> estadoVuelo;
+    @FXML
+    private TableColumn<Vuelo,Object> accionColumna;
 
     @FXML
     public void openListaVuelos() {
@@ -91,19 +97,85 @@ public class InterfazUsuarioAeropuertoController {
     }
 
     public void initialize() {
-        // Configurar CellValueFactories para las columnas
-        numVuelo.setCellValueFactory(new PropertyValueFactory<>("numeroVuelo"));
-        Origen.setCellValueFactory(new PropertyValueFactory<>("origen"));
-        Destino.setCellValueFactory(new PropertyValueFactory<>("destino"));
-        Etd.setCellValueFactory(new PropertyValueFactory<>("etd"));
-        Eta.setCellValueFactory(new PropertyValueFactory<>("eta"));
-        Estado.setCellValueFactory(new PropertyValueFactory<>("estado"));
+        Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
 
-        // Obtener los datos y configurarlos en la tabla
-        List<Vuelo> listaDeVuelos = aeropuertoMgr.getTodosLosVuelos();
+        numeroVuelo.setCellValueFactory(new PropertyValueFactory<>("numeroVuelo"));
+        aerolineaIATA.setCellValueFactory(new PropertyValueFactory<>("aerolineaIATAString"));
+        aeropuertoOrigen.setCellValueFactory(new PropertyValueFactory<>("nombreAeropuertoOrigen"));
+        aeropuertoDestino.setCellValueFactory(new PropertyValueFactory<>("nombreAeropuertoDestino"));
+        ETD.setCellValueFactory(new PropertyValueFactory<>("ETD"));
+        ETA.setCellValueFactory(new PropertyValueFactory<>("ETA"));
+        estadoVuelo.setCellValueFactory(new PropertyValueFactory<>("estadoVuelo"));
+
+        accionColumna.setCellFactory(param -> new TableCell<>() {
+            private final Button btnAceptar = new Button("Aceptar");
+            private final Button btnRechazar = new Button("Rechazar");
+            private final HBox pane = new HBox(btnAceptar, btnRechazar);
+            {
+                btnAceptar.setOnAction(event -> aceptarVuelo(getIndex()));
+                btnRechazar.setOnAction(event -> rechazarVuelo(getIndex()));
+                pane.setSpacing(10);
+            }
+            @Override
+            protected void updateItem(Object item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(pane);
+                }
+            }
+        });
+        List<Vuelo> listaDeVuelos = aeropuertoMgr.getTodosLosVuelos(usuarioLogueado.getAeropuerto());
         ObservableList<Vuelo> vuelos = FXCollections.observableArrayList(listaDeVuelos);
         tablaVuelos.setItems(vuelos);
     }
+        private void rechazarVuelo(int index) {
+            Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
 
+            Vuelo vuelo = tablaVuelos.getItems().get(index);
+            if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoOrigen())){
+                vuelo.setEstadoAeropuertoOrigen(Vuelo.EstadoVuelo.RECHAZADO);
+                vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.RECHAZADO);
+                System.out.println("Vuelo rechazado");
+                tablaVuelos.refresh();
+            } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
+                vuelo.setEstadoAeropuertoDestino(Vuelo.EstadoVuelo.RECHAZADO);
+                vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.RECHAZADO);
+                System.out.println("Vuelo rechazado");
+                tablaVuelos.refresh();
+            }
+            vueloMgr.updateVuelo(vuelo);
+            System.out.println(vuelo.getEstadoVuelo());
+            System.out.println(vuelo.getEstadoAeropuertoOrigen());
+            System.out.println(vuelo.getEstadoAeropuertoDestino());
+        }
+
+        private void aceptarVuelo(int index) {
+            Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
+
+            Vuelo vuelo = tablaVuelos.getItems().get(index);
+            if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoOrigen())){
+                vuelo.setEstadoAeropuertoOrigen(Vuelo.EstadoVuelo.ACEPTADO);
+                System.out.println("Vuele aceptado en Origen");
+                if (vuelo.getEstadoAeropuertoDestino().equals(Vuelo.EstadoVuelo.ACEPTADO)){
+                    vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
+                    System.out.println("Vuele aceptado totalmente");
+                }
+                tablaVuelos.refresh();
+            } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
+                vuelo.setEstadoAeropuertoDestino(Vuelo.EstadoVuelo.ACEPTADO);
+                System.out.println("Vuele aceptado EN Destino");
+                if (vuelo.getEstadoAeropuertoOrigen().equals(Vuelo.EstadoVuelo.ACEPTADO)){
+                    vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
+                    System.out.println("Vuele aceptado totalmente");
+                }
+                tablaVuelos.refresh();
+            }
+            vueloMgr.updateVuelo(vuelo);
+            System.out.println(vuelo.getEstadoVuelo());
+            System.out.println(vuelo.getEstadoAeropuertoOrigen());
+            System.out.println(vuelo.getEstadoAeropuertoDestino());
+        }
 }
 

@@ -12,5 +12,7 @@ public class VueloMgr {
     public void addVuelo(Vuelo vuelo) {
         vueloRepository.save(vuelo);
     }
-
+     public void updateVuelo(Vuelo vuelo) {
+        vueloRepository.save(vuelo);
+    }
 }

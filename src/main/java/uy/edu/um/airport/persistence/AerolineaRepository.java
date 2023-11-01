@@ -10,5 +10,4 @@ public interface AerolineaRepository extends JpaRepository<Aerolinea, String> {
     Aerolinea findByCodigoICAO(String nombre);
 
     Aerolinea findByNombre(String nombre);
-
 }

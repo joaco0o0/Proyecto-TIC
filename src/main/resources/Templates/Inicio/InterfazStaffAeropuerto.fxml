@@ -48,8 +48,8 @@
             <columns>
                 <TableColumn fx:id="numvuelo" prefWidth="83.0" text="Nro de Vuelo" />
                 <TableColumn prefWidth="67.0" text="Cod. IATA" />
-                <TableColumn fx:id="Origen" prefWidth="67.0" text="Origen" />
-                <TableColumn fx:id="Destino" prefWidth="67.0" text="Destino" />
+                <TableColumn fx:id="aeropuertoOrigen" prefWidth="67.0" text="Origen" />
+                <TableColumn fx:id="aeropuertoDestino" prefWidth="67.0" text="Destino" />
                 <TableColumn fx:id="Etd" prefWidth="67.0" text="ETD" />
                 <TableColumn fx:id="Eta" prefWidth="67.0" text="ETA" />
                 <TableColumn prefWidth="79.0" text="Asig. Puerta" />

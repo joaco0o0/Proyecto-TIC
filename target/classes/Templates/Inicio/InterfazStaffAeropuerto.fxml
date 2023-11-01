@@ -46,15 +46,15 @@
         </Label>
         <TableView fx:id="tablaVuelos" layoutX="212.0" layoutY="170.0" prefHeight="304.0" prefWidth="674.0">
             <columns>
-                <TableColumn fx:id="numvuelo" prefWidth="83.0" text="Nro de Vuelo" />
-                <TableColumn prefWidth="67.0" text="Cod. IATA" />
-                <TableColumn fx:id="Origen" prefWidth="67.0" text="Origen" />
-                <TableColumn fx:id="Destino" prefWidth="67.0" text="Destino" />
-                <TableColumn  prefWidth="67.0" text="ETD" />
-                <TableColumn  prefWidth="67.0" text="ETA" />
+                <TableColumn fx:id="numeroVuelo" prefWidth="83.0" text="Nro de Vuelo" />
+                <TableColumn fx:id="aerolineaIATA" prefWidth="67.0" text="Cod. IATA" />
+                <TableColumn fx:id="aeropuertoOrigen" prefWidth="67.0" text="Origen" />
+                <TableColumn fx:id="aeropuertoDestino" prefWidth="67.0" text="Destino" />
+                <TableColumn fx:id="ETD" prefWidth="67.0" text="ETD" />
+                <TableColumn fx:id="ETA" prefWidth="67.0" text="ETA" />
                 <TableColumn prefWidth="79.0" text="Asig. Puerta" />
-                <TableColumn fx:id="Estado" prefWidth="73.0" text="Estado" />
-                <TableColumn prefWidth="103.0" text="Acción" />
+                <TableColumn fx:id="estadoVuelo" prefWidth="73.0" text="Estado" />
+                <TableColumn fx:id="accionColumna" prefWidth="103.0" text="Acción" />
             </columns>
         </TableView>
         <Button alignment="TOP_LEFT" layoutX="16.0" layoutY="170.0" mnemonicParsing="false" onAction="#openAsociarAerolineaAAeropuerto" prefHeight="32.0" prefWidth="155.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Asociar Aerolínea" textFill="WHITE">
