@@ -33,5 +33,8 @@ public class Puerta {
     public Puerta() {
     }
 
+    public String toString() {
+        return this.id;
+    }
 }
 

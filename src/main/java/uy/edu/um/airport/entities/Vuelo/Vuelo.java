@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 import uy.edu.um.airport.entities.Avion.Avion;
+import uy.edu.um.airport.entities.Puerta.Puerta;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -61,17 +62,24 @@ public class Vuelo {
     @Column
     private String configuracion;
 
+    @ManyToOne
+    private Puerta puertaOrigen;
+
+    @ManyToOne
+    private Puerta puertaDestino;
+
     @Column
     private int capacidadAsientos;
 
     @Column
     private int capacidadBultos;
 
-    public Vuelo() {}
+    public Vuelo() {
+    }
 
     public Vuelo(Long numeroVuelo, Aerolinea aerolineaIATA, Aerolinea aerolineaICAO, EstadoVuelo estadoAeropuertoOrigen, EstadoVuelo estadoAeropuertoDestino,
                  EstadoVuelo estadoVuelo, Aeropuerto aeropuertoOrigen, Aeropuerto aeropuertoDestino, LocalDateTime ETD, LocalDateTime ETA, LocalDateTime ATD,
-                 LocalDateTime ATA, Avion avion, String configuracion, int capacidadAsientos, int capacidadBultos) {
+                 LocalDateTime ATA, Avion avion, String configuracion,Puerta puertaOrigen, Puerta puertaDestino, int capacidadAsientos, int capacidadBultos) {
         this.numeroVuelo = numeroVuelo;
         this.aerolineaIATA = aerolineaIATA;
         this.aerolineaICAO = aerolineaICAO;
@@ -86,8 +94,34 @@ public class Vuelo {
         this.ATA = ATA;
         this.avion = avion;
         this.configuracion = configuracion;
+        this.puertaOrigen = puertaOrigen;
+        this.puertaDestino = puertaDestino;
         this.capacidadAsientos = capacidadAsientos;
         this.capacidadBultos = capacidadBultos;
+    }
+
+    public void setPuertaOrigen(Puerta puerta) {
+        this.puertaOrigen = puerta;
+    }
+
+    public void setPuertaDestino(Puerta puerta) {
+        this.puertaDestino = puerta;
+    }
+
+    public Puerta getPuertaAsignadaDespegue() {
+        return puertaOrigen;
+    }
+
+    public LocalDateTime getHorarioDespegue() {
+        return ETD;
+    }
+
+    public Puerta getPuertaAsignadaAterrizaje() {
+        return puertaDestino;
+    }
+
+    public LocalDateTime getHorarioAterrizaje() {
+        return ETA;
     }
 
     public enum EstadoVuelo {

@@ -2,6 +2,7 @@ package uy.edu.um.airport.entities.Aeropuerto;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import uy.edu.um.airport.entities.Puerta.Puerta;
 import uy.edu.um.airport.entities.Vuelo.Vuelo;
 import uy.edu.um.airport.persistence.AeropuertoRepository;
 
@@ -33,5 +34,9 @@ public class AeropuertoMgr {
 
     public List<Vuelo> getTodosLosVuelos(Aeropuerto aeropuerto) {
         return aeropuertoRepository.findAllVuelos(aeropuerto);
+    }
+
+    public List<Puerta> obtenerPuertas(Aeropuerto aeropuerto) {
+        return aeropuertoRepository.findAllPuertas(aeropuerto);
     }
 }

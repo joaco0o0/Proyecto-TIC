@@ -13,9 +13,10 @@ import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 import uy.edu.um.airport.entities.Aeropuerto.AeropuertoMgr;
+import uy.edu.um.airport.entities.Puerta.Puerta;
+import uy.edu.um.airport.entities.Puerta.PuertaMgr;
 import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.entities.Usuario.UsuarioMgr;
 import uy.edu.um.airport.entities.Vuelo.Vuelo;
@@ -24,7 +25,9 @@ import uy.edu.um.airport.session.Session;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class InterfazUsuarioAeropuertoController {
@@ -34,6 +37,8 @@ public class InterfazUsuarioAeropuertoController {
     private VueloMgr vueloMgr;
     @Autowired
     private UsuarioMgr usuarioMgr;
+    @Autowired
+    private PuertaMgr puertaMgr;
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -54,6 +59,8 @@ public class InterfazUsuarioAeropuertoController {
     private TableColumn<Vuelo, LocalDate> ETA;
     @FXML
     private TableColumn<Vuelo, Vuelo.EstadoVuelo> estadoVuelo;
+    @FXML
+    private TableColumn<Vuelo, Object> asignarpuertaColumna;
     @FXML
     private TableColumn<Vuelo,Object> accionColumna;
 
@@ -107,6 +114,30 @@ public class InterfazUsuarioAeropuertoController {
         ETA.setCellValueFactory(new PropertyValueFactory<>("ETA"));
         estadoVuelo.setCellValueFactory(new PropertyValueFactory<>("estadoVuelo"));
 
+        asignarpuertaColumna.setCellFactory(param -> new TableCell<>() {
+            private final ComboBox<String> comboBoxPuertas = new ComboBox<>();
+            private final HBox pane = new HBox(comboBoxPuertas);
+
+            {
+                List<Puerta> puertas = aeropuertoMgr.obtenerPuertas(usuarioLogueado.getAeropuerto());
+                comboBoxPuertas.getItems().addAll(puertas.stream().map(Puerta::toString).collect(Collectors.toList()));
+
+                comboBoxPuertas.setOnAction(event -> asignarPuerta(getIndex(), comboBoxPuertas.getValue()));
+                pane.setSpacing(10);
+            }
+
+            @Override
+            protected void updateItem(Object item, boolean empty) {
+                super.updateItem(item, empty);
+                if (empty) {
+                    setGraphic(null);
+                } else {
+                    setGraphic(pane);
+                }
+            }
+        });
+
+
         accionColumna.setCellFactory(param -> new TableCell<>() {
             private final Button btnAceptar = new Button("Aceptar");
             private final Button btnRechazar = new Button("Rechazar");
@@ -130,7 +161,77 @@ public class InterfazUsuarioAeropuertoController {
         ObservableList<Vuelo> vuelos = FXCollections.observableArrayList(listaDeVuelos);
         tablaVuelos.setItems(vuelos);
     }
-        private void rechazarVuelo(int index) {
+
+    private void asignarPuerta(int index, String value) {
+        Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
+        Puerta puerta = puertaMgr.findPuertabyId(value);
+
+        Vuelo vuelo = tablaVuelos.getItems().get(index);
+        if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoOrigen())){
+            if(esPuertaDisponibleparaDespegue(value, vuelo.getHorarioDespegue(), usuarioLogueado.getAeropuerto())){
+                vuelo.setPuertaOrigen(puerta);
+                tablaVuelos.refresh();
+                System.out.println("Puerta asignada origen");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Puerta asignada");
+                alert.setHeaderText("Puerta asignada correctamente");
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("La puerta ya está ocupada");
+                alert.setContentText("Por favor, seleccione otra puerta");
+                alert.showAndWait();
+            }
+        } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
+            if (esPuertaDisponibleparaAterrizaje(value, vuelo.getHorarioAterrizaje(), usuarioLogueado.getAeropuerto())) {
+                vuelo.setPuertaDestino(puerta);
+                tablaVuelos.refresh();
+                System.out.println("Puerta asignada destino");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Puerta asignada");
+                alert.setHeaderText("Puerta asignada correctamente");
+            } else {
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Error");
+                alert.setHeaderText("La puerta ya está ocupada");
+                alert.setContentText("Por favor, seleccione otra puerta");
+                alert.showAndWait();
+            }
+        }
+        vueloMgr.updateVuelo(vuelo);
+    }
+
+    private boolean esPuertaDisponibleparaDespegue(String value, LocalDateTime horarioDespegue,Aeropuerto aeropuerto) {
+        List<Vuelo> vuelos = aeropuertoMgr.getTodosLosVuelos(aeropuerto);
+        Puerta puerta = puertaMgr.findPuertabyId(value);
+        for (Vuelo vuelo : vuelos) {
+            if (puerta.equals(vuelo.getPuertaAsignadaDespegue())) {
+                LocalDateTime inicioOcupacion = vuelo.getHorarioDespegue().minusHours(1);
+                LocalDateTime finOcupacion = vuelo.getHorarioDespegue().plusMinutes(30);
+                if (horarioDespegue.isAfter(inicioOcupacion) && horarioDespegue.isBefore(finOcupacion)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private boolean esPuertaDisponibleparaAterrizaje(String value, LocalDateTime horarioAterrizaje, Aeropuerto aeropuerto) {
+        List<Vuelo> vuelos = aeropuertoMgr.getTodosLosVuelos(aeropuerto);
+        Puerta puerta = puertaMgr.findPuertabyId(value);
+        for (Vuelo vuelo : vuelos) {
+            if (puerta.equals(vuelo.getPuertaAsignadaAterrizaje())) {
+                LocalDateTime inicioOcupacion = vuelo.getHorarioAterrizaje().minusHours(20);
+                LocalDateTime finOcupacion = vuelo.getHorarioDespegue().plusMinutes(30);
+                if (horarioAterrizaje.isAfter(inicioOcupacion) && horarioAterrizaje.isBefore(finOcupacion)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    private void rechazarVuelo(int index) {
             Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
 
             Vuelo vuelo = tablaVuelos.getItems().get(index);
@@ -161,6 +262,9 @@ public class InterfazUsuarioAeropuertoController {
                 if (vuelo.getEstadoAeropuertoDestino().equals(Vuelo.EstadoVuelo.ACEPTADO)){
                     vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
                     System.out.println("Vuele aceptado totalmente");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Vuelo aceptado");
+                    alert.setHeaderText("Vuelo aceptado y confirmado");
                 }
                 tablaVuelos.refresh();
             } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
@@ -169,6 +273,9 @@ public class InterfazUsuarioAeropuertoController {
                 if (vuelo.getEstadoAeropuertoOrigen().equals(Vuelo.EstadoVuelo.ACEPTADO)){
                     vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
                     System.out.println("Vuele aceptado totalmente");
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Vuelo aceptado");
+                    alert.setHeaderText("Vuelo aceptado y confirmado");
                 }
                 tablaVuelos.refresh();
             }

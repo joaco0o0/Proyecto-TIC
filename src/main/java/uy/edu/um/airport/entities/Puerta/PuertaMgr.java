@@ -14,9 +14,7 @@ public class PuertaMgr {
         puertaRepository.save(puerta);
     }
 
-    public Puerta findPuertaById(String id) {
-        return puertaRepository.findById(id).orElse(null);
+    public Puerta findPuertabyId(String id) {
+        return puertaRepository.findbyid(id);
     }
-
-    // Más métodos según tus necesidades
 }

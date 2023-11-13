@@ -84,7 +84,7 @@ public class VueloController {
 
         Long numeroVuelo = Long.parseLong(txtNumeroVuelo.getText());
 
-        Vuelo vuelo = new Vuelo(numeroVuelo, aerolineaEncontrada, aerolineaEncontrada, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE, aeropuertoEncontradoOrigen, aeropuertoEncontradoDestino, etd, eta, null, null, null, null, 50, 50);
+        Vuelo vuelo = new Vuelo(numeroVuelo, aerolineaEncontrada, aerolineaEncontrada, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE, aeropuertoEncontradoOrigen, aeropuertoEncontradoDestino, etd, eta, null, null, null, null, null,null, 50, 50);
         vueloMgr.addVuelo(vuelo);
 
         mostrarMensaje("Éxito", "El vuelo ha sido registrado exitosamente.");

@@ -21,7 +21,7 @@ public class Terminal {
     @Id
     private String nombre;
 
-    @ManyToOne // Muchas terminales pueden pertenecer a un aeropuerto
+    @ManyToOne
     private Aeropuerto aeropuerto;
 
     @OneToMany(mappedBy = "terminal")
