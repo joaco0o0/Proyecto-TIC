@@ -27,7 +27,7 @@ public class Puerta {
     public Puerta(String numero, Terminal terminal) {
         this.numero = numero;
         this.terminal = terminal;
-        this.id = terminal.getNombre() + numero; // Aquí es donde se realiza la combinación de Terminal y número de puerta para formar el ID
+        this.id = terminal.getNombre() + numero;
     }
 
     public Puerta() {

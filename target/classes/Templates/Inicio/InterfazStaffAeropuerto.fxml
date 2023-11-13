@@ -52,7 +52,7 @@
                 <TableColumn fx:id="aeropuertoDestino" prefWidth="67.0" text="Destino" />
                 <TableColumn fx:id="ETD" prefWidth="67.0" text="ETD" />
                 <TableColumn fx:id="ETA" prefWidth="67.0" text="ETA" />
-                <TableColumn prefWidth="79.0" text="Asig. Puerta" />
+                <TableColumn fx:id="asignarpuertaColumna" prefWidth="79.0" text="Asig. Puerta" />
                 <TableColumn fx:id="estadoVuelo" prefWidth="73.0" text="Estado" />
                 <TableColumn fx:id="accionColumna" prefWidth="103.0" text="Acción" />
             </columns>
