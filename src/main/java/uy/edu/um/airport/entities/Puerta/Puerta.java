@@ -33,6 +33,15 @@ public class Puerta {
     public Puerta() {
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Puerta) {
+            Puerta puerta = (Puerta) obj;
+            return puerta.getId().equals(this.id);
+        }
+        return false;
+    }
+
     public String toString() {
         return this.id;
     }

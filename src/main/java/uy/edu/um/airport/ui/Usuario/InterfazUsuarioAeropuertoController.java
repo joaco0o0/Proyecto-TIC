@@ -201,14 +201,19 @@ public class InterfazUsuarioAeropuertoController {
         vueloMgr.updateVuelo(vuelo);
     }
 
-    private boolean esPuertaDisponibleparaDespegue(String value, LocalDateTime horarioDespegue,Aeropuerto aeropuerto) {
+    private boolean esPuertaDisponibleparaDespegue(String value, LocalDateTime horarioDespegue, Aeropuerto aeropuerto) {
         List<Vuelo> vuelos = aeropuertoMgr.getTodosLosVuelos(aeropuerto);
         Puerta puerta = puertaMgr.findPuertabyId(value);
+
+        LocalDateTime inicioOcupacionDespegue = horarioDespegue.minusHours(1);
+        LocalDateTime finOcupacionDespegue = horarioDespegue.plusMinutes(20);
+
         for (Vuelo vuelo : vuelos) {
             if (puerta.equals(vuelo.getPuertaAsignadaDespegue())) {
-                LocalDateTime inicioOcupacion = vuelo.getHorarioDespegue().minusHours(1);
-                LocalDateTime finOcupacion = vuelo.getHorarioDespegue().plusMinutes(30);
-                if (horarioDespegue.isAfter(inicioOcupacion) && horarioDespegue.isBefore(finOcupacion)) {
+                LocalDateTime inicioOcupacionExistente = vuelo.getHorarioDespegue().minusHours(1);
+                LocalDateTime finOcupacionExistente = vuelo.getHorarioDespegue().plusMinutes(20);
+
+                if (inicioOcupacionDespegue.isBefore(finOcupacionExistente) && finOcupacionDespegue.isAfter(inicioOcupacionExistente)) {
                     return false;
                 }
             }
@@ -216,20 +221,25 @@ public class InterfazUsuarioAeropuertoController {
         return true;
     }
 
+
     private boolean esPuertaDisponibleparaAterrizaje(String value, LocalDateTime horarioAterrizaje, Aeropuerto aeropuerto) {
         List<Vuelo> vuelos = aeropuertoMgr.getTodosLosVuelos(aeropuerto);
         Puerta puerta = puertaMgr.findPuertabyId(value);
+        LocalDateTime finOcupacionAterrizaje = horarioAterrizaje.plusMinutes(60);
+
         for (Vuelo vuelo : vuelos) {
-            if (puerta.equals(vuelo.getPuertaAsignadaAterrizaje())) {
-                LocalDateTime inicioOcupacion = vuelo.getHorarioAterrizaje().minusHours(20);
-                LocalDateTime finOcupacion = vuelo.getHorarioDespegue().plusMinutes(30);
-                if (horarioAterrizaje.isAfter(inicioOcupacion) && horarioAterrizaje.isBefore(finOcupacion)) {
+            if (puerta.equals(vuelo.getPuertaAsignadaDespegue()) || puerta.equals(vuelo.getPuertaAsignadaAterrizaje())) {
+                LocalDateTime inicioOcupacionExistente = vuelo.getHorarioAterrizaje().minusMinutes(30);
+                LocalDateTime finOcupacionExistente = vuelo.getHorarioAterrizaje().plusMinutes(60);
+
+                if (horarioAterrizaje.isBefore(finOcupacionExistente) && finOcupacionAterrizaje.isAfter(inicioOcupacionExistente)) {
                     return false;
                 }
             }
         }
         return true;
     }
+
 
     private void rechazarVuelo(int index) {
             Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
