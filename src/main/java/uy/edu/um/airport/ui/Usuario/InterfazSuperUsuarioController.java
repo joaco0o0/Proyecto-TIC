@@ -31,8 +31,13 @@ public class InterfazSuperUsuarioController {
 
 
     @FXML
-    public void openCrearVuelo() {
-        loadWindow("/Templates/Inicio/CrearVuelo.fxml");
+    public void openCrearVueloSuperUsuario() {
+        loadWindow("/Templates/Inicio/CrearVueloSuperUsuario.fxml");
+    }
+
+    @FXML
+    public void openAsignarPasajeroAVuelo() {
+        loadWindow("/Templates/Inicio/AsignarPasajeroAVuelo.fxml");
     }
 
 

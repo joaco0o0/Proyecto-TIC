@@ -4,28 +4,28 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
-import uy.edu.um.airport.entities.Aerolinea.AerolineaMgr;
-import uy.edu.um.airport.entities.Role.Rol;
-import uy.edu.um.airport.entities.Usuario.Usuario;
+import uy.edu.um.airport.entities.Aeropuerto.AeropuertoMgr;
+import uy.edu.um.airport.entities.Puerta.PuertaMgr;
 import uy.edu.um.airport.entities.Usuario.UsuarioMgr;
+import uy.edu.um.airport.entities.Vuelo.VueloMgr;
 
 import java.io.IOException;
-import java.time.LocalDate;
 
 @Component
-public class InterfazUsuarioAerolineaController {
-    @Autowired
-    private AerolineaMgr aerolineaMgr;
+public class InterfazUsuarioFinalController {
 
     @Autowired
+    private AeropuertoMgr aeropuertoMgr;
+    @Autowired
+    private VueloMgr vueloMgr;
+    @Autowired
     private UsuarioMgr usuarioMgr;
+    @Autowired
+    private PuertaMgr puertaMgr;
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -36,19 +36,8 @@ public class InterfazUsuarioAerolineaController {
     }
 
     @FXML
-    public void openCrearVuelo() {
-        loadWindow("/Templates/Inicio/CrearVuelo.fxml");}
-
-    @FXML
-    public void openCrearAvion() {
-        loadWindow("/Templates/Inicio/CrearAvion.fxml");}
-
-    @FXML
-    public void openAsignarPasajeroAVuelo() {
-        loadWindow("/Templates/Inicio/AsignarPasajeroAVuelo.fxml");}
-    @FXML
-    public void openRegistroPersonalAerolinea() {
-        loadWindow("/Templates/Inicio/RegistroPersonalAerolinea.fxml");
+    public void openComprarPasajeUsuarioFinal() {
+        loadWindow("/Templates/Inicio/ComprarPasajeUsuarioFinal.fxml");
     }
 
 
@@ -64,4 +53,6 @@ public class InterfazUsuarioAerolineaController {
             e.printStackTrace();
         }
     }
+
+
 }
