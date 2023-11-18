@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="uy.edu.um.airport.ui.Usuario.UsuarioController"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane fx:controller="uy.edu.um.airport.ui.Usuario.InterfazUsuarioFinalController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label layoutX="21.0" layoutY="26.0" prefHeight="83.0" prefWidth="513.0" text="Interfaz Personal de Aeropuerto" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="36.0" />
+            </font>
+        </Label>
+        <Button alignment="TOP_LEFT" layoutX="384.0" layoutY="274.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Lista de vuelos" textFill="WHITE">
+            <effect>
+                <Blend />
+            </effect>
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Button>
+        <Pane layoutY="109.0" prefHeight="8.0" prefWidth="900.0" style="-fx-background-color: #FDFEFE;" />
+        <Label layoutX="400.0" layoutY="129.0" prefHeight="66.0" prefWidth="100.0" text="Servicios" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="24.0" />
+            </font>
+        </Label>
+        <Button onAction="#iracomprarVuelos" alignment="TOP_LEFT" layoutX="380.0" layoutY="209.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="140.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Comprar Pasaje" textFill="WHITE">
+            <effect>
+                <Blend />
+            </effect>
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Button>
+    </children>
+</Pane>

@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
-import uy.edu.um.airport.entities.Vuelo.Vuelo;
 
 @Entity
 @Table(name = "aviones")
@@ -30,7 +29,7 @@ public class Avion {
     private Aerolinea aerolinea;
 
     @OneToOne(mappedBy = "avion", cascade = CascadeType.ALL)
-    private Vuelo vuelo;
+    private uy.edu.um.airport.entities.Vuelo.Vuelo vuelo;
 
     public Avion() {}
 
@@ -42,11 +41,11 @@ public class Avion {
     }
 
 
-    public Vuelo getVuelo() {
+    public uy.edu.um.airport.entities.Vuelo.Vuelo getVuelo() {
         return vuelo;
     }
 
-    public void setVuelo(Vuelo vuelo) {
+    public void setVuelo(uy.edu.um.airport.entities.Vuelo.Vuelo vuelo) {
         this.vuelo = vuelo;
     }
 }

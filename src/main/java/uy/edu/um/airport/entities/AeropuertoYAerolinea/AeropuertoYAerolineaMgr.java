@@ -16,5 +16,4 @@ public class AeropuertoYAerolineaMgr {
         aeropuertoYAerolineaRepository.save(asociacion);
     }
 
-
 }

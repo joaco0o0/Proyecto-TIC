@@ -15,7 +15,6 @@ public class UsuarioMgr {
     private UsuarioRepository usuarioRepository;
 
     public void addUsuario(Usuario usuario) {
-        // Aquí podrías incluir lógica adicional para verificar los datos del usuario
         usuarioRepository.save(usuario);
     }
 
@@ -34,5 +33,9 @@ public class UsuarioMgr {
 
     public List<Usuario> getUsuarios() {
         return usuarioRepository.findAll();
+    }
+
+    public Usuario findUsuarioByPasaporte(String pasaportePasajero) {
+        return usuarioRepository.findByPasaporte(pasaportePasajero);
     }
 }

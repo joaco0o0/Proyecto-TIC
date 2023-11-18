@@ -1,9 +1,6 @@
 package uy.edu.um.airport.entities.AeropuertoYAerolinea;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 

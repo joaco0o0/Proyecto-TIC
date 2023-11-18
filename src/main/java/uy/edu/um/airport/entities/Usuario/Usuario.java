@@ -1,28 +1,24 @@
 package uy.edu.um.airport.entities.Usuario;
 
 import jakarta.persistence.*;
-import jakarta.persistence.MappedSuperclass;
-import lombok.Getter;
-import lombok.Setter;
 import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
-import uy.edu.um.airport.entities.Aerolinea.AerolineaMgr;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
+import uy.edu.um.airport.entities.Pasajeros.Pasajeros;
 import uy.edu.um.airport.entities.Role.Rol;
-import uy.edu.um.airport.entities.Vuelo.Vuelo;
 
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity  // Indico que esta clase es una entidad JPA
+@Entity
 @Table(name = "usuarios", uniqueConstraints = {
         @UniqueConstraint(columnNames = "email"),
         @UniqueConstraint(columnNames = "pasaporte")
-})  // Esto es opcional, pero quiero que la tabla se llame "usuarios" y tenga restricciones únicas para 'email' y 'pasaporte'
+})
 
 public class Usuario {
 
-    @Id  // Indica que este campo es la clave primaria
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // La base de datos generará este valor al azar
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
@@ -34,13 +30,13 @@ public class Usuario {
     @Column(nullable = false)
     private LocalDate fechaNacimiento;
 
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String pasaporte;
 
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column (nullable = false)
     private String password;
 
     @Column(nullable = false)
@@ -54,11 +50,11 @@ public class Usuario {
     @JoinColumn(name = "codigoIATA_aeropuerto", referencedColumnName = "codigoIATA")
     private Aeropuerto aeropuerto;
 
-
+    @OneToMany (mappedBy = "usuario")
+    private List<Pasajeros> vuelos;
 
     public Usuario() {
     }
-
 
     public Usuario(String nombre, String apellido, LocalDate fechaNacimiento, String pasaporte, String email, String password, Rol rol) {
         this.nombre = nombre;

@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.Setter;
 import uy.edu.um.airport.entities.AeropuertoYAerolinea.AeropuertoYAerolinea;
 import uy.edu.um.airport.entities.Usuario.Usuario;
-import uy.edu.um.airport.entities.Vuelo.Vuelo;
 
 import java.util.List;
 
@@ -14,7 +13,7 @@ import java.util.List;
 @Table(name = "aerolinea", uniqueConstraints = {
         @UniqueConstraint(columnNames = "codigoICAO")
 })
-@Data
+//@Data
 public class Aerolinea {
 
     @Getter
@@ -46,10 +45,10 @@ public class Aerolinea {
 
     // Relación inversa desde Aerolinea hacia Vuelo
     @OneToMany(mappedBy = "aerolineaIATA")
-    private List<Vuelo> vuelosPorIATA;
+    private List<uy.edu.um.airport.entities.Vuelo.Vuelo> vuelosPorIATA;
 
     @OneToMany(mappedBy = "aerolineaICAO")
-    private List<Vuelo> vuelosPorICAO;
+    private List<uy.edu.um.airport.entities.Vuelo.Vuelo> vuelosPorICAO;
 
     public Aerolinea(String codigoIATA, String codigoICAO, String nombre, String paisDeOrigen) {
         this.codigoIATA = codigoIATA;
@@ -59,5 +58,13 @@ public class Aerolinea {
     }
 
     public Aerolinea(){}
+
+    public String getCodigoIATA() {
+        return codigoIATA;
+    }
+
+    public String toString() {
+        return this.nombre;
+    }
 }
 

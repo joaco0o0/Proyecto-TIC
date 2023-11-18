@@ -12,19 +12,17 @@ import uy.edu.um.airport.persistence.AerolineaRepository;
 import uy.edu.um.airport.persistence.AeropuertoRepository;
 import uy.edu.um.airport.session.Session;
 
-import java.awt.*;
-
 @Component
 public class AeropuertoYAerolineaController {
 
     @Autowired
-    private AeropuertoYAerolineaMgr aeropuertoYAerolineaMgr;  // Servicio para gestionar la asociación.
+    private AeropuertoYAerolineaMgr aeropuertoYAerolineaMgr;
 
     @Autowired
     private AeropuertoRepository aeropuertoRepository;
 
     @Autowired
-    private AerolineaRepository aerolineaRepository;  // Servicio para buscar aerolíneas.
+    private AerolineaRepository aerolineaRepository;
 
     @FXML
     private javafx.scene.control.TextField nombreAerolinea;

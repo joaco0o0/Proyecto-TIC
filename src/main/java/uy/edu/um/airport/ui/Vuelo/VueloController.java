@@ -10,8 +10,6 @@ import uy.edu.um.airport.entities.Aerolinea.AerolineaMgr;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 import uy.edu.um.airport.entities.Aeropuerto.AeropuertoMgr;
 import uy.edu.um.airport.entities.Usuario.Usuario;
-import uy.edu.um.airport.entities.Vuelo.Vuelo;
-import uy.edu.um.airport.entities.Role.Rol;
 import uy.edu.um.airport.entities.Vuelo.VueloMgr;
 import uy.edu.um.airport.session.Session;
 
@@ -84,7 +82,7 @@ public class VueloController {
 
         Long numeroVuelo = Long.parseLong(txtNumeroVuelo.getText());
 
-        Vuelo vuelo = new Vuelo(numeroVuelo, aerolineaEncontrada, aerolineaEncontrada, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE, Vuelo.EstadoVuelo.PENDIENTE, aeropuertoEncontradoOrigen, aeropuertoEncontradoDestino, etd, eta, null, null, null, null, null,null, 50, 50);
+        uy.edu.um.airport.entities.Vuelo.Vuelo vuelo = new uy.edu.um.airport.entities.Vuelo.Vuelo(numeroVuelo, aerolineaEncontrada, aerolineaEncontrada, uy.edu.um.airport.entities.Vuelo.Vuelo.EstadoVuelo.PENDIENTE, uy.edu.um.airport.entities.Vuelo.Vuelo.EstadoVuelo.PENDIENTE, uy.edu.um.airport.entities.Vuelo.Vuelo.EstadoVuelo.PENDIENTE, aeropuertoEncontradoOrigen, aeropuertoEncontradoDestino, etd, eta, null, null, null, null, null,null, null,50, 50);
         vueloMgr.addVuelo(vuelo);
 
         mostrarMensaje("Éxito", "El vuelo ha sido registrado exitosamente.");

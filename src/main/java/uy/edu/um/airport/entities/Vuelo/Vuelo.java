@@ -3,11 +3,14 @@ package uy.edu.um.airport.entities.Vuelo;
 import jakarta.persistence.*;
 import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
-import uy.edu.um.airport.entities.Avion.Avion;
-import uy.edu.um.airport.entities.Puerta.Puerta;
 
-import java.time.LocalDate;
+import uy.edu.um.airport.entities.Avion.Avion;
+import uy.edu.um.airport.entities.Pasajeros.Pasajeros;
+import uy.edu.um.airport.entities.Puerta.Puerta;
+import uy.edu.um.airport.entities.Usuario.Usuario;
+
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "vuelo", uniqueConstraints = {
@@ -68,6 +71,9 @@ public class Vuelo {
     @ManyToOne
     private Puerta puertaDestino;
 
+    @OneToMany(mappedBy = "vuelo")
+    private List<Pasajeros> pasajeros;
+
     @Column
     private int capacidadAsientos;
 
@@ -79,7 +85,7 @@ public class Vuelo {
 
     public Vuelo(Long numeroVuelo, Aerolinea aerolineaIATA, Aerolinea aerolineaICAO, EstadoVuelo estadoAeropuertoOrigen, EstadoVuelo estadoAeropuertoDestino,
                  EstadoVuelo estadoVuelo, Aeropuerto aeropuertoOrigen, Aeropuerto aeropuertoDestino, LocalDateTime ETD, LocalDateTime ETA, LocalDateTime ATD,
-                 LocalDateTime ATA, Avion avion, String configuracion,Puerta puertaOrigen, Puerta puertaDestino, int capacidadAsientos, int capacidadBultos) {
+                 LocalDateTime ATA, Avion avion, String configuracion, Puerta puertaOrigen, Puerta puertaDestino, List<Pasajeros> pasajeros, int capacidadAsientos, int capacidadBultos) {
         this.numeroVuelo = numeroVuelo;
         this.aerolineaIATA = aerolineaIATA;
         this.aerolineaICAO = aerolineaICAO;
@@ -96,6 +102,7 @@ public class Vuelo {
         this.configuracion = configuracion;
         this.puertaOrigen = puertaOrigen;
         this.puertaDestino = puertaDestino;
+        this.pasajeros = pasajeros;
         this.capacidadAsientos = capacidadAsientos;
         this.capacidadBultos = capacidadBultos;
     }
@@ -122,6 +129,10 @@ public class Vuelo {
 
     public LocalDateTime getHorarioAterrizaje() {
         return ETA;
+    }
+
+    public Aerolinea getAerolinea() {
+        return aerolineaIATA;
     }
 
     public enum EstadoVuelo {
@@ -264,5 +275,12 @@ public class Vuelo {
 
     public void setAvion(Avion avion) {
         this.avion = avion;
+    }
+
+    public String getMatriculaAvion() {
+    	return avion.getMatricula();
+    }
+    public String toString() {
+        return this.numeroVuelo.toString();
     }
 }

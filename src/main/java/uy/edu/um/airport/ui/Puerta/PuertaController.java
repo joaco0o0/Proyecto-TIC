@@ -3,14 +3,10 @@ package uy.edu.um.airport.ui.Puerta;
 import javafx.fxml.FXML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
 import uy.edu.um.airport.entities.Puerta.Puerta;
 import uy.edu.um.airport.entities.Puerta.PuertaMgr;
-import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 import uy.edu.um.airport.entities.Terminal.Terminal;
 import uy.edu.um.airport.entities.Terminal.TerminalMgr;
-import uy.edu.um.airport.entities.Usuario.Usuario;
-import uy.edu.um.airport.session.Session;
 
 @Component
 public class PuertaController {

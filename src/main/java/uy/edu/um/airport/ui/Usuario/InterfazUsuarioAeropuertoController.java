@@ -11,6 +11,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cglib.core.Local;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
@@ -226,13 +227,14 @@ public class InterfazUsuarioAeropuertoController {
         List<Vuelo> vuelos = aeropuertoMgr.getTodosLosVuelos(aeropuerto);
         Puerta puerta = puertaMgr.findPuertabyId(value);
         LocalDateTime finOcupacionAterrizaje = horarioAterrizaje.plusMinutes(60);
+        LocalDateTime inicioOcupacionAterrizaje = horarioAterrizaje.minusMinutes(30);
 
         for (Vuelo vuelo : vuelos) {
             if (puerta.equals(vuelo.getPuertaAsignadaDespegue()) || puerta.equals(vuelo.getPuertaAsignadaAterrizaje())) {
                 LocalDateTime inicioOcupacionExistente = vuelo.getHorarioAterrizaje().minusMinutes(30);
                 LocalDateTime finOcupacionExistente = vuelo.getHorarioAterrizaje().plusMinutes(60);
 
-                if (horarioAterrizaje.isBefore(finOcupacionExistente) && finOcupacionAterrizaje.isAfter(inicioOcupacionExistente)) {
+                if (inicioOcupacionAterrizaje.isBefore(finOcupacionExistente) && finOcupacionAterrizaje.isAfter(inicioOcupacionExistente)) {
                     return false;
                 }
             }

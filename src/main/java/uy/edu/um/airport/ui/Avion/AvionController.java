@@ -4,15 +4,12 @@ import javafx.fxml.FXML;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import uy.edu.um.airport.entities.Aerolinea.Aerolinea;
-import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 import uy.edu.um.airport.entities.Avion.Avion;
 import uy.edu.um.airport.entities.Avion.AvionMgr;
 import uy.edu.um.airport.entities.Aerolinea.AerolineaMgr;
 import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.persistence.AerolineaRepository;
 import uy.edu.um.airport.session.Session;
-
-import java.awt.*;
 
 @Component
 public class AvionController {

@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:controller="uy.edu.um.airport.ui.Usuario.InterfazUsuarioAerolineaController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
         <Label layoutX="64.0" layoutY="30.0" prefHeight="83.0" prefWidth="405.0" text="Asignar Pasajero a Vuelo" textFill="WHITE">
             <font>
@@ -22,32 +22,32 @@
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField layoutX="124.0" layoutY="173.0" prefHeight="25.0" prefWidth="235.0" />
+        <TextField fx:id="nombre" layoutX="124.0" layoutY="173.0" prefHeight="25.0" prefWidth="235.0" />
         <Label layoutX="541.0" layoutY="130.0" text="Apellido" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField layoutX="541.0" layoutY="173.0" prefHeight="25.0" prefWidth="235.0" />
+        <TextField fx:id="apellido" layoutX="541.0" layoutY="173.0" prefHeight="25.0" prefWidth="235.0" />
         <Label layoutX="124.0" layoutY="212.0" text="Fecha de Nacimiento" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <DatePicker layoutX="124.0" layoutY="255.0" prefHeight="25.0" prefWidth="235.0" />
+        <DatePicker fx:id="fechanacimiento" layoutX="124.0" layoutY="255.0" prefHeight="25.0" prefWidth="235.0" />
         <Label layoutX="541.0" layoutY="212.0" prefHeight="43.0" prefWidth="84.0" text="Pasaporte" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField layoutX="541.0" layoutY="255.0" prefHeight="25.0" prefWidth="235.0" />
+        <TextField fx:id="pasaporte" layoutX="541.0" layoutY="255.0" prefHeight="25.0" prefWidth="235.0" />
         <Label layoutX="125.0" layoutY="303.0" prefHeight="43.0" prefWidth="136.0" text="Código de Vuelo" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField layoutX="124.0" layoutY="346.0" prefHeight="25.0" prefWidth="235.0" />
-        <Button alignment="TOP_LEFT" layoutX="408.0" layoutY="412.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Asignar" textFill="WHITE">
+        <TextField fx:id="codigovuelo" layoutX="124.0" layoutY="346.0" prefHeight="25.0" prefWidth="235.0" />
+        <Button onAction="#asignarPasajeroAVuelo" alignment="TOP_LEFT" layoutX="408.0" layoutY="412.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Asignar" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>

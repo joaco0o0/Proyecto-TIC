@@ -33,7 +33,6 @@ public class Aeropuerto {
     private String ciudad;
 
 
-    // Añadido para relación
     @OneToMany(mappedBy = "aeropuerto")
     private List<Usuario> usuarios;
 
@@ -63,5 +62,9 @@ public class Aeropuerto {
 
     public boolean equals(Aeropuerto aeropuerto) {
         return this.codigoIATA.equals(aeropuerto.getCodigoIATA());
+    }
+
+    public String toString() {
+    	return this.nombre;
     }
 }

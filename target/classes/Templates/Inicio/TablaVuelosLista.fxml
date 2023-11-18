@@ -1,29 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.airport.ui.Vuelo.ListaVuelosController">
   <children>
     <Label layoutX="146.0" prefHeight="55.0" prefWidth="125.0" text="Bienvenido " textFill="WHITE">
       <font>
         <Font name="Mudir MT" size="24.0" />
       </font>
     </Label>
-    <Label layoutX="41.0" layoutY="7.0" prefHeight="112.0" prefWidth="335.0" text="Aeropuerto LMJ" textFill="WHITE">
+    <Label layoutX="90.0" layoutY="7.0" prefHeight="112.0" prefWidth="238.0" text="Aeropuerto" textFill="WHITE">
       <font>
         <Font name="Mudir MT" size="48.0" />
       </font>
     </Label>
-    <Label layoutX="618.0" prefHeight="55.0" prefWidth="144.0" text="HORA LOCAL" textFill="WHITE">
+    <Label layoutX="581.0" prefHeight="55.0" prefWidth="151.0" text="HORA LOCAL:" textFill="WHITE">
       <font>
         <Font name="Mudir MT" size="24.0" />
       </font>
     </Label>
-    <Label fx:id="LabelHora" layoutX="522.0" layoutY="7.0" prefHeight="112.0" prefWidth="335.0" textAlignment="CENTER" textFill="WHITE">
+    <Label fx:id="LabelHora" layoutX="557.0" layoutY="7.0" prefHeight="112.0" prefWidth="335.0" textAlignment="CENTER" textFill="WHITE">
       <font>
         <Font name="Mudir MT" size="48.0" />
       </font>
@@ -32,7 +30,8 @@
       <columns>
         <TableColumn minWidth="-1.0" prefWidth="141.67" text="Hora" />
         <TableColumn minWidth="-1.0" prefWidth="141.67" text="Aerolínea" />
-        <TableColumn minWidth="-1.0" prefWidth="141.67" text="Destino" />
+        <TableColumn minWidth="-1.0" prefWidth="141.67" text="Aeropuerto Origen" />
+        <TableColumn minWidth="-1.0" prefWidth="141.67" text="Aeropuerto Destino" />
         <TableColumn minWidth="-1.0" prefWidth="141.67" text="Vuelo" />
         <TableColumn minWidth="-1.0" prefWidth="141.67" text="Puerta" />
         <TableColumn minWidth="-1.0" prefWidth="141.67" text="Estado" />
