@@ -1,14 +1,44 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Templates.Inicio.SuperUsuarioRegistrarPuerta"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<Pane fx:controller="uy.edu.um.airport.ui.Puerta.PuertaController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label ellipsisString="" layoutX="89.0" layoutY="42.0" prefHeight="66.0" prefWidth="416.0" text="Registro de Puertas y Terminales" textFill="WHITE" underline="true">
+            <font>
+                <Font name="Mudir MT" size="28.0" />
+            </font>
+        </Label>
+        <Label layoutX="334.0" layoutY="137.0" prefHeight="43.0" prefWidth="171.0" text="Número de la puerta" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="numeroDePuertaField" layoutX="333.0" layoutY="180.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="333.0" layoutY="230.0" prefHeight="43.0" prefWidth="148.0" text="Terminal Asociada" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="terminalAsociadaField" layoutX="333.0" layoutY="273.0" prefHeight="25.0" prefWidth="235.0" />
+        <Button alignment="TOP_LEFT" layoutX="404.0" layoutY="423.0" mnemonicParsing="false" onAction="#handleRegisterPuertaSuperUsuario" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
+            <effect>
+                <Blend />
+            </effect>
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Button>
+        <Label layoutX="297.0" layoutY="323.0" prefHeight="43.0" prefWidth="306.0" text="Código IATA de aeropuerto a registrar" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="codigoIATAaeropuerto" layoutX="334.0" layoutY="366.0" prefHeight="25.0" prefWidth="235.0" />
+    </children>
+</Pane>

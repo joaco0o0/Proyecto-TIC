@@ -49,6 +49,12 @@ public class PuertaController {
             return;
         }
 
+        if (!numeroDePuerta.matches("^\\d+$")) {
+            showAlert(Alert.AlertType.ERROR, "Error en el Registro de Puerta", "El número de la puerta solo puede contener dígitos.");
+            return;
+        }
+
+
         if (terminalMgr.findTerminalByNombre(terminalAsociada) == null) {
             showAlert(Alert.AlertType.ERROR, "Error en el Registro de Puerta", "La terminal a la que desea registrar la puerta no existe en el sistema.");
             return;
@@ -63,25 +69,37 @@ public class PuertaController {
     @FXML
     public void handleRegisterPuertaSuperUsuario() {
         String numeroDePuerta = numeroDePuertaField.getText().trim();
-        String terminalAsociada = terminalAsociadaField.getText().trim();
-        Terminal terminal = terminalMgr.findTerminalByNombre(terminalAsociada);
+
         String codigoIataAeropuerto = codigoIATAaeropuerto.getText().trim();
         Aeropuerto aeropuerto = aeropuertoMgr.findAeropuertoByCodigoIATA(codigoIataAeropuerto);
+
+        String terminalAsociada = aeropuerto.getCodigoIATA() + terminalAsociadaField.getText().trim();
+        Terminal terminal = terminalMgr.findTerminalByNombre(terminalAsociada);
 
         if (numeroDePuerta.isEmpty() || terminalAsociada.isEmpty() || codigoIataAeropuerto.isEmpty()) {
             showAlert(Alert.AlertType.ERROR, "Error en el Registro de Puerta", "Todos los campos son obligatorios.");
             return;
         }
 
+        if (!numeroDePuerta.matches("^\\d+$")) {
+            showAlert(Alert.AlertType.ERROR, "Error en el Registro de Puerta", "El número de la puerta solo puede contener dígitos.");
+            return;
+        }
+
+
         if (terminalMgr.findTerminalByNombre(terminalAsociada) == null) {
             showAlert(Alert.AlertType.ERROR, "Error en el Registro de Puerta", "La terminal a la que desea registrar la puerta no existe en el sistema.");
             return;
         }
 
+        if(aeropuertoMgr.findAeropuertoByCodigoIATA(codigoIataAeropuerto) == null){
+            showAlert(Alert.AlertType.ERROR, "Error en el Registro de Puerta", "El código IATA del aeropuerto no se encuentra registrado en el sistema.");
+            return;
+        }
+
         Puerta nuevaPuerta = new Puerta(numeroDePuerta, terminal);
         puertaMgr.addPuerta(nuevaPuerta);
-        showAlert(Alert.AlertType.CONFIRMATION, "Registro de Puerta Exitoso", "La puerta " + numeroDePuerta + " fue asociada a la terminal " + terminal.getNombre());
-
+        showAlert(Alert.AlertType.CONFIRMATION, "Registro de Puerta Exitoso", "La puerta " + numeroDePuerta + " fue asociada a la terminal " + terminal.getNombre() + " del aeropuerto " + aeropuerto.getNombre());
     }
 
 

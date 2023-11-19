@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -119,10 +121,31 @@ public class compracontroller {
 
         Pasajeros pasajeros = new Pasajeros(vuelo, usuarioLogueado);
         pasajerosMgr.addPasajero(pasajeros);
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Compra");
-        alert.setHeaderText("Compra realizada");
-        alert.setContentText("El pasaje ha sido comprado con éxito.");
-        System.out.println("pasaje comprado.");
+        showAlert(Alert.AlertType.CONFIRMATION, "Compra de Pasaje Exitoso", "Un pasaje para el vuelo " + vuelo.getNumeroVuelo() + " fue comprado exitosamente.");
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String content) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        ImageView imageView;
+        if (alertType == Alert.AlertType.CONFIRMATION) {
+            alert.getButtonTypes().setAll(ButtonType.OK);
+            imageView = new ImageView(new Image(getClass().getResourceAsStream("/photos/ok.png")));
+        } else if (alertType == Alert.AlertType.ERROR) {
+            imageView = new ImageView(new Image(getClass().getResourceAsStream("/photos/error.png")));
+        } else {
+            imageView = null;
+        }
+
+        if (imageView != null) {
+            imageView.setFitHeight(48);
+            imageView.setFitWidth(48);
+            alert.setGraphic(imageView);
+        }
+
+        alert.showAndWait();
     }
 }
