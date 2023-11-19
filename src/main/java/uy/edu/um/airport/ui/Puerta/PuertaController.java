@@ -40,7 +40,7 @@ public class PuertaController {
         }
 
         // Comprobar si la terminal asociada existe
-        Terminal terminal = terminalMgr.findTerminalById(terminalAsociada); // Suponiendo que tienes un método similar en TerminalMgr
+        Terminal terminal = terminalMgr.findTerminalByNombre(terminalAsociada); // Suponiendo que tienes un método similar en TerminalMgr
         if (terminal == null) {
             System.err.println("La terminal asociada no existe.");
             return;

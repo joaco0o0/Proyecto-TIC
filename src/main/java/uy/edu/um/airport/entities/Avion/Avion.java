@@ -40,6 +40,37 @@ public class Avion {
         this.aerolinea = aerolinea;
     }
 
+    public String getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
+    }
+
+    public int getCapacidad() {
+        return capacidad;
+    }
+
+    public void setCapacidad(int capacidad) {
+        this.capacidad = capacidad;
+    }
+
+    public int getBulto() {
+        return bulto;
+    }
+
+    public void setBulto(int bulto) {
+        this.bulto = bulto;
+    }
+
+    public Aerolinea getAerolinea() {
+        return aerolinea;
+    }
+
+    public void setAerolinea(Aerolinea aerolinea) {
+        this.aerolinea = aerolinea;
+    }
 
     public uy.edu.um.airport.entities.Vuelo.Vuelo getVuelo() {
         return vuelo;

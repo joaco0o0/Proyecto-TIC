@@ -9,42 +9,48 @@
 
 <Pane fx:controller="uy.edu.um.airport.ui.Vuelo.VueloController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Label ellipsisString="" layoutX="70.0" layoutY="38.0" prefHeight="56.0" prefWidth="223.0" text="Registro de Vuelo" textFill="WHITE" underline="true">
+        <Label ellipsisString="" layoutX="82.0" layoutY="22.0" prefHeight="56.0" prefWidth="223.0" text="Registro de Vuelo" textFill="WHITE" underline="true">
             <font>
                 <Font name="Mudir MT" size="28.0" />
             </font>
         </Label>
-        <Label layoutX="123.0" layoutY="127.0" prefHeight="43.0" prefWidth="140.0" text="Número de Vuelo" textFill="WHITE">
+        <Label layoutX="123.0" layoutY="98.0" prefHeight="43.0" prefWidth="140.0" text="Número de Vuelo" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="txtNumeroVuelo" layoutX="122.0" layoutY="170.0" prefHeight="25.0" prefWidth="235.0" />
-        <Label layoutX="121.0" layoutY="195.0" text="Aeropuerto de Origen" textFill="WHITE">
+        <TextField fx:id="txtNumeroVuelo" layoutX="122.0" layoutY="141.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="541.0" layoutY="98.0" prefHeight="43.0" prefWidth="140.0" text="Matrícula" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="AeropuertoOrigen" layoutX="122.0" layoutY="238.0" prefHeight="25.0" prefWidth="235.0" />
-        <Label layoutX="540.0" layoutY="195.0" text="Aeropuerto de Destino" textFill="WHITE">
+        <TextField fx:id="txtMatricula" layoutX="540.0" layoutY="141.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="121.0" layoutY="166.0" text="Aeropuerto de Origen" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="AeropuertoDestino" layoutX="540.0" layoutY="238.0" prefHeight="25.0" prefWidth="235.0" />
-        <Label layoutX="122.0" layoutY="272.0" prefHeight="43.0" prefWidth="282.0" text="Hora Programada de Salida (ETD)" textFill="WHITE">
+        <TextField fx:id="AeropuertoOrigen" layoutX="122.0" layoutY="209.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="540.0" layoutY="166.0" text="Aeropuerto de Destino" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="ETD" layoutX="122.0" layoutY="315.0" prefHeight="25.0" prefWidth="235.0" />
-        <Label layoutX="540.0" layoutY="272.0" text="Hora Programada de Llegada (ETA)" textFill="WHITE">
+        <TextField fx:id="AeropuertoDestino" layoutX="540.0" layoutY="209.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="122.0" layoutY="243.0" prefHeight="43.0" prefWidth="282.0" text="Hora Programada de Salida (ETD)" textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="18.0" />
             </font>
         </Label>
-        <TextField fx:id="ETA" layoutX="540.0" layoutY="315.0" prefHeight="25.0" prefWidth="235.0" />
-        <Button onAction="#handleVueloRegister" alignment="TOP_LEFT" layoutX="405.0" layoutY="391.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
+        <TextField fx:id="ETD" layoutX="122.0" layoutY="286.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="540.0" layoutY="243.0" text="Hora Programada de Llegada (ETA)" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="ETA" layoutX="540.0" layoutY="286.0" prefHeight="25.0" prefWidth="235.0" />
+        <Button onAction="#handleVueloRegister" alignment="TOP_LEFT" layoutX="405.0" layoutY="427.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="91.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>
@@ -52,5 +58,17 @@
                 <Font name="Arial" size="16.0" />
             </font>
         </Button>
+        <Label layoutX="122.0" layoutY="320.0" prefHeight="43.0" prefWidth="282.0" text="Capacidad Asientos:" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtCapacidadAsientos" layoutX="122.0" layoutY="363.0" prefHeight="25.0" prefWidth="235.0" />
+        <Label layoutX="540.0" layoutY="320.0" text="Capacidad Bultos:" textFill="WHITE">
+            <font>
+                <Font name="Mudir MT" size="18.0" />
+            </font>
+        </Label>
+        <TextField fx:id="txtCapacidadBultos" layoutX="540.0" layoutY="363.0" prefHeight="25.0" prefWidth="235.0" />
     </children>
 </Pane>

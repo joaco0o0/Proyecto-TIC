@@ -62,8 +62,8 @@ public class Vuelo {
     @JoinColumn(name = "matriculaAvion", referencedColumnName = "matricula")
     private Avion avion;
 
-    @Column
-    private String configuracion;
+   //@Column
+    //private String configuracion;
 
     @ManyToOne
     private Puerta puertaOrigen;
@@ -83,9 +83,9 @@ public class Vuelo {
     public Vuelo() {
     }
 
-    public Vuelo(Long numeroVuelo, Aerolinea aerolineaIATA, Aerolinea aerolineaICAO, EstadoVuelo estadoAeropuertoOrigen, EstadoVuelo estadoAeropuertoDestino,
+    public Vuelo(Long numeroVuelo, Aerolinea aerolineaIATA, EstadoVuelo estadoAeropuertoOrigen, EstadoVuelo estadoAeropuertoDestino,
                  EstadoVuelo estadoVuelo, Aeropuerto aeropuertoOrigen, Aeropuerto aeropuertoDestino, LocalDateTime ETD, LocalDateTime ETA, LocalDateTime ATD,
-                 LocalDateTime ATA, Avion avion, String configuracion, Puerta puertaOrigen, Puerta puertaDestino, List<Pasajeros> pasajeros, int capacidadAsientos, int capacidadBultos) {
+                 LocalDateTime ATA, Avion avion, Puerta puertaOrigen, Puerta puertaDestino, int capacidadAsientos, int capacidadBultos) {
         this.numeroVuelo = numeroVuelo;
         this.aerolineaIATA = aerolineaIATA;
         this.aerolineaICAO = aerolineaICAO;
@@ -99,7 +99,7 @@ public class Vuelo {
         this.ATD = ATD;
         this.ATA = ATA;
         this.avion = avion;
-        this.configuracion = configuracion;
+        //this.configuracion = configuracion;
         this.puertaOrigen = puertaOrigen;
         this.puertaDestino = puertaDestino;
         this.pasajeros = pasajeros;
@@ -245,13 +245,13 @@ public class Vuelo {
         this.ATA = ATA;
     }
 
-    public String getConfiguracion() {
-        return configuracion;
-    }
+    //public String getConfiguracion() {
+        //return configuracion;
+    //}
 
-    public void setConfiguracion(String configuracion) {
-        this.configuracion = configuracion;
-    }
+    //public void setConfiguracion(String configuracion) {
+        //this.configuracion = configuracion;
+    //}
 
     public int getCapacidadAsientos() {
         return capacidadAsientos;

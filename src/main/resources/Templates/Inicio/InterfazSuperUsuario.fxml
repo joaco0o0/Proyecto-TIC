@@ -14,7 +14,7 @@
                 <Font name="Mudir MT" size="24.0" />
             </font>
         </Label>
-        <Button alignment="TOP_LEFT" layoutX="88.0" layoutY="166.0" mnemonicParsing="false" onAction="#openRegistroAerolinea" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Crear Aerolínea" textFill="WHITE">
+        <Button alignment="TOP_LEFT" layoutX="76.0" layoutY="166.0" mnemonicParsing="false" onAction="#openRegistroAerolinea" prefHeight="32.0" prefWidth="162.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar Aerolínea" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>
@@ -32,7 +32,7 @@
                 <Font name="Mudir MT" size="24.0" />
             </font>
         </Label>
-        <Button alignment="TOP_LEFT" layoutX="376.0" layoutY="166.0" mnemonicParsing="false" onAction="#openCrearAeropuerto" prefHeight="32.0" prefWidth="149.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Crear Aeropuerto" textFill="WHITE">
+        <Button alignment="TOP_LEFT" layoutX="365.0" layoutY="166.0" mnemonicParsing="false" onAction="#openCrearAeropuerto" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar Aeropuerto" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>
@@ -53,7 +53,7 @@
                 <Font name="Mudir MT" size="36.0" />
             </font>
         </Label>
-        <Button alignment="TOP_LEFT" layoutX="650.0" layoutY="234.0" mnemonicParsing="false"  onAction="#openRegistroPersonalAerolinea" prefHeight="32.0" prefWidth="205.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Crear Personal Aerolínea" textFill="WHITE">
+        <Button alignment="TOP_LEFT" layoutX="650.0" layoutY="234.0" mnemonicParsing="false" onAction="#openRegistroPersonalAerolinea" prefHeight="32.0" prefWidth="205.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Crear Personal Aerolínea" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>
@@ -86,7 +86,7 @@
                 <Font name="Arial" size="16.0" />
             </font>
         </Button>
-        <Button alignment="TOP_LEFT" layoutX="101.0" layoutY="234.0" mnemonicParsing="false" onAction="#openSuperUsuarioCrearAvion" prefHeight="32.0" prefWidth="111.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Crear Avión" textFill="WHITE">
+        <Button alignment="TOP_LEFT" layoutX="88.0" layoutY="234.0" mnemonicParsing="false" onAction="#openSuperUsuarioCrearAvion" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar Avión" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>
@@ -94,7 +94,7 @@
                 <Font name="Arial" size="16.0" />
             </font>
         </Button>
-        <Button alignment="TOP_LEFT" layoutX="101.0" layoutY="303.0" mnemonicParsing="false" onAction="#openCrearVueloSuperUsuario" prefHeight="32.0" prefWidth="111.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Crear Vuelo" textFill="WHITE">
+        <Button alignment="TOP_LEFT" layoutX="88.0" layoutY="303.0" mnemonicParsing="false" onAction="#openCrearVueloSuperUsuario" prefHeight="32.0" prefWidth="137.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar Vuelo" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>
@@ -103,6 +103,22 @@
             </font>
         </Button>
         <Button alignment="TOP_LEFT" layoutX="54.0" layoutY="372.0" mnemonicParsing="false" onAction="#openAsignarPasajeroAVuelo" prefHeight="32.0" prefWidth="206.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Asignar Pasajero a Vuelo" textFill="WHITE">
+            <effect>
+                <Blend />
+            </effect>
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Button>
+        <Button alignment="TOP_LEFT" layoutX="372.0" layoutY="303.0" mnemonicParsing="false" onAction="#openRegistrarTerminal" prefHeight="32.0" prefWidth="156.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar Terminal" textFill="WHITE">
+            <effect>
+                <Blend />
+            </effect>
+            <font>
+                <Font name="Arial" size="16.0" />
+            </font>
+        </Button>
+        <Button alignment="TOP_LEFT" layoutX="379.0" layoutY="372.0" mnemonicParsing="false" onAction="#openRegistrarPuerta" prefHeight="32.0" prefWidth="143.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar Puerta" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>

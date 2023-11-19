@@ -40,6 +40,16 @@ public class InterfazSuperUsuarioController {
         loadWindow("/Templates/Inicio/AsignarPasajeroAVuelo.fxml");
     }
 
+    @FXML
+    public void openRegistrarTerminal() {
+        loadWindow("/Templates/Inicio/SuperUsuarioRegistrarTerminal.fxml");
+    }
+
+    @FXML
+    public void openRegistrarPuerta() {
+        loadWindow("/Templates/Inicio/SuperUsuarioRegistrarPuerta.fxml");
+    }
+
 
     @FXML
     public void openSuperUsuarioCrearAvion() {

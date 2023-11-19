@@ -21,7 +21,20 @@ public class AerolineaMgr {
     public Aerolinea findAerolineaByCodigoICAO(String codigoICAO) {
         return aerolineaRepository.findByCodigoICAO(codigoICAO);
     }
+
     public Aerolinea findAerolineaByNombre(String nombre) {
         return aerolineaRepository.findByNombre(nombre);
+    }
+
+    public boolean existsByNombre(String nombre) {
+        return aerolineaRepository.existsByNombre(nombre);
+    }
+
+    public boolean existsByCodigoIATA(String codigoIATA) {
+        return aerolineaRepository.existsByCodigoIATA(codigoIATA);
+    }
+
+    public boolean existsByCodigoICAO(String codigoICAO) {
+        return aerolineaRepository.existsByCodigoICAO(codigoICAO);
     }
 }

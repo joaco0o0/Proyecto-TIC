@@ -14,7 +14,7 @@ public class TerminalMgr {
         terminalRepository.save(terminal);
     }
 
-    public Terminal findTerminalById(String id) {
+    public Terminal findTerminalByNombre(String id) {
         return terminalRepository.findById(id).orElse(null);
     }
 
