@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -253,6 +255,7 @@ public class InterfazUsuarioAeropuertoController {
             vuelo.setPuertaOrigen(null);
             vuelo.setPuertaDestino(null);
             System.out.println("Vuelo rechazado");
+            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo rechazado", "El vuelo ha sido rechazado, se liberan las puertas");
             tablaVuelos.refresh();
         } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
             vuelo.setEstadoAeropuertoDestino(Vuelo.EstadoVuelo.RECHAZADO);
@@ -260,6 +263,7 @@ public class InterfazUsuarioAeropuertoController {
             vuelo.setPuertaOrigen(null);
             vuelo.setPuertaDestino(null);
             System.out.println("Vuelo rechazado");
+            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo rechazado", "El vuelo ha sido rechazado, se liberan las puertas");
             tablaVuelos.refresh();
         }
         vueloMgr.updateVuelo(vuelo);
@@ -275,23 +279,21 @@ public class InterfazUsuarioAeropuertoController {
         if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoOrigen())){
             vuelo.setEstadoAeropuertoOrigen(Vuelo.EstadoVuelo.ACEPTADO);
             System.out.println("Vuele aceptado en Origen");
+            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo aceptado", "Vuelo aceptado en Origen");
             if (vuelo.getEstadoAeropuertoDestino().equals(Vuelo.EstadoVuelo.ACEPTADO)){
                 vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
                 System.out.println("Vuele aceptado totalmente");
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Vuelo aceptado");
-                alert.setHeaderText("Vuelo aceptado y confirmado");
+                showAlert(Alert.AlertType.CONFIRMATION, "Vuelo aceptado", "Vuelo aceptado totalmente");
             }
             tablaVuelos.refresh();
         } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
             vuelo.setEstadoAeropuertoDestino(Vuelo.EstadoVuelo.ACEPTADO);
             System.out.println("Vuele aceptado EN Destino");
+            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo aceptado", "Vuelo aceptado en Destino");
             if (vuelo.getEstadoAeropuertoOrigen().equals(Vuelo.EstadoVuelo.ACEPTADO)){
                 vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
                 System.out.println("Vuele aceptado totalmente");
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Vuelo aceptado");
-                alert.setHeaderText("Vuelo aceptado y confirmado");
+                showAlert(Alert.AlertType.CONFIRMATION, "Vuelo aceptado", "Vuelo aceptado totalmente");
             }
             tablaVuelos.refresh();
         }
@@ -299,6 +301,31 @@ public class InterfazUsuarioAeropuertoController {
         System.out.println(vuelo.getEstadoVuelo());
         System.out.println(vuelo.getEstadoAeropuertoOrigen());
         System.out.println(vuelo.getEstadoAeropuertoDestino());
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String content) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        ImageView imageView;
+        if (alertType == Alert.AlertType.CONFIRMATION) {
+            alert.getButtonTypes().setAll(ButtonType.OK);
+            imageView = new ImageView(new Image(getClass().getResourceAsStream("/photos/ok.png")));
+        } else if (alertType == Alert.AlertType.ERROR) {
+            imageView = new ImageView(new Image(getClass().getResourceAsStream("/photos/error.png")));
+        } else {
+            imageView = null;
+        }
+
+        if (imageView != null) {
+            imageView.setFitHeight(48);
+            imageView.setFitWidth(48);
+            alert.setGraphic(imageView);
+        }
+
+        alert.showAndWait();
     }
 }
 

@@ -5,8 +5,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -116,6 +119,34 @@ public class InterfazUsuarioAerolineaController {
 
         Pasajeros pasajeros = new Pasajeros(vueloEncontrado, pasajero);
         pasajerosMgr.addPasajero(pasajeros);
+        vueloEncontrado.setCapacidadAsientos(vueloEncontrado.getCapacidadAsientos() - 1);
+        VueloMgr.updateVuelo(vueloEncontrado);
+        showAlert(Alert.AlertType.CONFIRMATION, "Pasajero agregado", "Pasajero agregado correctamente");
         System.out.println("Pasajero agregado");
+    }
+
+    private void showAlert(Alert.AlertType alertType, String title, String content) {
+        Alert alert = new Alert(alertType);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(content);
+
+        ImageView imageView;
+        if (alertType == Alert.AlertType.CONFIRMATION) {
+            alert.getButtonTypes().setAll(ButtonType.OK);
+            imageView = new ImageView(new Image(getClass().getResourceAsStream("/photos/ok.png")));
+        } else if (alertType == Alert.AlertType.ERROR) {
+            imageView = new ImageView(new Image(getClass().getResourceAsStream("/photos/error.png")));
+        } else {
+            imageView = null;
+        }
+
+        if (imageView != null) {
+            imageView.setFitHeight(48);
+            imageView.setFitWidth(48);
+            alert.setGraphic(imageView);
+        }
+
+        alert.showAndWait();
     }
 }
