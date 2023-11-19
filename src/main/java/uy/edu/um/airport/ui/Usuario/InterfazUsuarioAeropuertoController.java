@@ -244,57 +244,61 @@ public class InterfazUsuarioAeropuertoController {
 
 
     private void rechazarVuelo(int index) {
-            Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
+        Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
 
-            Vuelo vuelo = tablaVuelos.getItems().get(index);
-            if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoOrigen())){
-                vuelo.setEstadoAeropuertoOrigen(Vuelo.EstadoVuelo.RECHAZADO);
-                vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.RECHAZADO);
-                System.out.println("Vuelo rechazado");
-                tablaVuelos.refresh();
-            } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
-                vuelo.setEstadoAeropuertoDestino(Vuelo.EstadoVuelo.RECHAZADO);
-                vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.RECHAZADO);
-                System.out.println("Vuelo rechazado");
-                tablaVuelos.refresh();
-            }
-            vueloMgr.updateVuelo(vuelo);
-            System.out.println(vuelo.getEstadoVuelo());
-            System.out.println(vuelo.getEstadoAeropuertoOrigen());
-            System.out.println(vuelo.getEstadoAeropuertoDestino());
+        Vuelo vuelo = tablaVuelos.getItems().get(index);
+        if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoOrigen())){
+            vuelo.setEstadoAeropuertoOrigen(Vuelo.EstadoVuelo.RECHAZADO);
+            vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.RECHAZADO);
+            vuelo.setPuertaOrigen(null);
+            vuelo.setPuertaDestino(null);
+            System.out.println("Vuelo rechazado");
+            tablaVuelos.refresh();
+        } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
+            vuelo.setEstadoAeropuertoDestino(Vuelo.EstadoVuelo.RECHAZADO);
+            vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.RECHAZADO);
+            vuelo.setPuertaOrigen(null);
+            vuelo.setPuertaDestino(null);
+            System.out.println("Vuelo rechazado");
+            tablaVuelos.refresh();
         }
+        vueloMgr.updateVuelo(vuelo);
+        System.out.println(vuelo.getEstadoVuelo());
+        System.out.println(vuelo.getEstadoAeropuertoOrigen());
+        System.out.println(vuelo.getEstadoAeropuertoDestino());
+    }
 
-        private void aceptarVuelo(int index) {
-            Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
+    private void aceptarVuelo(int index) {
+        Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
 
-            Vuelo vuelo = tablaVuelos.getItems().get(index);
-            if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoOrigen())){
-                vuelo.setEstadoAeropuertoOrigen(Vuelo.EstadoVuelo.ACEPTADO);
-                System.out.println("Vuele aceptado en Origen");
-                if (vuelo.getEstadoAeropuertoDestino().equals(Vuelo.EstadoVuelo.ACEPTADO)){
-                    vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
-                    System.out.println("Vuele aceptado totalmente");
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Vuelo aceptado");
-                    alert.setHeaderText("Vuelo aceptado y confirmado");
-                }
-                tablaVuelos.refresh();
-            } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
-                vuelo.setEstadoAeropuertoDestino(Vuelo.EstadoVuelo.ACEPTADO);
-                System.out.println("Vuele aceptado EN Destino");
-                if (vuelo.getEstadoAeropuertoOrigen().equals(Vuelo.EstadoVuelo.ACEPTADO)){
-                    vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
-                    System.out.println("Vuele aceptado totalmente");
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Vuelo aceptado");
-                    alert.setHeaderText("Vuelo aceptado y confirmado");
-                }
-                tablaVuelos.refresh();
+        Vuelo vuelo = tablaVuelos.getItems().get(index);
+        if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoOrigen())){
+            vuelo.setEstadoAeropuertoOrigen(Vuelo.EstadoVuelo.ACEPTADO);
+            System.out.println("Vuele aceptado en Origen");
+            if (vuelo.getEstadoAeropuertoDestino().equals(Vuelo.EstadoVuelo.ACEPTADO)){
+                vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
+                System.out.println("Vuele aceptado totalmente");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Vuelo aceptado");
+                alert.setHeaderText("Vuelo aceptado y confirmado");
             }
-            vueloMgr.updateVuelo(vuelo);
-            System.out.println(vuelo.getEstadoVuelo());
-            System.out.println(vuelo.getEstadoAeropuertoOrigen());
-            System.out.println(vuelo.getEstadoAeropuertoDestino());
+            tablaVuelos.refresh();
+        } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
+            vuelo.setEstadoAeropuertoDestino(Vuelo.EstadoVuelo.ACEPTADO);
+            System.out.println("Vuele aceptado EN Destino");
+            if (vuelo.getEstadoAeropuertoOrigen().equals(Vuelo.EstadoVuelo.ACEPTADO)){
+                vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
+                System.out.println("Vuele aceptado totalmente");
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Vuelo aceptado");
+                alert.setHeaderText("Vuelo aceptado y confirmado");
+            }
+            tablaVuelos.refresh();
         }
+        vueloMgr.updateVuelo(vuelo);
+        System.out.println(vuelo.getEstadoVuelo());
+        System.out.println(vuelo.getEstadoAeropuertoOrigen());
+        System.out.println(vuelo.getEstadoAeropuertoDestino());
+    }
 }
 

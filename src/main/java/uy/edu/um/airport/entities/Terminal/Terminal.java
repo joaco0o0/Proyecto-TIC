@@ -1,10 +1,6 @@
 package uy.edu.um.airport.entities.Terminal;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
@@ -19,6 +15,9 @@ import java.util.List;
 public class Terminal {
 
     @Id
+    private String id;
+
+    @Column (nullable = false)
     private String nombre;
 
     @ManyToOne
@@ -31,6 +30,7 @@ public class Terminal {
         this.nombre = nombre;
         this.puertas = puertas;
         this.aeropuerto = aeropuerto;
+        this.id = aeropuerto.getCodigoIATA() + nombre;
     }
 
     public Terminal() {

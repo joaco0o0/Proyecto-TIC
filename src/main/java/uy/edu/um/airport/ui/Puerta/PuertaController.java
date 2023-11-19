@@ -14,6 +14,8 @@ import uy.edu.um.airport.entities.Puerta.Puerta;
 import uy.edu.um.airport.entities.Puerta.PuertaMgr;
 import uy.edu.um.airport.entities.Terminal.Terminal;
 import uy.edu.um.airport.entities.Terminal.TerminalMgr;
+import uy.edu.um.airport.entities.Usuario.Usuario;
+import uy.edu.um.airport.session.Session;
 
 @Component
 public class PuertaController {
@@ -37,8 +39,9 @@ public class PuertaController {
 
     @FXML
     public void handleRegisterPuerta() {
+        Usuario usuariologueado = Session.getInstance().getCurrentUser();
         String numeroDePuerta = numeroDePuertaField.getText().trim();
-        String terminalAsociada = terminalAsociadaField.getText().trim();
+        String terminalAsociada = usuariologueado.getAeropuerto().getCodigoIATA() + terminalAsociadaField.getText().trim();
         Terminal terminal = terminalMgr.findTerminalByNombre(terminalAsociada);
 
         if (numeroDePuerta.isEmpty() || terminalAsociada.isEmpty()) {

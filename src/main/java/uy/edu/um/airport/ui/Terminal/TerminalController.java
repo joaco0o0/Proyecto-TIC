@@ -43,7 +43,7 @@ public class TerminalController {
             return;
         }
 
-        if (terminalMgr.findTerminalByNombre(nombreTerminal) != null) {
+        if (terminalMgr.findTerminalByNombre(nombreTerminal) != null && terminalMgr.findTerminalByNombre(nombreTerminal).getAeropuerto().equals(aeropuertoUsuario)) {
             showAlert(Alert.AlertType.ERROR, "Error en el Registro de Terminal", "Una terminal con este nombre ya se encuentra asociada en el sistema.");
             return;
         }
