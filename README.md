@@ -8,6 +8,11 @@ Proyecto de la materia Laboratorio Tic en el año 2023 que consiste en realizar 
 
 - Java 11 (o versión superior)
 - Maven
+- PostgreSQL
+
+## Descargar postgres
+Visita el sitio oficial de PostgreSQL: [Descargar PostgreSQL.](https://www.postgresql.org/download/)
+Selecciona tu sistema operativo (Windows, macOS, Linux) y sigue las instrucciones para descargar el instalador correspondiente.
 
 ## Configuración del Proyecto
 
