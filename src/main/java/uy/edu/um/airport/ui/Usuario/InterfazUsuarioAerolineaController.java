@@ -91,24 +91,47 @@ public class InterfazUsuarioAerolineaController {
     @FXML
     public void asignarPasajeroAVuelo() {
         Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
-
         String iata = usuarioLogueado.getAerolinea().getCodigoIATA();
         Aerolinea aerolineaEncontrada = aerolineaMgr.findAerolineaByCodigoIATA(iata);
-        Long numeroVuelo = Long.parseLong(codigovuelo.getText());
-
-        uy.edu.um.airport.entities.Vuelo.Vuelo vueloEncontrado = VueloMgr.findVueloByCodigoVuelo(numeroVuelo);
-
-        if (vueloEncontrado == null) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setTitle("Error");
-            alert.setHeaderText("No se encontro el vuelo");
-            return;
-        }
 
         String nombrePasajero = nombre.getText();
         String apellidoPasajero = apellido.getText();
         LocalDate fechaNacimiento = fechanacimiento.getValue();
         String pasaportePasajero = pasaporte.getText();
+        String numeroVuelo = codigovuelo.getText();
+
+        if(nombrePasajero.isEmpty() || apellidoPasajero.isEmpty() || fechaNacimiento == null || pasaportePasajero.isEmpty() || numeroVuelo.isEmpty()){
+            showAlert(Alert.AlertType.ERROR, "Error en el Registro de Pasajero", "Todos los campos son obligatorios.");
+        }
+
+        Long NumeroVuelo;
+        try {
+            NumeroVuelo = Long.parseLong(codigovuelo.getText().trim());
+        } catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.ERROR, "Error en la Asignación de Pasaje a Pasajero", "El número de vuelo debe ser un número válido.");
+            return;
+        }
+        if (NumeroVuelo < 0) {
+            showAlert(Alert.AlertType.ERROR, "Error en la Asignación de Pasaje a Pasajero", "El número de vuelo no puede ser menor a cero.");
+            return;
+        }
+
+        uy.edu.um.airport.entities.Vuelo.Vuelo vueloEncontrado = VueloMgr.findVueloByCodigoVuelo(NumeroVuelo);
+
+        if(vueloEncontrado == null){
+            showAlert(Alert.AlertType.ERROR, "Error en la Asignación de Pasaje a Pasajero", "El vuelo solicitado no existe en el sistema.");
+            return;
+        }
+
+        if(aerolineaEncontrada.getCodigoIATA() != vueloEncontrado.getAerolinea().getCodigoIATA()){
+            showAlert(Alert.AlertType.ERROR, "Error en la Asignación de Pasaje a Pasajero", "El vuelo solicitado no pertenece a su aerolínea.");
+            return;
+        }
+
+        if(vueloEncontrado.getCapacidadAsientos() == 0){
+            showAlert(Alert.AlertType.ERROR, "Error en la Asignación de Pasaje a Pasajero", "El vuelo " + vueloEncontrado.getNumeroVuelo() + " no posee asientos disponibles.");
+            return;
+        }
 
         Usuario pasajero =  usuarioMgr.findUsuarioByPasaporte(pasaportePasajero);
         if (pasajero == null) {
@@ -121,9 +144,61 @@ public class InterfazUsuarioAerolineaController {
         pasajerosMgr.addPasajero(pasajeros);
         vueloEncontrado.setCapacidadAsientos(vueloEncontrado.getCapacidadAsientos() - 1);
         VueloMgr.updateVuelo(vueloEncontrado);
-        showAlert(Alert.AlertType.CONFIRMATION, "Pasajero agregado", "Pasajero agregado correctamente");
-        System.out.println("Pasajero agregado");
+        showAlert(Alert.AlertType.CONFIRMATION, "Pasajero Asignado a Vuelo Exitoso", "El pasajero " + pasajero.getNombre() + " " + pasajero.getApellido() + " fue asignado al vuelo " + vueloEncontrado.getNumeroVuelo());
     }
+
+    @FXML
+    public void asignarPasajeroAVueloSuperUsuario() {
+        String nombrePasajero = nombre.getText();
+        String apellidoPasajero = apellido.getText();
+        LocalDate fechaNacimiento = fechanacimiento.getValue();
+        String pasaportePasajero = pasaporte.getText();
+        String numeroVuelo = codigovuelo.getText();
+
+        if(nombrePasajero.isEmpty() || apellidoPasajero.isEmpty() || fechaNacimiento == null || pasaportePasajero.isEmpty() || numeroVuelo.isEmpty()){
+            showAlert(Alert.AlertType.ERROR, "Error en la Asignación de Pasaje a Pasajero", "Todos los campos son obligatorios.");
+        }
+
+        Long NumeroVuelo;
+        try {
+            NumeroVuelo = Long.parseLong(codigovuelo.getText().trim());
+        } catch (NumberFormatException e) {
+            showAlert(Alert.AlertType.ERROR, "Error en el Registro de Pasajero", "El número de vuelo debe ser un número válido.");
+            return;
+        }
+        if (NumeroVuelo < 0) {
+            showAlert(Alert.AlertType.ERROR, "Error en el Registro de Pasajero", "El número de vuelo no puede ser menor a cero.");
+            return;
+        }
+
+        uy.edu.um.airport.entities.Vuelo.Vuelo vueloEncontrado = VueloMgr.findVueloByCodigoVuelo(NumeroVuelo);
+
+        if(vueloEncontrado == null){
+            showAlert(Alert.AlertType.ERROR, "Error en el Registro de Pasajero", "El vuelo solicitado no existe en el sistema.");
+            return;
+        }
+
+        if(vueloEncontrado.getCapacidadAsientos() == 0){
+            showAlert(Alert.AlertType.ERROR, "Error en la asignación de Pasaje", "El vuelo " + vueloEncontrado.getNumeroVuelo() + " no posee asientos disponibles.");
+            return;
+        }
+
+        Usuario pasajero =  usuarioMgr.findUsuarioByPasaporte(pasaportePasajero);
+        if (pasajero == null) {
+            pasajero = new Usuario(nombrePasajero, apellidoPasajero, fechaNacimiento, pasaportePasajero, "sistema_aeropuerto@gmail.com","",Rol.USUARIO_FINAL);
+            usuarioMgr.addUsuario(pasajero);
+            System.out.println("Usuario no existia");
+        }
+
+        Pasajeros pasajeros = new Pasajeros(vueloEncontrado, pasajero);
+        pasajerosMgr.addPasajero(pasajeros);
+        vueloEncontrado.setCapacidadAsientos(vueloEncontrado.getCapacidadAsientos() - 1);
+        VueloMgr.updateVuelo(vueloEncontrado);
+        showAlert(Alert.AlertType.CONFIRMATION, "Pasajero Asignado a Vuelo Exitoso", "El pasajero " + pasajero.getNombre() + " " + pasajero.getApellido() + " fue asignado al vuelo " + vueloEncontrado.getNumeroVuelo());
+    }
+
+
+
 
     private void showAlert(Alert.AlertType alertType, String title, String content) {
         Alert alert = new Alert(alertType);

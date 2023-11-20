@@ -87,6 +87,7 @@ public class InterfazSuperUsuarioController {
     }
 
 
+
     private void loadWindow(String fxmlPath) {
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));

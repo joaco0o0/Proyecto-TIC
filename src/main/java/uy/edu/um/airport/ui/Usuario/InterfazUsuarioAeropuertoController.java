@@ -174,31 +174,17 @@ public class InterfazUsuarioAeropuertoController {
             if(esPuertaDisponibleparaDespegue(value, vuelo.getHorarioDespegue(), usuarioLogueado.getAeropuerto())){
                 vuelo.setPuertaOrigen(puerta);
                 tablaVuelos.refresh();
-                System.out.println("Puerta asignada origen");
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Puerta asignada");
-                alert.setHeaderText("Puerta asignada correctamente");
+                showAlert(Alert.AlertType.CONFIRMATION, "Asignación de Puerta Origen Exitoso", "La puerta deseada fue asignada correctamente.");
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("La puerta ya está ocupada");
-                alert.setContentText("Por favor, seleccione otra puerta");
-                alert.showAndWait();
+                showAlert(Alert.AlertType.ERROR, "Error al asignar Puerta Origen", "La puerta que desea asignar ya se encuentra ocupada en el horario seleccionado.");
             }
         } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
             if (esPuertaDisponibleparaAterrizaje(value, vuelo.getHorarioAterrizaje(), usuarioLogueado.getAeropuerto())) {
                 vuelo.setPuertaDestino(puerta);
                 tablaVuelos.refresh();
-                System.out.println("Puerta asignada destino");
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Puerta asignada");
-                alert.setHeaderText("Puerta asignada correctamente");
+                showAlert(Alert.AlertType.CONFIRMATION, "Asignación de Puerta Destino Exitoso", "La puerta deseada fue asignada correctamente.");
             } else {
-                Alert alert = new Alert(Alert.AlertType.ERROR);
-                alert.setTitle("Error");
-                alert.setHeaderText("La puerta ya está ocupada");
-                alert.setContentText("Por favor, seleccione otra puerta");
-                alert.showAndWait();
+                showAlert(Alert.AlertType.ERROR, "Error al asignar Puerta Destino", "La puerta que desea asignar ya se encuentra ocupada en el horario seleccionado.");
             }
         }
         vueloMgr.updateVuelo(vuelo);
@@ -254,16 +240,14 @@ public class InterfazUsuarioAeropuertoController {
             vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.RECHAZADO);
             vuelo.setPuertaOrigen(null);
             vuelo.setPuertaDestino(null);
-            System.out.println("Vuelo rechazado");
-            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo rechazado", "El vuelo ha sido rechazado, se liberan las puertas");
+            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo Rechazado", "El vuelo ha sido rechazado en Origen " + vuelo.getNombreAeropuertoOrigen());
             tablaVuelos.refresh();
         } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
             vuelo.setEstadoAeropuertoDestino(Vuelo.EstadoVuelo.RECHAZADO);
             vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.RECHAZADO);
             vuelo.setPuertaOrigen(null);
             vuelo.setPuertaDestino(null);
-            System.out.println("Vuelo rechazado");
-            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo rechazado", "El vuelo ha sido rechazado, se liberan las puertas");
+            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo Rechazado", "El vuelo ha sido rechazado en Destino " + vuelo.getNombreAeropuertoDestino());
             tablaVuelos.refresh();
         }
         vueloMgr.updateVuelo(vuelo);
@@ -278,22 +262,18 @@ public class InterfazUsuarioAeropuertoController {
         Vuelo vuelo = tablaVuelos.getItems().get(index);
         if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoOrigen())){
             vuelo.setEstadoAeropuertoOrigen(Vuelo.EstadoVuelo.ACEPTADO);
-            System.out.println("Vuele aceptado en Origen");
-            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo aceptado", "Vuelo aceptado en Origen");
+            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo Aceptado", "Vuelo aceptado en Origen " + vuelo.getNombreAeropuertoOrigen());
             if (vuelo.getEstadoAeropuertoDestino().equals(Vuelo.EstadoVuelo.ACEPTADO)){
                 vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
-                System.out.println("Vuele aceptado totalmente");
-                showAlert(Alert.AlertType.CONFIRMATION, "Vuelo aceptado", "Vuelo aceptado totalmente");
+                showAlert(Alert.AlertType.CONFIRMATION, "Vuelo Aceptado", "Vuelo aceptado totalmente por aeropuerto de Origen " + vuelo.getNombreAeropuertoOrigen() + " y Destino " + vuelo.getNombreAeropuertoDestino());
             }
             tablaVuelos.refresh();
         } else if (usuarioLogueado.getAeropuerto().equals(vuelo.getAeropuertoDestino())) {
             vuelo.setEstadoAeropuertoDestino(Vuelo.EstadoVuelo.ACEPTADO);
-            System.out.println("Vuele aceptado EN Destino");
-            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo aceptado", "Vuelo aceptado en Destino");
+            showAlert(Alert.AlertType.CONFIRMATION, "Vuelo Aceptado", "Vuelo aceptado en Destino " + vuelo.getNombreAeropuertoDestino());
             if (vuelo.getEstadoAeropuertoOrigen().equals(Vuelo.EstadoVuelo.ACEPTADO)){
                 vuelo.setEstadoVuelo(Vuelo.EstadoVuelo.ACEPTADO);
-                System.out.println("Vuele aceptado totalmente");
-                showAlert(Alert.AlertType.CONFIRMATION, "Vuelo aceptado", "Vuelo aceptado totalmente");
+                showAlert(Alert.AlertType.CONFIRMATION, "Vuelo Aceptado", "Vuelo aceptado totalmente por aeropuerto de Origen " + vuelo.getNombreAeropuertoOrigen() + " y Destino " + vuelo.getNombreAeropuertoDestino());
             }
             tablaVuelos.refresh();
         }

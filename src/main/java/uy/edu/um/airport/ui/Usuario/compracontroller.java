@@ -119,9 +119,16 @@ public class compracontroller {
         Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
         Vuelo vuelo = tablacompras.getItems().get(index);
 
+        if(vuelo.getCapacidadAsientos() == 0){
+            showAlert(Alert.AlertType.ERROR, "Error en la Compra de Pasaje", "El vuelo " + vuelo.getNumeroVuelo() + " no posee asientos disponibles.");
+            return;
+        }
+
         Pasajeros pasajeros = new Pasajeros(vuelo, usuarioLogueado);
         pasajerosMgr.addPasajero(pasajeros);
-        showAlert(Alert.AlertType.CONFIRMATION, "Compra de Pasaje Exitoso", "Un pasaje para el vuelo " + vuelo.getNumeroVuelo() + " fue comprado exitosamente.");
+        vuelo.setCapacidadAsientos(vuelo.getCapacidadAsientos() - 1);
+        vueloMgr.updateVuelo(vuelo);
+        showAlert(Alert.AlertType.CONFIRMATION, "Compra de Pasaje Exitoso", "Un pasaje para el vuelo " + vuelo.getNumeroVuelo() + " fue comprado exitosamente " + " por " + usuarioLogueado.getNombre() + " " + usuarioLogueado.getApellido() + ".");
     }
 
     private void showAlert(Alert.AlertType alertType, String title, String content) {
