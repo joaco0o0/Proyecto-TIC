@@ -27,7 +27,7 @@ public class Puerta {
     public Puerta(String numero, Terminal terminal) {
         this.numero = numero;
         this.terminal = terminal;
-        this.id = terminal.getNombre() + numero;
+        this.id = terminal.getId() + numero;
     }
 
     public Puerta() {

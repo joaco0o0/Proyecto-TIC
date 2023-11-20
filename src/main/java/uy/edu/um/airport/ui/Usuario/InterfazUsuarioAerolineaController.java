@@ -48,10 +48,6 @@ public class InterfazUsuarioAerolineaController {
     @FXML
     private TableColumn<Vuelo, String> columnaETA;
     @FXML
-    private TableColumn<Vuelo, String> columnaPuerta;
-    @FXML
-    private TableColumn<Vuelo, String> columnaETA2;
-    @FXML
     private TableColumn<Vuelo, String> columnaAeropuertoOrigen;
     @FXML
     private TableColumn<Vuelo, String> columnaAeropuertoDestino;
@@ -114,8 +110,6 @@ public class InterfazUsuarioAerolineaController {
 
         columnaHora.setCellValueFactory(new PropertyValueFactory<>("ETD"));
         columnaETA.setCellValueFactory(new PropertyValueFactory<>("ETA"));
-        columnaPuerta.setCellValueFactory(new PropertyValueFactory<>("puertaOrigen"));
-        columnaETA2.setCellValueFactory(new PropertyValueFactory<>("puertaDestino"));
         columnaAeropuertoOrigen.setCellValueFactory(new PropertyValueFactory<>("aeropuertoOrigen"));
         columnaAeropuertoDestino.setCellValueFactory(new PropertyValueFactory<>("aeropuertoDestino"));
         columnaVuelo.setCellValueFactory(new PropertyValueFactory<>("numeroVuelo"));
@@ -162,7 +156,7 @@ public class InterfazUsuarioAerolineaController {
             return;
         }
 
-        if(aerolineaEncontrada.getCodigoIATA() != vueloEncontrado.getAerolinea().getCodigoIATA()){
+        if(!vueloEncontrado.getAerolineaIATA().getCodigoIATA().equals(aerolineaEncontrada.getCodigoIATA())){
             showAlert(Alert.AlertType.ERROR, "Error en la Asignación de Pasaje a Pasajero", "El vuelo solicitado no pertenece a su aerolínea.");
             return;
         }

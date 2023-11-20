@@ -1,22 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Blend?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<Pane   fx:controller="uy.edu.um.airport.ui.Aeropuerto.AeropuertoController"
-        maxHeight="-Infinity"
-        maxWidth="-Infinity"
-        minHeight="-Infinity"
-        minWidth="-Infinity"
-        prefHeight="500.0"
-        prefWidth="900.0"
-        style="-fx-background-color: #1A5276;"
-        xmlns="http://javafx.com/javafx/20.0.1"
-        xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #1A5276;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.airport.ui.Aeropuerto.AeropuertoController">
     <children>
         <Label ellipsisString="" layoutX="84.0" layoutY="45.0" prefHeight="66.0" prefWidth="290.0" text="Registro de Aeropuerto" textFill="WHITE" underline="true">
             <font>
@@ -47,7 +36,7 @@
             </font>
         </Label>
         <TextField fx:id="txtPais" layoutX="541.0" layoutY="295.0" prefHeight="25.0" prefWidth="235.0" />
-        <Button onAction="#handleAeropuertoRegister" alignment="TOP_LEFT" layoutX="404.0" layoutY="391.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
+        <Button alignment="TOP_LEFT" layoutX="404.0" layoutY="391.0" mnemonicParsing="false" onAction="#handleAeropuertoRegister" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Registrar" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>
@@ -55,11 +44,5 @@
                 <Font name="Arial" size="16.0" />
             </font>
         </Button>
-        <Label layoutX="124.0" layoutY="362.0" prefHeight="43.0" prefWidth="164.0" text="Cantidad de puertas" textFill="WHITE">
-            <font>
-                <Font name="Mudir MT" size="18.0" />
-            </font>
-        </Label>
-        <TextField layoutX="124.0" layoutY="405.0" prefHeight="25.0" prefWidth="235.0" />
     </children>
 </Pane>
