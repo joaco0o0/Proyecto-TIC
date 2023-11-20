@@ -2,7 +2,6 @@ package uy.edu.um.airport.entities.Vuelo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import uy.edu.um.airport.entities.Puerta.Puerta;
 import uy.edu.um.airport.persistence.VueloRepository;
 
 import java.util.List;
@@ -27,5 +26,10 @@ public class VueloMgr {
     public Vuelo findVueloByCodigoVuelo(Long numeroVuelo) {
         Vuelo vuelo = vueloRepository.findByNumeroVuelo(numeroVuelo);
         return vuelo;
+    }
+
+    public List<Vuelo> findAll() {
+        List<Vuelo> vuelos = vueloRepository.findAll();
+        return vuelos;
     }
 }

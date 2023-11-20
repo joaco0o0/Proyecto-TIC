@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.effect.Blend?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.text.Font?>
 
-<Pane fx:controller="uy.edu.um.airport.ui.Principal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-image: url('/photos/InicioSesion.jpg'); -fx-background-image: -fx-background-size: contain;-fx-background-repeat: no-repeat;-fx-background-position: center;;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="900.0" style="-fx-background-image: url('/photos/InicioSesion.jpg'); -fx-background-image: -fx-background-size: contain;-fx-background-repeat: no-repeat;-fx-background-position: center;;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uy.edu.um.airport.ui.Principal">
     <children>
         <AnchorPane layoutX="453.0" layoutY="30.0" prefHeight="440.0" prefWidth="410.0" style="-fx-background-color: #1A5276;">
             <children>
-                <Button onAction="#handleLogin" alignment="TOP_LEFT" layoutX="163.0" layoutY="302.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Acceder" textFill="WHITE">
+                <Button alignment="TOP_LEFT" layoutX="163.0" layoutY="302.0" mnemonicParsing="false" onAction="#handleLogin" prefHeight="32.0" prefWidth="84.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Acceder" textFill="WHITE">
                     <effect>
                         <Blend />
                     </effect>
@@ -37,7 +34,7 @@
                 </Label>
                 <TextField fx:id="txtEmail" layoutX="43.0" layoutY="141.0" prefHeight="32.0" prefWidth="334.0" />
                 <PasswordField fx:id="txtContraseña" layoutX="43.0" layoutY="231.0" prefHeight="32.0" prefWidth="334.0" />
-                <Button alignment="TOP_LEFT" layoutX="279.0" layoutY="363.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Regístrate" textFill="WHITE" onAction="#openRegistroUsuarios">
+                <Button alignment="TOP_LEFT" layoutX="279.0" layoutY="363.0" mnemonicParsing="false" onAction="#openRegistroUsuarios" prefHeight="32.0" prefWidth="98.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Regístrate" textFill="WHITE">
                     <effect>
                         <Blend />
                     </effect>
@@ -56,12 +53,12 @@
                 <Font name="Mudir MT" size="30.0" />
             </font>
         </Label>
-        <Label layoutX="75.0" layoutY="218.0" prefHeight="83.0" prefWidth="334.0" text="Aeropuerto LMJ" textFill="WHITE">
+        <Label layoutX="60.0" layoutY="220.0" prefHeight="112.0" prefWidth="364.0" text="Aeropuerto Syst." textFill="WHITE">
             <font>
                 <Font name="Mudir MT" size="48.0" />
             </font>
         </Label>
-        <Button alignment="TOP_LEFT" layoutX="176.0" layoutY="340.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Lista de vuelos" textFill="WHITE" onAction="#openListaVuelos">
+        <Button alignment="TOP_LEFT" layoutX="176.0" layoutY="340.0" mnemonicParsing="false" onAction="#openListaVuelos" prefHeight="32.0" prefWidth="132.0" style="-fx-background-color: transparent; -fx-border-color: #ffffff;" text="Lista de vuelos" textFill="WHITE">
             <effect>
                 <Blend />
             </effect>
@@ -71,5 +68,3 @@
         </Button>
     </children>
 </Pane>
-
-

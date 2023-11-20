@@ -45,5 +45,33 @@ public class Puerta {
     public String toString() {
         return this.id;
     }
+
+    public String getNombre() {
+        return this.id;
+    }
+
+    public String getNumero() {
+        return this.numero;
+    }
+
+    public Terminal getTerminal() {
+        return this.terminal;
+    }
+
+    public String getId() {
+        return this.id;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+
+    public void setTerminal(Terminal terminal) {
+        this.terminal = terminal;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }
 

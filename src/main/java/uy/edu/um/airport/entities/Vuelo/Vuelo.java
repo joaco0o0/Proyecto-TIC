@@ -7,7 +7,6 @@ import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
 import uy.edu.um.airport.entities.Avion.Avion;
 import uy.edu.um.airport.entities.Pasajeros.Pasajeros;
 import uy.edu.um.airport.entities.Puerta.Puerta;
-import uy.edu.um.airport.entities.Usuario.Usuario;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -115,7 +114,7 @@ public class Vuelo {
         this.puertaDestino = puerta;
     }
 
-    public Puerta getPuertaAsignadaDespegue() {
+    public Puerta getpuertaOrigen() {
         return puertaOrigen;
     }
 
@@ -123,7 +122,7 @@ public class Vuelo {
         return ETD;
     }
 
-    public Puerta getPuertaAsignadaAterrizaje() {
+    public Puerta getpuertaDestino() {
         return puertaDestino;
     }
 
@@ -282,5 +281,17 @@ public class Vuelo {
     }
     public String toString() {
         return this.numeroVuelo.toString();
+    }
+
+    public String getName() {
+    	return this.numeroVuelo.toString();
+    }
+
+    public String getPuertaOrigen() {
+    	return puertaOrigen.getNombre();
+    }
+
+    public String getPuertaDestino() {
+    	return puertaDestino.getNombre();
     }
 }

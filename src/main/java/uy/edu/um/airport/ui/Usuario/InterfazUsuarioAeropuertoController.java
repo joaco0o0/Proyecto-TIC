@@ -13,7 +13,6 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 import uy.edu.um.airport.entities.Aeropuerto.Aeropuerto;
@@ -198,7 +197,7 @@ public class InterfazUsuarioAeropuertoController {
         LocalDateTime finOcupacionDespegue = horarioDespegue.plusMinutes(20);
 
         for (Vuelo vuelo : vuelos) {
-            if (puerta.equals(vuelo.getPuertaAsignadaDespegue())) {
+            if (puerta.equals(vuelo.getpuertaOrigen())) {
                 LocalDateTime inicioOcupacionExistente = vuelo.getHorarioDespegue().minusHours(1);
                 LocalDateTime finOcupacionExistente = vuelo.getHorarioDespegue().plusMinutes(20);
 
@@ -218,7 +217,7 @@ public class InterfazUsuarioAeropuertoController {
         LocalDateTime inicioOcupacionAterrizaje = horarioAterrizaje.minusMinutes(30);
 
         for (Vuelo vuelo : vuelos) {
-            if (puerta.equals(vuelo.getPuertaAsignadaDespegue()) || puerta.equals(vuelo.getPuertaAsignadaAterrizaje())) {
+            if (puerta.equals(vuelo.getpuertaOrigen()) || puerta.equals(vuelo.getpuertaDestino())) {
                 LocalDateTime inicioOcupacionExistente = vuelo.getHorarioAterrizaje().minusMinutes(30);
                 LocalDateTime finOcupacionExistente = vuelo.getHorarioAterrizaje().plusMinutes(60);
 

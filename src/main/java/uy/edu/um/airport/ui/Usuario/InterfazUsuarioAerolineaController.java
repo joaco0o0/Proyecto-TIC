@@ -1,13 +1,13 @@
 package uy.edu.um.airport.ui.Usuario;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
@@ -21,11 +21,14 @@ import uy.edu.um.airport.entities.Pasajeros.PasajerosMgr;
 import uy.edu.um.airport.entities.Role.Rol;
 import uy.edu.um.airport.entities.Usuario.Usuario;
 import uy.edu.um.airport.entities.Usuario.UsuarioMgr;
+import uy.edu.um.airport.entities.Vuelo.Vuelo;
 import uy.edu.um.airport.entities.Vuelo.VueloMgr;
 import uy.edu.um.airport.session.Session;
 
 import java.io.IOException;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Component
 public class InterfazUsuarioAerolineaController {
@@ -35,9 +38,27 @@ public class InterfazUsuarioAerolineaController {
     private VueloMgr VueloMgr;
     @Autowired
     private UsuarioMgr usuarioMgr;
-
     @Autowired
     private PasajerosMgr pasajerosMgr;
+
+    @FXML
+    private TableView<Vuelo> tablaVuelos;
+    @FXML
+    private TableColumn<Vuelo, LocalDateTime> columnaHora;
+    @FXML
+    private TableColumn<Vuelo, String> columnaETA;
+    @FXML
+    private TableColumn<Vuelo, String> columnaPuerta;
+    @FXML
+    private TableColumn<Vuelo, String> columnaETA2;
+    @FXML
+    private TableColumn<Vuelo, String> columnaAeropuertoOrigen;
+    @FXML
+    private TableColumn<Vuelo, String> columnaAeropuertoDestino;
+    @FXML
+    private TableColumn<Vuelo, String> columnaVuelo;
+    @FXML
+    private TableColumn<Vuelo, String> columnaEstado;
 
     @Autowired
     private ApplicationContext applicationContext;
@@ -86,6 +107,24 @@ public class InterfazUsuarioAerolineaController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void initialize() {
+        Usuario usuarioLogueado = Session.getInstance().getCurrentUser();
+
+        columnaHora.setCellValueFactory(new PropertyValueFactory<>("ETD"));
+        columnaETA.setCellValueFactory(new PropertyValueFactory<>("ETA"));
+        columnaPuerta.setCellValueFactory(new PropertyValueFactory<>("puertaOrigen"));
+        columnaETA2.setCellValueFactory(new PropertyValueFactory<>("puertaDestino"));
+        columnaAeropuertoOrigen.setCellValueFactory(new PropertyValueFactory<>("aeropuertoOrigen"));
+        columnaAeropuertoDestino.setCellValueFactory(new PropertyValueFactory<>("aeropuertoDestino"));
+        columnaVuelo.setCellValueFactory(new PropertyValueFactory<>("numeroVuelo"));
+        columnaEstado.setCellValueFactory(new PropertyValueFactory<>("EstadoVuelo"));
+
+
+        List<Vuelo> listaDeVuelos = aerolineaMgr.getTodosLosVuelos(usuarioLogueado.getAerolinea());
+        ObservableList<Vuelo> vuelos = FXCollections.observableArrayList(listaDeVuelos);
+        tablaVuelos.setItems(vuelos);
     }
 
     @FXML
