@@ -5,7 +5,7 @@ spring:
     driverClassName: org.postgresql.Driver
     url: jdbc:postgresql://34.86.77.107:5432/Proyecto-TIC-I
     username: postgres
-    password: pedorro123
+    password: proyectotic1
   jpa:
     show-sql: true
     database-platform: org.hibernate.dialect.PostgreSQLDialect
