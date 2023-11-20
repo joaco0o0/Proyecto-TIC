@@ -17,14 +17,13 @@ Proyecto de la materia Laboratorio Tic en el año 2023 que consiste en realizar 
    git clone https://github.com/joaco0o0/Proyecto-TIC.git
    cd Proyecto-Tic
 
-   Si no tinenes experiencia sigue ls siguentes pasos:
-   Abre la Consola o Terminal:
+### Si no tinenes experiencia sigue ls siguentes pasos:
+-Abre la Consola o Terminal:
+   En Windows, puedes usar el "Símbolo del sistema" o "PowerShell".
+   En macOS y Linux, usa la Terminal.
 
-En Windows, puedes usar el "Símbolo del sistema" o "PowerShell".
-En macOS y Linux, usa la Terminal.
-Navega al Directorio de Destino:
-
-Utiliza el comando cd para cambiar al directorio donde deseas almacenar la copia del repositorio.
+-Navega al Directorio de Destino:
+   Utiliza el comando cd para cambiar al directorio donde deseas almacenar la copia del repositorio.
 
 bash
 Copy code
