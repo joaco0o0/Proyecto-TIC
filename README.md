@@ -38,7 +38,7 @@ Copy code
 git clone https://github.com/joaco0o0/Proyecto-TIC.git
 Esto descargará una copia completa del repositorio en tu máquina.
 
-Entra al Directorio Clonado:
+### Entra al Directorio Clonado:
 
 Utiliza el comando cd para ingresar al directorio recién clon
    
@@ -56,12 +56,12 @@ bash
 Copy code
 mvn spring-boot:run
 (Si utilizas IntelliJ, también puedes ejecutarlo desde allí).
-#Visualización de la Base de Datos
-##Bases de Datos Locales
+# Visualización de la Base de Datos
+## Bases de Datos Locales
 Si has configurado la aplicación para utilizar una base de datos local, puedes usar herramientas como DBeaver para visualizarla. Ingresa las credenciales de la base de datos y la URL que configuraste en application.yml.
 
-##Bases de Datos en la Nube (Google Cloud)
-###Ingresar a Google Cloud:
+## Bases de Datos en la Nube (Google Cloud)
+### Ingresar a Google Cloud:
 
 Accede a Google Cloud Console.
 Inicia sesión con tu cuenta de Google.
@@ -70,7 +70,7 @@ Crear una Nueva Base de Datos:
 Ve a la sección "Cloud SQL" desde el menú de Google Cloud Console.
 Haz clic en "Create Instance".
 Sigue los pasos para configurar tu instancia de Cloud SQL. Puedes elegir PostgreSQL como el motor de base de datos.
-Conectar con DBeaver:
+## Conectar con DBeaver:
 
 Descarga e instala DBeaver.
 Crea una nueva conexión PostgreSQL en DBeaver.
