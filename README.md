@@ -56,12 +56,12 @@ bash
 Copy code
 mvn spring-boot:run
 (Si utilizas IntelliJ, también puedes ejecutarlo desde allí).
-Visualización de la Base de Datos
-Bases de Datos Locales
+#Visualización de la Base de Datos
+##Bases de Datos Locales
 Si has configurado la aplicación para utilizar una base de datos local, puedes usar herramientas como DBeaver para visualizarla. Ingresa las credenciales de la base de datos y la URL que configuraste en application.yml.
 
-Bases de Datos en la Nube (Google Cloud)
-Ingresar a Google Cloud:
+##Bases de Datos en la Nube (Google Cloud)
+###Ingresar a Google Cloud:
 
 Accede a Google Cloud Console.
 Inicia sesión con tu cuenta de Google.
